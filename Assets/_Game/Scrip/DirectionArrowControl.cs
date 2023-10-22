@@ -11,7 +11,7 @@ public class DirectionArrowControl : Singleton<DirectionArrowControl>
     protected override void Awake()
     {
         base.Awake();
-        gameObject.SetActive(true);
+        //gameObject.SetActive(true);
     }
 
     // Update is called once per frame

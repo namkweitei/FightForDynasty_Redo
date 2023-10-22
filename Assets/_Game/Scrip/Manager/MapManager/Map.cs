@@ -1,10 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using System;
-using JetBrains.Annotations;
 
 [Serializable]
 public class WaveData
@@ -100,6 +98,10 @@ public class Map : MonoBehaviour
                 {
                     towerSystems[i].SetCurrentTower(SaveLoadData.Ins.TowerData[towerSystems[i].Id]);
                 }
+                for (int i = 0; i < waveData.barrackWave.Count; i++)
+                {
+                    waveData.barrackWave[i].map = this;
+                }
                 for (int i = 0; i < SaveLoadData.Ins.MapData.Wave - 1; i++)
                 {
                     waveData.barrackWave[i].gameObject.SetActive(false);
@@ -116,9 +118,10 @@ public class Map : MonoBehaviour
                         stateMachine.ChangeState(BarrackWaveState);
                     }
                 }
-                DirectionArrowControl.Ins.gameObject.SetActive(true);
                 DirectionArrowControl.Ins.SetPos(attackPoint.transform, Player.Ins.transform);
+                DirectionArrowControl.Ins.gameObject.SetActive(true);
                 isOpenMap = false;
+                attackPoint.Map = this;
                 attackPoint.gameObject.SetActive(true);
                 SetBarack(currentBarrack);
                 break;
@@ -136,7 +139,11 @@ public class Map : MonoBehaviour
                 flag.gameObject.SetActive(false);
                 this.gate.gameObject.SetActive(false);
                 plane.materials = new Material[] { material, material };
-                attackPoint.gameObject.SetActive(false);
+                if (attackPoint != null)
+                {
+                    attackPoint.gameObject.SetActive(false);
+
+                }
                 this.enabled = false;
                 break;
 
@@ -152,7 +159,11 @@ public class Map : MonoBehaviour
                 flag.gameObject.SetActive(false);
                 this.gate.gameObject.SetActive(false);
                 plane.materials = new Material[] { material, material };
-                attackPoint.gameObject.SetActive(false);
+                if (attackPoint != null)
+                {
+                    attackPoint.gameObject.SetActive(false);
+
+                }
                 this.enabled = false;
                 break;
         }
@@ -325,6 +336,7 @@ public class Map : MonoBehaviour
         plane.materials = new Material[] { material, material };
         attackPoint.gameObject.SetActive(true);
         SaveLoadData.Ins.MapData.Level++;
+        SaveLoadData.Ins.MapData.Wave = 0;
         UIManager.Ins.OpenUI<UIWinn>();
         if (GameManager.IsState(GameState.Playing))
         {
@@ -338,7 +350,7 @@ public class Map : MonoBehaviour
     {
         Enemy enemy = SmartPool.Ins.Spawn<Enemy>(poolType, position, rotation);
         listEnemy.Add(enemy);
-        enemy.Avoidance = avoidance;
+        enemy.Avoidance = GameManager.Ins.Avoidance;
         enemy.OnDeathAction = OnEnemyDeath;
         enemy.OnInit();
         return enemy;
@@ -382,7 +394,7 @@ public class Map : MonoBehaviour
         onExit = () =>
         {
             // SaveLoadData.Ins.MapData.CurrentMap.id = id;
-            SaveLoadData.Ins.MapData.Wave ++;
+            SaveLoadData.Ins.MapData.Wave++;
             UIManager.Ins.GetUI<UIGamePlay>().SetFill(SaveLoadData.Ins.MapData.Wave);
             currentBarrack = 0;
         };

@@ -14,6 +14,9 @@ public class GameManager : Singleton<GameManager>
     }
 
     public static bool IsState(GameState state) => gameState == state;
+    [SerializeField] private Avoidance avoidance;
+
+    public Avoidance Avoidance { get => avoidance; set => avoidance = value; }
 
     protected override void Awake()
     {

@@ -8,6 +8,7 @@ public class Enemy : Character
     StateMachine stateMachine = new StateMachine();
     [SerializeField] protected Transform target;
     [SerializeField] protected NavMeshAgent agent;
+
     [SerializeField] protected int coinSpawn;
     [SerializeField] protected int Exp;
     protected bool isFollow;
@@ -61,6 +62,7 @@ public class Enemy : Character
     {
         if (target != null)
         {
+            Debug.Log("..");
             agent.SetDestination(target.position);
 
 
@@ -199,7 +201,7 @@ public class Enemy : Character
             {
                 if (IsPlayer())
                 {
-                    //Stop();
+                    agent.isStopped = true;
                     transform.position += Vector3.zero;
                     ChangeAnim(Constants.ANIM_IDLE);
                     timer -= Time.deltaTime;
@@ -212,6 +214,7 @@ public class Enemy : Character
                 }
                 else
                 {
+                    agent.isStopped = true;
                     ChangeAnim(Constants.ANIM_WALKFW);
                     //SetPlayer();
                     dir = Player.Ins.transform.position - transform.position;
@@ -224,11 +227,12 @@ public class Enemy : Character
             }
             else
             {
+                Moving();
                 if (IsDestionation)
                 {
                     ChangeAnim(Constants.ANIM_IDLE);
-                    agent.SetDestination(transform.position);
-                    //agent.speed = 0.0001f;
+                    target = transform;
+
                 }
             }
         };
@@ -263,9 +267,11 @@ public class Enemy : Character
     {
         if (!IsDead)
         {
-            if (other.CompareTag(Constants.TAG_PLAYERZONE))
+            if (other.CompareTag(Constants.TAG_PLAYERZONE) && stateMachine.name == "FollowState")
             {
-                Debug.Log("..");
+                // Avoidance.RemoveAgent(agent);
+                // agent.enabled = false;
+                target = transform;
                 isFollow = true;
             }
             else if (other.CompareTag(Constants.TAG_CAMPCHARACTERHIT))

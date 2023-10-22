@@ -1,49 +1,92 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
+using UnityEngine.AI;
 
 public class MapManager : Singleton<MapManager>
 {
-    [SerializeField] private List<Map> mapList;
+    [SerializeField] private List<Map> mapListPrefabs;
+    [SerializeField] private List<Map> mapListsRuntime;
     private void Start()
     {
         OnInit();
     }
     public void OnInit()
     {
-        for (int i = 0; i < mapList.Count; i++)
+        if (SaveLoadData.Ins.MapData.Level <= mapListPrefabs.Count - 6)
         {
-            if (mapList[i].id == SaveLoadData.Ins.MapData.Level)
+            for (int i = 0; i < SaveLoadData.Ins.MapData.Level + 6; i++)
             {
-                mapList[i].SetPosPlayer();
-                mapList[i].SetPosCampCharacter();
-                mapList[i].OnInit(MapState.Start);
-            }
-            else if (mapList[i].id == SaveLoadData.Ins.MapData.Level - 1)
-            {
-                mapList[i].enabled = false;
-                mapList[i].OnInit(MapState.During);
-            }
-            else if (mapList[i].id <= SaveLoadData.Ins.MapData.Level - 2)
-            {
-                mapList[i].enabled = false;
-                mapList[i].OnInit(MapState.End);
-            }
-            else
-            {
-                mapList[i].enabled = false;
+                Map newMap = Instantiate(mapListPrefabs[i]);
+                mapListsRuntime.Add(newMap);
+                if (newMap.id == SaveLoadData.Ins.MapData.Level)
+                {
+                    newMap.SetPosPlayer();
+                    newMap.SetPosCampCharacter();
+                    newMap.OnInit(MapState.Start);
+                }
+                else if (newMap.id == SaveLoadData.Ins.MapData.Level - 1)
+                {
+                    newMap.enabled = false;
+                    newMap.OnInit(MapState.During);
+                }
+                else if (newMap.id <= SaveLoadData.Ins.MapData.Level - 2)
+                {
+                    newMap.enabled = false;
+                    newMap.OnInit(MapState.End);
+                }
+                else
+                {
+                    newMap.enabled = false;
+                }
             }
         }
+        else if (SaveLoadData.Ins.MapData.Level > mapListPrefabs.Count - 6)
+        {
+            for (int i = 0; i < mapListPrefabs.Count; i++)
+            {
+                Map newMap = Instantiate(mapListPrefabs[i]);
+                mapListsRuntime.Add(newMap);
+                if (newMap.id == SaveLoadData.Ins.MapData.Level)
+                {
+                    
+                    newMap.SetPosPlayer();
+                    newMap.SetPosCampCharacter();
+                    newMap.OnInit(MapState.Start);
+                }
+                else if (newMap.id == SaveLoadData.Ins.MapData.Level - 1)
+                {
+                    newMap.enabled = false;
+                    newMap.OnInit(MapState.During);
+                }
+                else if (newMap.id <= SaveLoadData.Ins.MapData.Level - 2)
+                {
+                    newMap.enabled = false;
+                    newMap.OnInit(MapState.End);
+                }
+                else
+                {
+                    newMap.enabled = false;
+                }
+            }
+        }
+
     }
     [Button]
     public void NextMap()
     {
-        mapList[SaveLoadData.Ins.MapData.Level].enabled = true;
-        mapList[SaveLoadData.Ins.MapData.Level].OnInit(MapState.Start);
-        mapList[SaveLoadData.Ins.MapData.Level].MoveCampCharacter();
-        mapList[SaveLoadData.Ins.MapData.Level - 1].enabled = false;
-        mapList[SaveLoadData.Ins.MapData.Level - 1].OnInit(MapState.During);
-        mapList[SaveLoadData.Ins.MapData.Level - 2].enabled = false;
-        mapList[SaveLoadData.Ins.MapData.Level - 2].OnInit(MapState.End);
+        mapListsRuntime[SaveLoadData.Ins.MapData.Level].enabled = true;
+        mapListsRuntime[SaveLoadData.Ins.MapData.Level].OnInit(MapState.Start);
+        mapListsRuntime[SaveLoadData.Ins.MapData.Level].MoveCampCharacter();
+        mapListsRuntime[SaveLoadData.Ins.MapData.Level - 1].enabled = false;
+        mapListsRuntime[SaveLoadData.Ins.MapData.Level - 1].OnInit(MapState.During);
+        mapListsRuntime[SaveLoadData.Ins.MapData.Level - 2].enabled = false;
+        mapListsRuntime[SaveLoadData.Ins.MapData.Level - 2].OnInit(MapState.End);
+        if (SaveLoadData.Ins.MapData.Level + 6 <= mapListPrefabs.Count)
+        {
+            Map newMap = Instantiate(mapListPrefabs[SaveLoadData.Ins.MapData.Level + 6]);
+            mapListsRuntime.Add(newMap);
+            newMap.enabled = false;
+        }
     }
 }
