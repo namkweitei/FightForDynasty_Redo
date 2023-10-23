@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System.Collections.Generic;
 public class UpTowerSystem : MonoBehaviour
 {
     [SerializeField] private int id;
     [SerializeField] public int Level;
-    [SerializeField] public List<Tower> towerPrefabs;
+    [SerializeField] private List<Tower> towerPrefabs;
+    [SerializeField] private Tower towerCurrent;
+    [SerializeField] private Transform towerHolder;
     [SerializeField] private ParticleSystem buildEffect;
     [SerializeField] public int towerLevel;
     [SerializeField] private UpdateTower uptower;
@@ -19,16 +20,18 @@ public class UpTowerSystem : MonoBehaviour
     [SerializeField] private TowerPopUp towerPopUp;
     public int Id { get => id; set => id = value; }
     private bool isActive;
-    public void OnInit(int lv)
+    public void OnInit()
     {
-        if (lv > 0)
+        Level = SaveLoadData.Ins.TowerData[Id];
+        if (Level > 0)
         {
-            Level = SaveLoadData.Ins.TowerData[Id];
             hasTower = true;
-            towerPrefabs[lv - 1].gameObject.SetActive(true);
-            towerPrefabs[lv - 1].transform.DOScale(1, 1f);
-            towerPopUp.OnInit(towerPrefabs[lv - 1].Damage, towerPrefabs[lv - 1].ShootSpeed, lv + 1);
-            upgrateTower.gameObject.SetActive(false);
+            towerCurrent = Instantiate( towerPrefabs[Level], towerHolder.position, Quaternion.identity);
+            towerCurrent.transform.SetParent(towerHolder);
+            towerCurrent.transform.localScale = new Vector3(0,0,0);
+            towerCurrent.transform.DOScale(1, 1f);
+            towerPopUp.OnInit(towerCurrent.Damage, towerCurrent.ShootSpeed, Level + 1);
+            upgrateTower.SetActive(false);
             circle.gameObject.SetActive(false);
             buildEffect.Stop();
         }
@@ -36,31 +39,27 @@ public class UpTowerSystem : MonoBehaviour
         {
             gameObject.SetActive(false);
             buildEffect.Stop();
-            upgrateTower.gameObject.SetActive(false);
+            upgrateTower.SetActive(false);
         }
     }
-    public void SetCurrentTower(int lv)
+    public void SetCurrentTower()
     {
-        // for(int i = 0; i < SaveLoadData.Ins.mapData.TowerDatas.Count; i++){
-        //         if(towerData.id == SaveLoadData.Ins.mapData.TowerDatas[i].id){
-        //             towerData.Level = SaveLoadData.Ins.mapData.TowerDatas[i].Level;
-
-        //         }
-        // }
         Level = SaveLoadData.Ins.TowerData[Id];
-        if (lv > 0)
+        if (Level > 0)
         {
             hasTower = true;
-            towerPrefabs[lv - 1].gameObject.SetActive(true);
-            towerPrefabs[lv - 1].transform.DOScale(1, 1f);
-            towerPopUp.OnInit(towerPrefabs[lv - 1].Damage, towerPrefabs[lv - 1].ShootSpeed, lv + 1 );
+            towerCurrent = Instantiate( towerPrefabs[Level - 1], towerHolder.position, Quaternion.identity);
+            towerCurrent.transform.SetParent(towerHolder);
+            towerCurrent.transform.localScale = new Vector3(0,0,0);
+            towerCurrent.transform.DOScale(1, 1f);
+            towerPopUp.OnInit(towerCurrent.Damage, towerCurrent.ShootSpeed, Level + 1 );
             if (Level >= towerPrefabs.Count)
             {
-                upgrateTower.gameObject.SetActive(false);
+                upgrateTower.SetActive(false);
             }
             else
             {
-                upgrateTower.gameObject.SetActive(true);
+                upgrateTower.SetActive(true);
             }
             circle.gameObject.SetActive(false);
             buildEffect.Stop();
@@ -69,7 +68,7 @@ public class UpTowerSystem : MonoBehaviour
         {
             hasTower = false;
             uptower.OnInit(currentCoin);
-            upgrateTower.gameObject.SetActive(false);
+            upgrateTower.SetActive(false);
             Level = 0;
             buildEffect.Stop();
         }
@@ -109,7 +108,7 @@ public class UpTowerSystem : MonoBehaviour
                     isActive = false;
                     hasTower = true;
                     circle.gameObject.SetActive(false);
-                    upgrateTower.gameObject.SetActive(true);
+                    upgrateTower.SetActive(true);
                     SetTower();
                     uptower.LoadCircle.fillAmount = 0;
                 }
@@ -118,23 +117,21 @@ public class UpTowerSystem : MonoBehaviour
     }
     public void SetTower()
     {
+        Level = SaveLoadData.Ins.TowerData[Id];
         if (Level < towerPrefabs.Count)
         {
-            if (Level > 0)
-            {
-                towerPrefabs[Level - 1].gameObject.SetActive(false);
-            }
             buildEffect.Play();
-            towerPrefabs[Level].gameObject.SetActive(true);
-            towerPrefabs[Level].transform.DOScale(1, 1f);
-            towerPopUp.OnInit(towerPrefabs[Level].Damage, towerPrefabs[Level].ShootSpeed, Level + 1 );
+            towerCurrent = Instantiate( towerPrefabs[Level],towerHolder.position, Quaternion.identity);
+            towerCurrent.transform.SetParent(towerHolder);
+            towerCurrent.transform.localScale = new Vector3(0,0,0);
+            towerCurrent.transform.DOScale(1, 1f);
+            towerPopUp.OnInit(towerCurrent.Damage, towerCurrent.ShootSpeed, Level + 1 );
             SaveLoadData.Ins.TowerData[Id]++;
             Debug.Log(SaveLoadData.Ins.TowerData[Id]);
             if (Level >= towerPrefabs.Count)
             {
-                upgrateTower.gameObject.SetActive(false);
+                upgrateTower.SetActive(false);
             }
-            Debug.Log(".");
         }
     }
     public bool CheckTower()

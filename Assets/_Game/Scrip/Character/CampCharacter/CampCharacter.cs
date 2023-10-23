@@ -35,15 +35,15 @@ public class CampCharacter : Singleton<CampCharacter>
         characterHit.OnInit(SaveLoadData.Ins.CampCharacterData.MaxHp, SaveLoadData.Ins.CampCharacterData.Level);
         SaveLoadData.Ins.CampCharacterData.Hp = SaveLoadData.Ins.CampCharacterData.MaxHp;
         characterHit.SetHp(SaveLoadData.Ins.CampCharacterData.Hp);
-        towerSystems[0].SetCurrentTower(SaveLoadData.Ins.TowerData[towerSystems[0].Id]);
-        towerSystems[1].SetCurrentTower(SaveLoadData.Ins.TowerData[towerSystems[1].Id]);
+        towerSystems[0].SetCurrentTower();
+        towerSystems[1].SetCurrentTower();
     }
     public void ResetTower()
     {
         SaveLoadData.Ins.TowerData[towerSystems[0].Id] = 0;
         SaveLoadData.Ins.TowerData[towerSystems[1].Id] = 0;
-        towerSystems[0].SetCurrentTower(SaveLoadData.Ins.TowerData[towerSystems[0].Id]);
-        towerSystems[1].SetCurrentTower(SaveLoadData.Ins.TowerData[towerSystems[1].Id]);
+        towerSystems[0].SetCurrentTower();
+        towerSystems[1].SetCurrentTower();
     }
     public virtual void OnHit(float damage)
     {

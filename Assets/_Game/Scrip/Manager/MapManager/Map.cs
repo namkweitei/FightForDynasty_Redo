@@ -96,7 +96,7 @@ public class Map : MonoBehaviour
             case MapState.Start:
                 for (int i = 0; i < towerSystems.Count; i++)
                 {
-                    towerSystems[i].SetCurrentTower(SaveLoadData.Ins.TowerData[towerSystems[i].Id]);
+                    towerSystems[i].SetCurrentTower();
                 }
                 for (int i = 0; i < waveData.barrackWave.Count; i++)
                 {
@@ -130,7 +130,7 @@ public class Map : MonoBehaviour
             case MapState.During:
                 for (int i = 0; i < towerSystems.Count; i++)
                 {
-                    towerSystems[i].SetCurrentTower(SaveLoadData.Ins.TowerData[towerSystems[i].Id]);
+                    towerSystems[i].SetCurrentTower();
                 }
                 for (int i = 0; i < waveData.barrackWave.Count; i++)
                 {
@@ -150,7 +150,7 @@ public class Map : MonoBehaviour
             case MapState.End:
                 for (int i = 0; i < towerSystems.Count; i++)
                 {
-                    towerSystems[i].OnInit(SaveLoadData.Ins.TowerData[towerSystems[i].Id]);
+                    towerSystems[i].OnInit();
                 }
                 for (int i = 0; i < waveData.barrackWave.Count; i++)
                 {
