@@ -314,17 +314,8 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 388630507048763239}
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 1.37
   m_Height: 1
   m_Direction: 1
@@ -953,7 +944,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3b6e8eae11b177447bf1cce11db34f24, type: 2}
+  - {fileID: 2100000, guid: d27589bec4029ce44baedabc29b49e89, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2667,7 +2658,7 @@ Transform:
   - {fileID: 256579103111175234}
   - {fileID: 7575206292396375053}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &26297436816417050
 MonoBehaviour:
@@ -3509,17 +3500,9 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3560722869427924579}
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
+  serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 965dc15fd235e1e44a627722530d0438, type: 2}
@@ -5422,17 +5405,9 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5267743605214683149}
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
+  serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 6b92e9bb7a52a4d4fae5f03a9b4b1be3, type: 2}
@@ -6108,9 +6083,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
@@ -6277,17 +6250,9 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6118902311715288121}
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
+  serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: -1
   m_Mesh: {fileID: 2201427050955168947, guid: e8fd010d38181a047aed55d485893791, type: 3}
@@ -7035,17 +7000,8 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6955201660160390455}
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 1.34
   m_Height: 2.68
   m_Direction: 0
@@ -8468,7 +8424,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 3664192137256023940}
     m_Modifications:
     - target: {fileID: 2952731855283018391, guid: ff249115e4919994d87d5cdde97b4bc6, type: 3}
@@ -8521,12 +8476,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9114755319954182594, guid: ff249115e4919994d87d5cdde97b4bc6, type: 3}
       propertyPath: id
-      value: 17
+      value: 22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff249115e4919994d87d5cdde97b4bc6, type: 3}
 --- !u!4 &2605795620227513120 stripped
 Transform:
@@ -8549,7 +8501,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 3664192137256023940}
     m_Modifications:
     - target: {fileID: 2276267800943006406, guid: 29280757752286447a968fb0fd98b4a5, type: 3}
@@ -8626,12 +8577,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9029421725439250441, guid: 29280757752286447a968fb0fd98b4a5, type: 3}
       propertyPath: id
-      value: 65
+      value: 69
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29280757752286447a968fb0fd98b4a5, type: 3}
 --- !u!114 &5810514800690088827 stripped
 MonoBehaviour:
@@ -8654,12 +8602,11 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 3664192137256023940}
     m_Modifications:
     - target: {fileID: 796968855248373397, guid: 0ce40fa157758444ab7d6f2a5268df8b, type: 3}
       propertyPath: id
-      value: 56
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 1048832677480013686, guid: 0ce40fa157758444ab7d6f2a5268df8b, type: 3}
       propertyPath: m_RootOrder
@@ -8710,9 +8657,6 @@ PrefabInstance:
       value: TowerPointTurretLighting
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ce40fa157758444ab7d6f2a5268df8b, type: 3}
 --- !u!114 &5840390638201522639 stripped
 MonoBehaviour:

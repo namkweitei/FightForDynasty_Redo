@@ -62,10 +62,17 @@ public class Enemy : Character
     {
         if (target != null)
         {
-            Debug.Log("..");
-            agent.SetDestination(target.position);
+            if (IsDestionation)
+            {
+                ChangeAnim(Constants.ANIM_IDLE);
+                target = transform;
 
+            }
+            else
+            {
+                agent.SetDestination(target.position);
 
+            }
         }
     }
     public void Stop()
@@ -228,12 +235,6 @@ public class Enemy : Character
             else
             {
                 Moving();
-                if (IsDestionation)
-                {
-                    ChangeAnim(Constants.ANIM_IDLE);
-                    target = transform;
-
-                }
             }
         };
 

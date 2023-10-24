@@ -9,7 +9,6 @@ public class UpTowerSystem : MonoBehaviour
     [SerializeField] private Tower towerCurrent;
     [SerializeField] private Transform towerHolder;
     [SerializeField] private ParticleSystem buildEffect;
-    [SerializeField] public int towerLevel;
     [SerializeField] private UpdateTower uptower;
     [SerializeField] private Transform circle;
     [SerializeField] private bool hasTower;
