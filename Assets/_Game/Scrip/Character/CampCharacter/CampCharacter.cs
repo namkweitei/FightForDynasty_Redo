@@ -25,11 +25,6 @@ public class CampCharacter : Singleton<CampCharacter>
         base.Awake();
         cameraFollow.enabled = false;
     }
-    private void Start()
-    {
-        OnInit();
-
-    }
     public virtual void OnInit()
     {
         characterHit.OnInit(SaveLoadData.Ins.CampCharacterData.MaxHp, SaveLoadData.Ins.CampCharacterData.Level);

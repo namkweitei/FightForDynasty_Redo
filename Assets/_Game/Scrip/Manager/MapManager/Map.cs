@@ -51,7 +51,10 @@ public class Map : MonoBehaviour
     Tween OnEnableTween;
     private void Start()
     {
+        if(attackPoint != null){
+
         attackPoint.Map = this;
+        }
     }
     public void SetPosPlayer()
     {
