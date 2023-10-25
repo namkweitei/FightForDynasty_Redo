@@ -7,9 +7,15 @@ using System;
 [Serializable]
 public class WaveData
 {
+    public int Id;
     public List<EnemyCate> firstWave;
     public List<Barrack> barrackWave;
+    public List<BarrackWave> secondWave;
     public List<EnemyCate> endWave;
+}
+[Serializable]
+public class BarrackWave{
+    public List<EnemyCate> enemyCates;
 }
 public enum MapState
 {
@@ -20,7 +26,6 @@ public enum MapState
 public class Map : MonoBehaviour
 {
     [SerializeField] public int id;
-    [SerializeField] public MapState mapState;
     StateMachine stateMachine = new StateMachine();
     [Header("------Map------")]
     [SerializeField] private Transform gate;
@@ -38,7 +43,6 @@ public class Map : MonoBehaviour
     [SerializeField] private List<UpTowerSystem> towerSystems;
     [SerializeField] private Transform playerPoint;
     [SerializeField] private Transform campPoint;
-    [SerializeField] private Avoidance avoidance;
     int currentBarrack;
     int enemyCount;
     int enemyCountWave;
@@ -46,6 +50,8 @@ public class Map : MonoBehaviour
     int currentPos;
     bool isOpenMap;
     public List<Enemy> ListEnemy { get => listEnemy; set => listEnemy = value; }
+    public WaveData WaveData { get => waveData; set => waveData = value; }
+
     private float timeNextWave;
 
     Tween OnEnableTween;
@@ -171,78 +177,6 @@ public class Map : MonoBehaviour
                 break;
         }
     }
-    // public void ActiveMap(){
-    //     for(int i = 0; i < towerSystems.Count; i++){
-    //             for(int j = 0; j < SaveLoadData.Ins.MapData.TowerDatas.Count; j++){
-    //                 if(towerSystems[i].towerData.id == SaveLoadData.Ins.MapData.TowerDatas[j].id){
-    //                     towerSystems[i].SetCurrentTower(SaveLoadData.Ins.MapData.TowerDatas[j].Level);
-    //                 }
-    //             }
-    //     }
-    //     for(int i = 0; i < waveData.barrackWave.Count; i++){
-    //         waveData.barrackWave[i].gameObject.SetActive(false);
-    //     }
-    //     flag.gameObject.SetActive(false);
-    //     this.gate.gameObject.SetActive(false);
-    //     plane.materials = new Material[]{material, material};
-    //     attackPoint.gameObject.SetActive(false);
-    //     this.enabled = false;
-    // }
-    // public void Init(){
-    //     for(int i = 0; i < towerSystems.Count; i++){
-    //         for(int j = 0; j < SaveLoadData.Ins.MapData.TowerDatas.Count; j++){
-    //             if(towerSystems[i].towerData.id == SaveLoadData.Ins.MapData.TowerDatas[j].id){
-    //                 towerSystems[i].OnInit(SaveLoadData.Ins.MapData.TowerDatas[j].Level);
-    //             }
-    //         }
-    //     }
-    //     for(int i = 0; i < waveData.barrackWave.Count; i++){
-    //         waveData.barrackWave[i].gameObject.SetActive(false);
-    //     }
-    //     flag.gameObject.SetActive(false);
-    //     this.gate.gameObject.SetActive(false);
-    //     plane.materials = new Material[]{material, material};
-    //     attackPoint.gameObject.SetActive(false);
-    //     this.enabled = false;
-    // }
-    // public void SetMap(){
-    //     currentBarrack = 0;
-    //     stateMachine.ChangeState(FirstWaveState);
-    //     isOpenMap = false;
-    //     attackPoint.gameObject.SetActive(false);
-    //     SetBarack(currentBarrack);
-    // }
-    // public void SetCurrentMap(){
-    //     for(int i = 0; i < towerSystems.Count; i++){
-    //         for(int j = 0; j < SaveLoadData.Ins.MapData.TowerDatas.Count; j++){
-    //             if(towerSystems[i].towerData.id == SaveLoadData.Ins.MapData.TowerDatas[j].id){
-    //                 towerSystems[i].SetCurrentTower(SaveLoadData.Ins.MapData.TowerDatas[j].Level);
-    //             }
-    //         }
-    //     }
-    //     for(int i = 0; i < SaveLoadData.Ins.MapData.CurrentMap.Wave; i++){
-    //         waveData.barrackWave[i].gameObject.SetActive(false);
-    //     }
-    //     if(SaveLoadData.Ins.MapData.CurrentMap.id == id){
-    //         currentBarrack = SaveLoadData.Ins.MapData.CurrentMap.Wave;
-    //         stateMachine.ChangeState(BarrackWaveState);
-    //     }else{
-    //         currentBarrack = 0;
-    //         stateMachine.ChangeState(FirstWaveState);
-
-    //     }
-    //     Player.Ins.transform.position = playerPoint.position;
-    //     Player.Ins.transform.rotation = playerPoint.rotation;
-    //     Player.Ins.OnInit();
-    //     CampCharacter.Ins.transform.position = campPoint.position;
-    //     CampCharacter.Ins.transform.rotation = campPoint.rotation;
-    //     CampCharacter.Ins.OnInit();
-    //     DirectionArrowControl.Ins.gameObject.SetActive(true);
-    //     DirectionArrowControl.Ins.SetPos(attackPoint.transform, Player.Ins.transform);
-    //     isOpenMap = false;
-    //     attackPoint.gameObject.SetActive(true);
-    //     SetBarack(currentBarrack);
-    // }
 
 
     // Update is called once per frame

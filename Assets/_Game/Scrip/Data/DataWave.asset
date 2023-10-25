@@ -1,0 +1,793 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5da49e4435d5644bb841f423602cf6d, type: 3}
+  m_Name: DataWave
+  m_EditorClassIdentifier: 
+  maps:
+  - {fileID: 459306559130289031, guid: 813197e327a678340a4ea17411f12e79, type: 3}
+  - {fileID: 8248864120175283797, guid: fb49542a1ad7a8d4082d23519964361a, type: 3}
+  - {fileID: 2172580825108088286, guid: b24253f93efc5544bb4cec20551b742b, type: 3}
+  - {fileID: 821728571957512895, guid: 8cec29786063f514bb40d8f76765fea5, type: 3}
+  - {fileID: 5864356440549950981, guid: 6607740d6d5798d49be5b4417322561a, type: 3}
+  - {fileID: 1891068041973315401, guid: e0fb23ec6106ac240be1e3968927456a, type: 3}
+  - {fileID: 125344694661289728, guid: 320e47218724090468db9e59a5964886, type: 3}
+  - {fileID: 1895946941318782815, guid: ff6e7f16fa6337b4c82d448cd0c9238e, type: 3}
+  - {fileID: 4695771491534099386, guid: f08f76e054baedd4889f7b6524ae1813, type: 3}
+  - {fileID: 2537048654664561413, guid: f438922e0b26c2a499041a6828dc59f4, type: 3}
+  - {fileID: 8749003351120419932, guid: cb7dc2858fed71844b113501c04129ee, type: 3}
+  - {fileID: 3261670573296218924, guid: 183e00196f321734bbbf0a2f5a8af220, type: 3}
+  - {fileID: 7109144198244982693, guid: 4262d7e9c923ae442895d9ef7e6b2f39, type: 3}
+  - {fileID: 7558978012412277979, guid: 2018c878ebcc65b49813ee65e22f7dd9, type: 3}
+  - {fileID: 7203525611131890104, guid: f96c9b8dd7d159c48b5be4c7febfc8cb, type: 3}
+  - {fileID: 5542890070447261638, guid: 168bea35eecb26c4ab0cfefcd0848230, type: 3}
+  - {fileID: 6146326735887500863, guid: 2c50f9331eb1ee447a48bf301e9d672c, type: 3}
+  - {fileID: 4953013469456648083, guid: 1ea8bb7284711354c8285069bd4719f4, type: 3}
+  - {fileID: 3462613131292639318, guid: cab63d1986448a344a673e88e5a1d185, type: 3}
+  - {fileID: 1949453384999989393, guid: f846b81725e2bee40831bbd89226f8c9, type: 3}
+  - {fileID: 1613032149334566265, guid: 31d044f408776c340a317597edd23350, type: 3}
+  - {fileID: 3166355531955962378, guid: 964acf830ff8347498b29a00df2f5ec3, type: 3}
+  waveDatas:
+  - Id: 0
+    firstWave: []
+    barrackWave: []
+    secondWave: []
+    endWave: []
+  - Id: 1
+    firstWave:
+    - enemyName: 19
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 13
+      enemyCount: 1
+      enemyTimeSpawn: 0
+    barrackWave:
+    - {fileID: 8456379833053753215, guid: fb49542a1ad7a8d4082d23519964361a, type: 3}
+    secondWave:
+    - enemyCates:
+      - enemyName: 12
+        enemyCount: 10
+        enemyTimeSpawn: 1
+      - enemyName: 13
+        enemyCount: 5
+        enemyTimeSpawn: 1.5
+    endWave:
+    - enemyName: 12
+      enemyCount: 8
+      enemyTimeSpawn: 0
+    - enemyName: 13
+      enemyCount: 2
+      enemyTimeSpawn: 0
+  - Id: 2
+    firstWave:
+    - enemyName: 12
+      enemyCount: 12
+      enemyTimeSpawn: 0
+    - enemyName: 13
+      enemyCount: 2
+      enemyTimeSpawn: 0
+    barrackWave:
+    - {fileID: 5966559213974604701, guid: b24253f93efc5544bb4cec20551b742b, type: 3}
+    - {fileID: 5185303244199674087, guid: b24253f93efc5544bb4cec20551b742b, type: 3}
+    secondWave:
+    - enemyCates:
+      - enemyName: 12
+        enemyCount: 15
+        enemyTimeSpawn: 1
+      - enemyName: 13
+        enemyCount: 5
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 13
+        enemyCount: 10
+        enemyTimeSpawn: 1.5
+    endWave:
+    - enemyName: 12
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 13
+      enemyCount: 3
+      enemyTimeSpawn: 0
+  - Id: 3
+    firstWave:
+    - enemyName: 12
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    - enemyName: 13
+      enemyCount: 5
+      enemyTimeSpawn: 0
+    barrackWave:
+    - {fileID: 2693098578268575563, guid: 8cec29786063f514bb40d8f76765fea5, type: 3}
+    - {fileID: 1513831927921048575, guid: 8cec29786063f514bb40d8f76765fea5, type: 3}
+    secondWave:
+    - enemyCates:
+      - enemyName: 12
+        enemyCount: 15
+        enemyTimeSpawn: 1
+      - enemyName: 13
+        enemyCount: 10
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 13
+        enemyCount: 15
+        enemyTimeSpawn: 1.5
+      - enemyName: 24
+        enemyCount: 1
+        enemyTimeSpawn: 0
+    endWave:
+    - enemyName: 12
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 13
+      enemyCount: 10
+      enemyTimeSpawn: 0
+  - Id: 4
+    firstWave:
+    - enemyName: 6
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    - enemyName: 8
+      enemyCount: 7
+      enemyTimeSpawn: 0
+    barrackWave:
+    - {fileID: 2421887146391671598, guid: 6607740d6d5798d49be5b4417322561a, type: 3}
+    - {fileID: 7403921048081227259, guid: 6607740d6d5798d49be5b4417322561a, type: 3}
+    secondWave:
+    - enemyCates:
+      - enemyName: 6
+        enemyCount: 15
+        enemyTimeSpawn: 1
+      - enemyName: 8
+        enemyCount: 15
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 8
+        enemyCount: 20
+        enemyTimeSpawn: 1.5
+    endWave:
+    - enemyName: 6
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    - enemyName: 8
+      enemyCount: 15
+      enemyTimeSpawn: 0
+  - Id: 5
+    firstWave:
+    - enemyName: 6
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    - enemyName: 8
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    barrackWave:
+    - {fileID: 705686562604144345, guid: e0fb23ec6106ac240be1e3968927456a, type: 3}
+    - {fileID: 892355259412266286, guid: e0fb23ec6106ac240be1e3968927456a, type: 3}
+    - {fileID: 7282384503116084848, guid: e0fb23ec6106ac240be1e3968927456a, type: 3}
+    secondWave:
+    - enemyCates:
+      - enemyName: 6
+        enemyCount: 15
+        enemyTimeSpawn: 1
+      - enemyName: 8
+        enemyCount: 15
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 8
+        enemyCount: 20
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 7
+        enemyCount: 10
+        enemyTimeSpawn: 2
+    endWave:
+    - enemyName: 6
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    - enemyName: 8
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 7
+      enemyCount: 5
+      enemyTimeSpawn: 0
+  - Id: 6
+    firstWave:
+    - enemyName: 6
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 8
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    barrackWave:
+    - {fileID: 1411323674786580473, guid: 320e47218724090468db9e59a5964886, type: 3}
+    - {fileID: 4841443868148627746, guid: 320e47218724090468db9e59a5964886, type: 3}
+    - {fileID: 6874801328405056344, guid: 320e47218724090468db9e59a5964886, type: 3}
+    secondWave:
+    - enemyCates:
+      - enemyName: 6
+        enemyCount: 20
+        enemyTimeSpawn: 1
+      - enemyName: 8
+        enemyCount: 20
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 8
+        enemyCount: 25
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 7
+        enemyCount: 10
+        enemyTimeSpawn: 2
+    endWave:
+    - enemyName: 6
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    - enemyName: 8
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 7
+      enemyCount: 5
+      enemyTimeSpawn: 0
+  - Id: 7
+    firstWave:
+    - enemyName: 6
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 8
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    - enemyName: 7
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    barrackWave:
+    - {fileID: 7678267182998485352, guid: ff6e7f16fa6337b4c82d448cd0c9238e, type: 3}
+    - {fileID: 6625187026575263417, guid: ff6e7f16fa6337b4c82d448cd0c9238e, type: 3}
+    secondWave:
+    - enemyCates:
+      - enemyName: 6
+        enemyCount: 20
+        enemyTimeSpawn: 1
+      - enemyName: 8
+        enemyCount: 20
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 8
+        enemyCount: 30
+        enemyTimeSpawn: 1.5
+      - enemyName: 7
+        enemyCount: 20
+        enemyTimeSpawn: 2
+      - enemyName: 25
+        enemyCount: 1
+        enemyTimeSpawn: 0
+    endWave:
+    - enemyName: 6
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    - enemyName: 8
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 7
+      enemyCount: 10
+      enemyTimeSpawn: 0
+  - Id: 8
+    firstWave:
+    - enemyName: 17
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    - enemyName: 19
+      enemyCount: 18
+      enemyTimeSpawn: 0
+    barrackWave:
+    - {fileID: 316938225416111894, guid: f08f76e054baedd4889f7b6524ae1813, type: 3}
+    - {fileID: 438263809857205005, guid: f08f76e054baedd4889f7b6524ae1813, type: 3}
+    - {fileID: 169955247539628872, guid: f08f76e054baedd4889f7b6524ae1813, type: 3}
+    secondWave:
+    - enemyCates:
+      - enemyName: 17
+        enemyCount: 15
+        enemyTimeSpawn: 1
+      - enemyName: 19
+        enemyCount: 15
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 19
+        enemyCount: 25
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 18
+        enemyCount: 10
+        enemyTimeSpawn: 2
+    endWave:
+    - enemyName: 17
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    - enemyName: 19
+      enemyCount: 15
+      enemyTimeSpawn: 0
+  - Id: 9
+    firstWave:
+    - enemyName: 17
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 19
+      enemyCount: 20
+      enemyTimeSpawn: 0
+    barrackWave:
+    - {fileID: 9029045199990356089, guid: f438922e0b26c2a499041a6828dc59f4, type: 3}
+    - {fileID: 6157321062912923054, guid: f438922e0b26c2a499041a6828dc59f4, type: 3}
+    - {fileID: 1018245277617664465, guid: f438922e0b26c2a499041a6828dc59f4, type: 3}
+    secondWave:
+    - enemyCates:
+      - enemyName: 17
+        enemyCount: 20
+        enemyTimeSpawn: 1
+      - enemyName: 19
+        enemyCount: 20
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 19
+        enemyCount: 25
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 18
+        enemyCount: 15
+        enemyTimeSpawn: 2
+    endWave:
+    - enemyName: 19
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 18
+      enemyCount: 15
+      enemyTimeSpawn: 0
+  - Id: 10
+    firstWave:
+    - enemyName: 17
+      enemyCount: 20
+      enemyTimeSpawn: 0
+    - enemyName: 19
+      enemyCount: 20
+      enemyTimeSpawn: 0
+    barrackWave:
+    - {fileID: 3789815611575801757, guid: cb7dc2858fed71844b113501c04129ee, type: 3}
+    - {fileID: 407549620828843015, guid: cb7dc2858fed71844b113501c04129ee, type: 3}
+    - {fileID: 1059367367210427097, guid: cb7dc2858fed71844b113501c04129ee, type: 3}
+    secondWave:
+    - enemyCates:
+      - enemyName: 17
+        enemyCount: 25
+        enemyTimeSpawn: 1
+      - enemyName: 19
+        enemyCount: 20
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 19
+        enemyCount: 25
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 18
+        enemyCount: 20
+        enemyTimeSpawn: 2
+      - enemyName: 26
+        enemyCount: 1
+        enemyTimeSpawn: 0
+    endWave:
+    - enemyName: 19
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    - enemyName: 18
+      enemyCount: 15
+      enemyTimeSpawn: 0
+  - Id: 11
+    firstWave:
+    - enemyName: 14
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 16
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    barrackWave:
+    - {fileID: 7675621982491403378, guid: 183e00196f321734bbbf0a2f5a8af220, type: 3}
+    - {fileID: 6805214192967293912, guid: 183e00196f321734bbbf0a2f5a8af220, type: 3}
+    secondWave:
+    - enemyCates:
+      - enemyName: 14
+        enemyCount: 10
+        enemyTimeSpawn: 1
+      - enemyName: 16
+        enemyCount: 20
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 16
+        enemyCount: 25
+        enemyTimeSpawn: 1.5
+    endWave:
+    - enemyName: 16
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    - enemyName: 14
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 15
+      enemyCount: 5
+      enemyTimeSpawn: 0
+  - Id: 12
+    firstWave:
+    - enemyName: 14
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    - enemyName: 16
+      enemyCount: 20
+      enemyTimeSpawn: 0
+    barrackWave:
+    - {fileID: 3957706706241124095, guid: 4262d7e9c923ae442895d9ef7e6b2f39, type: 3}
+    - {fileID: 4096782248191145783, guid: 4262d7e9c923ae442895d9ef7e6b2f39, type: 3}
+    - {fileID: 5523342739494590600, guid: 4262d7e9c923ae442895d9ef7e6b2f39, type: 3}
+    secondWave:
+    - enemyCates:
+      - enemyName: 14
+        enemyCount: 10
+        enemyTimeSpawn: 1
+      - enemyName: 16
+        enemyCount: 25
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 16
+        enemyCount: 30
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 15
+        enemyCount: 15
+        enemyTimeSpawn: 2
+    endWave:
+    - enemyName: 16
+      enemyCount: 20
+      enemyTimeSpawn: 0
+    - enemyName: 14
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 15
+      enemyCount: 15
+      enemyTimeSpawn: 0
+  - Id: 13
+    firstWave:
+    - enemyName: 14
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    - enemyName: 16
+      enemyCount: 20
+      enemyTimeSpawn: 0
+    barrackWave:
+    - {fileID: 651045169985459391, guid: 2018c878ebcc65b49813ee65e22f7dd9, type: 3}
+    - {fileID: 2599089258575720892, guid: 2018c878ebcc65b49813ee65e22f7dd9, type: 3}
+    - {fileID: 3567634414796962796, guid: 2018c878ebcc65b49813ee65e22f7dd9, type: 3}
+    secondWave:
+    - enemyCates:
+      - enemyName: 14
+        enemyCount: 10
+        enemyTimeSpawn: 1
+      - enemyName: 16
+        enemyCount: 20
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 16
+        enemyCount: 30
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 15
+        enemyCount: 30
+        enemyTimeSpawn: 2
+    endWave:
+    - enemyName: 16
+      enemyCount: 30
+      enemyTimeSpawn: 0
+    - enemyName: 15
+      enemyCount: 20
+      enemyTimeSpawn: 0
+  - Id: 14
+    firstWave:
+    - enemyName: 16
+      enemyCount: 20
+      enemyTimeSpawn: 0
+    - enemyName: 15
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    barrackWave:
+    - {fileID: 781502274935589254, guid: f96c9b8dd7d159c48b5be4c7febfc8cb, type: 3}
+    - {fileID: 8690650624750718019, guid: f96c9b8dd7d159c48b5be4c7febfc8cb, type: 3}
+    - {fileID: 4256948981637688569, guid: f96c9b8dd7d159c48b5be4c7febfc8cb, type: 3}
+    secondWave:
+    - enemyCates:
+      - enemyName: 14
+        enemyCount: 10
+        enemyTimeSpawn: 1
+      - enemyName: 16
+        enemyCount: 20
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 16
+        enemyCount: 30
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 15
+        enemyCount: 30
+        enemyTimeSpawn: 2
+      - enemyName: 27
+        enemyCount: 1
+        enemyTimeSpawn: 0
+    endWave:
+    - enemyName: 16
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    - enemyName: 14
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 15
+      enemyCount: 5
+      enemyTimeSpawn: 0
+  - Id: 15
+    firstWave:
+    - enemyName: 10
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 11
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    barrackWave:
+    - {fileID: 380610097562537219, guid: 168bea35eecb26c4ab0cfefcd0848230, type: 3}
+    - {fileID: 2614870486159604666, guid: 168bea35eecb26c4ab0cfefcd0848230, type: 3}
+    secondWave:
+    - enemyCates:
+      - enemyName: 10
+        enemyCount: 10
+        enemyTimeSpawn: 1
+      - enemyName: 11
+        enemyCount: 20
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 11
+        enemyCount: 20
+        enemyTimeSpawn: 2
+    endWave:
+    - enemyName: 11
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    - enemyName: 10
+      enemyCount: 10
+      enemyTimeSpawn: 0
+  - Id: 16
+    firstWave:
+    - enemyName: 10
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 11
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    barrackWave:
+    - {fileID: 4279980686876594952, guid: 2c50f9331eb1ee447a48bf301e9d672c, type: 3}
+    - {fileID: 161382399915868621, guid: 2c50f9331eb1ee447a48bf301e9d672c, type: 3}
+    - {fileID: 6075750028588384551, guid: 2c50f9331eb1ee447a48bf301e9d672c, type: 3}
+    secondWave:
+    - enemyCates:
+      - enemyName: 10
+        enemyCount: 20
+        enemyTimeSpawn: 1
+      - enemyName: 11
+        enemyCount: 20
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 11
+        enemyCount: 30
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 9
+        enemyCount: 15
+        enemyTimeSpawn: 2
+    endWave:
+    - enemyName: 11
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    - enemyName: 9
+      enemyCount: 10
+      enemyTimeSpawn: 0
+  - Id: 17
+    firstWave:
+    - enemyName: 10
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 11
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    barrackWave:
+    - {fileID: 2833733105999496505, guid: 1ea8bb7284711354c8285069bd4719f4, type: 3}
+    - {fileID: 5788604623819692767, guid: 1ea8bb7284711354c8285069bd4719f4, type: 3}
+    - {fileID: 1827280725612540632, guid: 1ea8bb7284711354c8285069bd4719f4, type: 3}
+    secondWave:
+    - enemyCates:
+      - enemyName: 10
+        enemyCount: 20
+        enemyTimeSpawn: 1
+      - enemyName: 11
+        enemyCount: 25
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 11
+        enemyCount: 35
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 9
+        enemyCount: 30
+        enemyTimeSpawn: 2
+    endWave:
+    - enemyName: 11
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 9
+      enemyCount: 20
+      enemyTimeSpawn: 0
+  - Id: 18
+    firstWave:
+    - enemyName: 10
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 9
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    barrackWave:
+    - {fileID: 3036269202205566041, guid: cab63d1986448a344a673e88e5a1d185, type: 3}
+    - {fileID: 4605749905161338650, guid: cab63d1986448a344a673e88e5a1d185, type: 3}
+    - {fileID: 8722398321628400588, guid: cab63d1986448a344a673e88e5a1d185, type: 3}
+    secondWave:
+    - enemyCates:
+      - enemyName: 10
+        enemyCount: 20
+        enemyTimeSpawn: 1
+      - enemyName: 11
+        enemyCount: 30
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 11
+        enemyCount: 40
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 9
+        enemyCount: 40
+        enemyTimeSpawn: 2
+      - enemyName: 28
+        enemyCount: 1
+        enemyTimeSpawn: 0
+    endWave:
+    - enemyName: 9
+      enemyCount: 30
+      enemyTimeSpawn: 0
+  - Id: 19
+    firstWave:
+    - enemyName: 20
+      enemyCount: 15
+      enemyTimeSpawn: 0
+    - enemyName: 21
+      enemyCount: 5
+      enemyTimeSpawn: 0
+    - enemyName: 23
+      enemyCount: 5
+      enemyTimeSpawn: 0
+    barrackWave:
+    - {fileID: 1459357855948683935, guid: f846b81725e2bee40831bbd89226f8c9, type: 3}
+    - {fileID: 6623660056012369362, guid: f846b81725e2bee40831bbd89226f8c9, type: 3}
+    secondWave:
+    - enemyCates:
+      - enemyName: 20
+        enemyCount: 10
+        enemyTimeSpawn: 1
+      - enemyName: 21
+        enemyCount: 10
+        enemyTimeSpawn: 1.5
+      - enemyName: 23
+        enemyCount: 10
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 21
+        enemyCount: 20
+        enemyTimeSpawn: 1.5
+      - enemyName: 23
+        enemyCount: 10
+        enemyTimeSpawn: 1.5
+    endWave:
+    - enemyName: 21
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 23
+      enemyCount: 10
+      enemyTimeSpawn: 0
+  - Id: 20
+    firstWave:
+    - enemyName: 21
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 23
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    barrackWave:
+    - {fileID: 2330065664732377995, guid: 31d044f408776c340a317597edd23350, type: 3}
+    - {fileID: 2369823836284922269, guid: 31d044f408776c340a317597edd23350, type: 3}
+    - {fileID: 4776138072676231961, guid: 31d044f408776c340a317597edd23350, type: 3}
+    secondWave:
+    - enemyCates:
+      - enemyName: 20
+        enemyCount: 20
+        enemyTimeSpawn: 1
+      - enemyName: 21
+        enemyCount: 15
+        enemyTimeSpawn: 1.5
+      - enemyName: 23
+        enemyCount: 10
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 21
+        enemyCount: 20
+        enemyTimeSpawn: 1.5
+      - enemyName: 23
+        enemyCount: 15
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 22
+        enemyCount: 30
+        enemyTimeSpawn: 2
+    endWave:
+    - enemyName: 21
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 22
+      enemyCount: 10
+      enemyTimeSpawn: 0
+  - Id: 21
+    firstWave:
+    - enemyName: 21
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 23
+      enemyCount: 10
+      enemyTimeSpawn: 0
+    - enemyName: 22
+      enemyCount: 5
+      enemyTimeSpawn: 0
+    barrackWave:
+    - {fileID: 6824985827755317499, guid: 964acf830ff8347498b29a00df2f5ec3, type: 3}
+    - {fileID: 4269255072318148870, guid: 964acf830ff8347498b29a00df2f5ec3, type: 3}
+    - {fileID: 4276603409995256744, guid: 964acf830ff8347498b29a00df2f5ec3, type: 3}
+    secondWave:
+    - enemyCates:
+      - enemyName: 20
+        enemyCount: 20
+        enemyTimeSpawn: 1
+      - enemyName: 21
+        enemyCount: 20
+        enemyTimeSpawn: 1.5
+      - enemyName: 23
+        enemyCount: 10
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 21
+        enemyCount: 20
+        enemyTimeSpawn: 1.5
+      - enemyName: 23
+        enemyCount: 25
+        enemyTimeSpawn: 1.5
+    - enemyCates:
+      - enemyName: 22
+        enemyCount: 40
+        enemyTimeSpawn: 2
+      - enemyName: 29
+        enemyCount: 1
+        enemyTimeSpawn: 0
+    endWave:
+    - enemyName: 22
+      enemyCount: 20
+      enemyTimeSpawn: 0
