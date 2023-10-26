@@ -77,7 +77,6 @@ public class Player : Character
         horizontal = UltimateJoystick.GetHorizontalAxis("PlayerJoystick");
         vertical = UltimateJoystick.GetVerticalAxis("PlayerJoystick");
         Healling();
-        Debug.Log(anim.GetCurrentAnimatorStateInfo(2).length);
         
         //AnimControl();
     }

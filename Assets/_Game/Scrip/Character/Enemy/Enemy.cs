@@ -88,7 +88,8 @@ public class Enemy : Character
         dir.Normalize();
         Quaternion targetRotation = Quaternion.LookRotation(dir);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 50);
-        Invoke(nameof(DealDmg), 0.2f);
+        float timeAttack = anim.GetNextAnimatorStateInfo(2).length * 0.5f;
+        Invoke(nameof(DealDmg), timeAttack);
         Invoke(nameof(ResetAttack), 1f);
     }
     protected void ResetAttack()

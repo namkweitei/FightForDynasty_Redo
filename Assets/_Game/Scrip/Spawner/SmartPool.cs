@@ -33,6 +33,8 @@ public enum PoolType
     BossThanhCatTuHan,
     BossNguoiSoi,
     BossDragon,
+    SkillAnubis,
+    SkillDrFate,
 }
 
 public class Pool
