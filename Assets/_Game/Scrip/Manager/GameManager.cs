@@ -22,7 +22,7 @@ public class GameManager : Singleton<GameManager>
     {
         base.Awake();
         //tranh viec nguoi choi cham da diem vao man hinh
-        Input.multiTouchEnabled = false;
+        //Input.multiTouchEnabled = false;
         //target frame rate ve 60 fps
         Application.targetFrameRate = 60;
         //tranh viec tat man hinh

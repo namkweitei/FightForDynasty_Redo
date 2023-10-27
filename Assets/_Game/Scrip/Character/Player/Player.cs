@@ -102,7 +102,7 @@ public class Player : Character
         {
             if (attackZone.enemy.Count > 0)
             {
-                if (isMoveForward())
+                if (IsMoveForward())
                 {
                     ChangeAnim(Constants.ANIM_RUNFW);
                 }
@@ -187,8 +187,6 @@ public class Player : Character
             case EquimentType.Crossbow:
                 Bullet bullet = SmartPool.Ins.Spawn<Bullet>(PoolType.Arrow, shootPointCrossBow.position, shootPointCrossBow.rotation);
                 bullet.OnInit(target, damage);
-                // bullet.targetObject = target;
-                // bullet.Damage = damage;
                 AudioManager.Ins.PlaySfx(Constants.SFX_SHOOT);
                 break;
             case EquimentType.Bow:
@@ -263,7 +261,7 @@ public class Player : Character
     {
         isAttack = false;
     }
-    private bool isMoveForward()
+    private bool IsMoveForward()
     {
         float angle = Vector3.Angle(movement, direction);
         return angle < 90f;
