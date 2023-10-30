@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 061b6c513129317449db5584a36c64b0
+guid: 8324a7ab1c2c65c4bb9b31bf625614d4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -15,143 +15,23 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
-    motionNodeName: Group/DeformationSystem
+    motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'attack_bow' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Elbow_R' has translation animation that
-      will be discarded.\n\t'Elbow_L' has translation animation that will be discarded.\n"
-    animationRetargetingWarnings: "\nRetargeting quality report for clip 'attack_bow':\n\tLeftLowerArm
-      average position error 6.6 mm and maximum position error 12.0 mm at time 2:15
-      (0.0%) Frame 75\n\tLeftHand average position error 6.6 mm and maximum position
-      error 12.0 mm at time 2:15 (0.0%) Frame 75\n\tRightLowerArm average position
-      error 19.1 mm and maximum position error 28.8 mm at time 2:28 (41.9%) Frame
-      88\n\tRightHand average position error 19.1 mm and maximum position error 28.8
-      mm at time 2:28 (41.9%) Frame 88\n"
-    animationDoRetargetingWarnings: 1
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
     animationCompression: 3
-    animationRotationError: 0
-    animationPositionError: 0
-    animationScaleError: 0
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: attack_bow
-      takeName: attack_bow
-      internalID: -7146333385103224023
-      firstFrame: 75
-      lastFrame: 106
-      wrapMode: 0
-      orientationOffsetY: -56
-      level: -0.2
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 1
-      loopBlendPositionY: 1
-      loopBlendPositionXZ: 1
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 0
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Group
-        weight: 1
-      - path: Group/DeformationSystem
-        weight: 1
-      - path: Group/DeformationSystem/Root_M
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Hip_L
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Hip_L/Knee_L
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Hip_L/Knee_L/Ankle_L
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Hip_L/Knee_L/Ankle_L/Toes_L
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Hip_L/Knee_L/Ankle_L/Toes_L/ToesEnd_L
-        weight: 0
-      - path: Group/DeformationSystem/Root_M/Hip_R
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Hip_R/Knee_R
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Hip_R/Knee_R/Ankle_R
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Hip_R/Knee_R/Ankle_R/Toes_R
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Hip_R/Knee_R/Ankle_R/Toes_R/ToesEnd_R
-        weight: 0
-      - path: Group/DeformationSystem/Root_M/Spine1_M
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Neck_M
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Neck_M/Head_M
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Neck_M/Head_M/HeadEnd_M
-        weight: 0
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L/Shoulder_L
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L/Shoulder_L/Elbow_L
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L/Shoulder_L/Elbow_L/Wrist_L
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L/Shoulder_L/Elbow_L/Wrist_L/MiddleFinger1_L
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L/Shoulder_L/Elbow_L/Wrist_L/MiddleFinger1_L/MiddleFinger2_L
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L/Shoulder_L/Elbow_L/Wrist_L/MiddleFinger1_L/MiddleFinger2_L/MiddleFinger3_L
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L/Shoulder_L/Elbow_L/Wrist_L/ThumbFinger1_L
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L/Shoulder_L/Elbow_L/Wrist_L/ThumbFinger1_L/ThumbFinger2_L
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L/Shoulder_L/Elbow_L/Wrist_L/ThumbFinger1_L/ThumbFinger2_L/ThumbFinger3_L
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L/Shoulder_L/Elbow_L/Wrist_L/Weapon_L
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R/Elbow_R
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R/Elbow_R/Wrist_R
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R/Elbow_R/Wrist_R/MiddleFinger1_R
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R/Elbow_R/Wrist_R/MiddleFinger1_R/MiddleFinger2_R
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R/Elbow_R/Wrist_R/MiddleFinger1_R/MiddleFinger2_R/MiddleFinger3_R
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R/Elbow_R/Wrist_R/ThumbFinger1_R
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R/Elbow_R/Wrist_R/ThumbFinger1_R/ThumbFinger2_R
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R/Elbow_R/Wrist_R/ThumbFinger1_R/ThumbFinger2_R/ThumbFinger3_R
-        weight: 1
-      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R/Elbow_R/Wrist_R/Weapon_R
-        weight: 1
-      maskType: 0
-      maskSource: {fileID: 31900000, guid: df17ec48747d278409943fb9ba4095fd, type: 2}
-      additiveReferencePoseFrame: 75
+    clipAnimations: []
     isReadable: 0
   meshes:
     lODScreenPercentages: []

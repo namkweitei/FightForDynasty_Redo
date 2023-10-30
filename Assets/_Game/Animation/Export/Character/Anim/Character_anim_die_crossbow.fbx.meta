@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 061b6c513129317449db5584a36c64b0
+guid: 08e0812fb1bf5ac4cafce9c85f706ae0
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -19,18 +19,17 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'attack_bow' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Elbow_R' has translation animation that
-      will be discarded.\n\t'Elbow_L' has translation animation that will be discarded.\n"
-    animationRetargetingWarnings: "\nRetargeting quality report for clip 'attack_bow':\n\tLeftLowerArm
-      average position error 6.6 mm and maximum position error 12.0 mm at time 2:15
-      (0.0%) Frame 75\n\tLeftHand average position error 6.6 mm and maximum position
-      error 12.0 mm at time 2:15 (0.0%) Frame 75\n\tRightLowerArm average position
-      error 19.1 mm and maximum position error 28.8 mm at time 2:28 (41.9%) Frame
-      88\n\tRightHand average position error 19.1 mm and maximum position error 28.8
-      mm at time 2:28 (41.9%) Frame 88\n"
-    animationDoRetargetingWarnings: 1
+    animationImportWarnings: "\nClip 'die_crossbow' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Shoulder_R' has scale animation that will
+      be discarded.\n\t'Elbow_R' has translation animation that will be discarded.\n\t'Elbow_R'
+      has scale animation that will be discarded.\n\t'Wrist_R' has translation animation
+      that will be discarded.\n\t'Shoulder_L' has scale animation that will be discarded.\n\t'Elbow_L'
+      has translation animation that will be discarded.\n\t'Elbow_L' has scale animation
+      that will be discarded.\n\t'Wrist_L' has translation animation that will be
+      discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
     animationCompression: 3
@@ -42,24 +41,24 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: attack_bow
-      takeName: attack_bow
-      internalID: -7146333385103224023
-      firstFrame: 75
-      lastFrame: 106
+      name: die_crossbow
+      takeName: die_crossbow
+      internalID: -4963225708384247115
+      firstFrame: 1215
+      lastFrame: 1290
       wrapMode: 0
-      orientationOffsetY: -56
-      level: -0.2
+      orientationOffsetY: 0
+      level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 1
-      loopBlendPositionY: 1
-      loopBlendPositionXZ: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
-      keepOriginalPositionY: 0
+      keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
@@ -150,8 +149,8 @@ ModelImporter:
       - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R/Elbow_R/Wrist_R/Weapon_R
         weight: 1
       maskType: 0
-      maskSource: {fileID: 31900000, guid: df17ec48747d278409943fb9ba4095fd, type: 2}
-      additiveReferencePoseFrame: 75
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []

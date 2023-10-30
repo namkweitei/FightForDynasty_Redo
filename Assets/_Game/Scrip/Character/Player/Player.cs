@@ -54,6 +54,8 @@ public class Player : Character
     [SerializeField] private Transform ring;
     [SerializeField] private CinemachineVirtualCamera cameraFollow;
     [SerializeField] private List<GameObject> equiments;
+    [SerializeField] private List<GameObject> armor;
+    public List<GameObject> Armor{get => armor; set => armor = value;}
     private float horizontal;
     private float vertical;
     private Vector3 movement;
