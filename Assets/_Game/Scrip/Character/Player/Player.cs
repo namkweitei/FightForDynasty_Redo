@@ -160,7 +160,8 @@ public class Player : Character
             }
             this.attackTimer = attackSpeed;
             AttackType(target);
-            Invoke(nameof(ResetAttack), 1f);
+            float time = anim.GetCurrentAnimatorStateInfo(2).length;
+            Invoke(nameof(ResetAttack), time);
         }
     }
     private IEnumerator DealDmg(Character target)
@@ -170,8 +171,9 @@ public class Player : Character
     }
     private IEnumerator SpawnBullet(Character target)
     {
-        yield return new WaitForSeconds(1f);
-        Bullet bullet = SmartPool.Ins.Spawn<Bullet>(PoolType.Arrow, shootPointCrossBow.position, Quaternion.LookRotation(direction));
+        float time = anim.GetCurrentAnimatorStateInfo(2).length * 0.8f;
+        yield return new WaitForSeconds(time);
+        Bullet bullet = SmartPool.Ins.Spawn<Bullet>(PoolType.Arrow, shootPointBow.position, Quaternion.LookRotation(direction));
         bullet.OnInit(target, damage);
         // bullet.targetObject = target;
         // bullet.Damage = damage;

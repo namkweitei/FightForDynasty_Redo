@@ -5,6 +5,7 @@ using UnityEngine;
 [Serializable]
 public class Equiment
 {
+    public bool IsUnlock;
     public EquimentType equimentType;
     public float damage;
     public float attackSpeed;

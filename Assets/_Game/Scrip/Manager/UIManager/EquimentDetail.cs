@@ -10,6 +10,7 @@ public class EquimentDetail : MonoBehaviour
     [SerializeField] Image buttonChange;
     [SerializeField] TextMeshProUGUI indexText;
     [SerializeField] TextMeshProUGUI upIndexText;
+    [SerializeField] Image lockEquiment;
 
     // Start is called before the first frame update
     public void OnInit(float damage, float fireRate)
@@ -24,5 +25,8 @@ public class EquimentDetail : MonoBehaviour
     public void OffImageChange()
     {
         buttonChange.color = Color.clear;
+    }
+    public void Unlock(){
+        lockEquiment.gameObject.SetActive(false);
     }
 }
