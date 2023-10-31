@@ -3,7 +3,32 @@ guid: 76c9f3831f35d95448adb8dadeb59747
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood_Light2
+    second: {fileID: 2100000, guid: 8b9be2ffad42a72458d24c2ea3db248c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 60135813b7c724244abba11f3f30b36f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert8
+    second: {fileID: 2100000, guid: 3699f83f3747b684a99887d425ddb8a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tex_yen_ngua_voi_lac_da
+    second: {fileID: 2100000, guid: 14b38f0df359027438a166ebc1556def, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: tex yen ngua voi lac da
+    second: {fileID: 2800000, guid: 24e1edb71f346be449ceb59bd5662182, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -15,7 +40,7 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
-    motionNodeName: 
+    motionNodeName: Group/DeformationSystem
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
@@ -31,7 +56,132 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: run
+      takeName: run
+      internalID: 6200578666267062213
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Group
+        weight: 1
+      - path: Group/DeformationSystem
+        weight: 1
+      - path: Group/DeformationSystem/Root_M
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Hip_L
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Hip_L/Knee_L
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Hip_L/Knee_L/Ankle_L
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Hip_L/Knee_L/Ankle_L/Toes1_L
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Hip_L/Knee_L/Ankle_L/Toes1_L/Toes2_L
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Hip_L/Knee_L/Ankle_L/Toes1_L/Toes2_L/Toes3_L
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Hip_L/Knee_L/Ankle_L/Toes1_L/Toes2_L/Toes3_L/Toes4_L
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Hip_R
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Hip_R/Knee_R
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Hip_R/Knee_R/Ankle_R
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Hip_R/Knee_R/Ankle_R/Toes1_R
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Hip_R/Knee_R/Ankle_R/Toes1_R/Toes2_R
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Hip_R/Knee_R/Ankle_R/Toes1_R/Toes2_R/Toes3_R
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Hip_R/Knee_R/Ankle_R/Toes1_R/Toes2_R/Toes3_R/Toes4_R
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Neck_M
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Neck_M/Neck1_M
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Neck_M/Neck1_M/Neck2_M
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Neck_M/Neck1_M/Neck2_M/Head_M
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Neck_M/Neck1_M/Neck2_M/Head_M/HeadEnd_M
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L/Shoulder_L
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L/Shoulder_L/Elbow_L
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L/Shoulder_L/Elbow_L/Wrist_L
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L/Shoulder_L/Elbow_L/Wrist_L/Fingers1_L
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L/Shoulder_L/Elbow_L/Wrist_L/Fingers1_L/Fingers2_L
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L/Shoulder_L/Elbow_L/Wrist_L/Fingers1_L/Fingers2_L/Fingers3_L
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L/Shoulder_L/Elbow_L/Wrist_L/Fingers1_L/Fingers2_L/Fingers3_L/Fingers4_L
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R/Elbow_R
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R/Elbow_R/Wrist_R
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R/Elbow_R/Wrist_R/Fingers1_R
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R/Elbow_R/Wrist_R/Fingers1_R/Fingers2_R
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R/Elbow_R/Wrist_R/Fingers1_R/Fingers2_R/Fingers3_R
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R/Elbow_R/Wrist_R/Fingers1_R/Fingers2_R/Fingers3_R/Fingers4_R
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Tail0_M
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Tail0_M/Tail1_M
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Tail0_M/Tail1_M/Tail2_M
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Tail0_M/Tail1_M/Tail2_M/Tail3_M
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Tail0_M/Tail1_M/Tail2_M/Tail3_M/Tail4_M
+        weight: 1
+      - path: Group/DeformationSystem/Root_M/Tail0_M/Tail1_M/Tail2_M/Tail3_M/Tail4_M/Tail5_M
+        weight: 1
+      - path: lac_da
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []

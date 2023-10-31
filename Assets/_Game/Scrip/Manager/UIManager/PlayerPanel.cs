@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerPanel : MonoBehaviour
+public class PlayerPanel : MonoBehaviour, IObserver
 {
     [SerializeField] private Image imageFill;
     [SerializeField] private TextMeshProUGUI expText;
@@ -16,6 +16,9 @@ public class PlayerPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI upSpeedText;
     [SerializeField] private TextMeshProUGUI upRecoveryText;
     [SerializeField] private TextMeshProUGUI upHpText;
+    private void Start() {
+        SaveLoadData.Ins.PlayerData.RegisterObserver(this);
+    }
     public void SetInfor(float hp, float recovery, float speed, float currentExp, float exp, int level)
     {
         hpText.text = hp.ToString();
@@ -28,8 +31,9 @@ public class PlayerPanel : MonoBehaviour
         expText.text = currentExp.ToString() + "/" + exp.ToString();
         levelText.text = level.ToString();
     }
-    public void SetLevelBar()
-    {
 
+    public void OnNotifyAddCurrency()
+    {
+        SetInfor(SaveLoadData.Ins.PlayerData.Hp, SaveLoadData.Ins.PlayerData.RegenHp, SaveLoadData.Ins.PlayerData.Speed, SaveLoadData.Ins.PlayerData.CurrentExp, SaveLoadData.Ins.PlayerData.Exp, SaveLoadData.Ins.PlayerData.Level);
     }
 }

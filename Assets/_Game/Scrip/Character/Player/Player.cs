@@ -65,6 +65,7 @@ public class Player : Character
     {
         ChangeEquiment(SaveLoadData.Ins.PlayerData.EquiType);
         OnInit();
+        SetArmor(SaveLoadData.Ins.PlayerData.Level);
     }
     public override void OnInit()
     {
@@ -75,6 +76,7 @@ public class Player : Character
     }
     private void Update()
     {
+        Debug.Log(animName);
         if (IsDead) return;
         horizontal = UltimateJoystick.GetHorizontalAxis("PlayerJoystick");
         vertical = UltimateJoystick.GetVerticalAxis("PlayerJoystick");
@@ -95,28 +97,16 @@ public class Player : Character
         movement = new Vector3(-horizontal, 0f, -vertical);
         movement.Normalize();
         rb.velocity = movement * speed * Time.fixedDeltaTime;
-        if (isAttack) return;
-        if (Mathf.Abs(horizontal) < 0.01f & Mathf.Abs(vertical) < 0.01f)
-        {
-            ChangeAnim(Constants.ANIM_IDLE);
-        }
-        else
-        {
-            if (attackZone.enemy.Count > 0)
+        if (!isAttack){
+            if (Mathf.Abs(horizontal) < 0.01f & Mathf.Abs(vertical) < 0.01f)
             {
-                if (IsMoveForward())
-                {
-                    ChangeAnim(Constants.ANIM_RUNFW);
-                }
-                else
-                {
-                    ChangeAnim(Constants.ANIM_RUNBW);
-                }
+                ChangeAnim(Constants.ANIM_IDLE);
             }
             else
-            {
+            { 
                 ChangeAnim(Constants.ANIM_RUNFW);
             }
+
         }
     }
 
@@ -127,6 +117,7 @@ public class Player : Character
             if (attackZone.enemy[0].IsDead)
             {
                 attackZone.enemy.Remove(attackZone.enemy[0]);
+                attackTimer = attackSpeed;
             }
             else
             {
@@ -136,7 +127,6 @@ public class Player : Character
                 direction.Normalize();
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
                 TF.rotation = Quaternion.Lerp(TF.rotation, targetRotation, Time.deltaTime * 20);
-
             }
         }
         else if (horizontal != 0 || vertical != 0 && attackZone.enemy.Count > 0)
@@ -144,6 +134,8 @@ public class Player : Character
             float targetAngle = Mathf.Atan2(-horizontal, -vertical) * Mathf.Rad2Deg;
             Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
             TF.rotation = Quaternion.Lerp(TF.rotation, targetRotation, Time.deltaTime * 10);
+        }else if(horizontal != 0 || vertical != 0 && attackZone.enemy.Count < 0){
+            ResetAttack();
         }
     }
     private void Attack(Character target)
@@ -162,8 +154,8 @@ public class Player : Character
             }
             this.attackTimer = attackSpeed;
             AttackType(target);
-            float time = anim.GetCurrentAnimatorStateInfo(2).length;
-            Invoke(nameof(ResetAttack), time);
+            //float time = anim.GetAnimatorStateInfo(1).length;
+            Invoke(nameof(ResetAttack), attackSpeed);
         }
     }
     private IEnumerator DealDmg(Character target)
@@ -171,15 +163,15 @@ public class Player : Character
         yield return new WaitForSeconds(0.7f);
         target.OnHit(damage);
     }
-    private IEnumerator SpawnBullet(Character target)
+    private IEnumerator SpawnBullet(Character target, float time)
     {
-        float time = anim.GetCurrentAnimatorStateInfo(2).length * 0.8f;
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(attackSpeed * 0.8f);
         Bullet bullet = SmartPool.Ins.Spawn<Bullet>(PoolType.Arrow, shootPointBow.position, Quaternion.LookRotation(direction));
         bullet.OnInit(target, damage);
         // bullet.targetObject = target;
         // bullet.Damage = damage;
         AudioManager.Ins.PlaySfx(Constants.SFX_SHOOT);
+        
     }
     private void AttackType(Character target)
     {
@@ -198,7 +190,8 @@ public class Player : Character
                 // bullet2.targetObject = target;
                 // bullet2.Damage = damage;
                 // AudioManager.Ins.PlaySfx(Constants.SFX_SHOOT);
-                StartCoroutine(SpawnBullet(target));
+                float time = anim.GetNextAnimatorStateInfo(1).length * 0.8f ;
+                StartCoroutine(SpawnBullet(target,time));
                 break;
             case EquimentType.Spear:
                 StartCoroutine(DealDmg(target));
@@ -330,9 +323,32 @@ public class Player : Character
     {
         return Mathf.Abs(horizontal) > 0.01f || Mathf.Abs(vertical) > 0.01f;
     }
-    public void ChangeLayerAnim(string layerName)
+    public void SetArmor(int lv)
     {
-
-
+        if(lv > 1){
+            armor[0].SetActive(true);
+        }else if(lv > 4){
+            armor[0].SetActive(true);
+            armor[1].SetActive(true);
+        }
+        else if(lv > 9){
+            armor[0].SetActive(true);
+            armor[1].SetActive(true);
+            armor[2].SetActive(true);
+        }
+        else if(lv > 14){
+            armor[0].SetActive(true);
+            armor[1].SetActive(true);
+            armor[2].SetActive(true);
+            armor[3].SetActive(true);
+        }
+        else if(lv > 19){
+            armor[0].SetActive(true);
+            armor[1].SetActive(true);
+            armor[2].SetActive(true);
+            armor[3].SetActive(true);
+            armor[4].SetActive(true);
+        }
+        
     }
 }

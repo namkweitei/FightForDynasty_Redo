@@ -15,7 +15,7 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
-    motionNodeName: 
+    motionNodeName: DeformationSystem
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
@@ -31,7 +31,118 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: run
+      takeName: run
+      internalID: 6200578666267062213
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: DeformationSystem
+        weight: 1
+      - path: DeformationSystem/Root_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Hip_L
+        weight: 1
+      - path: DeformationSystem/Root_M/Hip_L/Knee_L
+        weight: 1
+      - path: DeformationSystem/Root_M/Hip_L/Knee_L/Ankle_L
+        weight: 1
+      - path: DeformationSystem/Root_M/Hip_L/Knee_L/Ankle_L/End_L
+        weight: 1
+      - path: DeformationSystem/Root_M/Hip_R
+        weight: 1
+      - path: DeformationSystem/Root_M/Hip_R/Knee_R
+        weight: 1
+      - path: DeformationSystem/Root_M/Hip_R/Knee_R/Ankle_R
+        weight: 1
+      - path: DeformationSystem/Root_M/Hip_R/Knee_R/Ankle_R/End_R
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M/Neck_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M/Neck_M/Head_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M/Neck_M/Head_M/HeadEnd_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M/Neck_M/Head_M/Jaw_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M/Neck_M/Head_M/Jaw_M/JawEnd_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M/Neck_M/Head_M/Trunk1_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M/Neck_M/Head_M/Trunk1_M/Trunk2_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M/Neck_M/Head_M/Trunk1_M/Trunk2_M/Trunk3_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M/Neck_M/Head_M/Trunk1_M/Trunk2_M/Trunk3_M/Trunk4_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M/Neck_M/Head_M/Trunk1_M/Trunk2_M/Trunk3_M/Trunk4_M/Trunk5_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M/Neck_M/Head_M/Trunk1_M/Trunk2_M/Trunk3_M/Trunk4_M/Trunk5_M/Trunk6_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L/Shoulder_L
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L/Shoulder_L/Elbow_L
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L/Shoulder_L/Elbow_L/Wrist_L
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_L/Shoulder_L/Elbow_L/Wrist_L/FrontEnd_L
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R/Elbow_R
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R/Elbow_R/Wrist_R
+        weight: 1
+      - path: DeformationSystem/Root_M/Spine1_M/Chest_M/Scapula_R/Shoulder_R/Elbow_R/Wrist_R/FrontEnd_R
+        weight: 1
+      - path: DeformationSystem/Root_M/Tail0_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Tail0_M/Tail1_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Tail0_M/Tail1_M/Tail2_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Tail0_M/Tail1_M/Tail2_M/Tail3_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Tail0_M/Tail1_M/Tail2_M/Tail3_M/Tail4_M
+        weight: 1
+      - path: Geometry
+        weight: 1
+      - path: Geometry/voi
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []

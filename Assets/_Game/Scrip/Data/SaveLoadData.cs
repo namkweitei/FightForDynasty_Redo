@@ -25,6 +25,7 @@ public class SaveLoadData : Singleton<SaveLoadData>
     public MapData MapData { get => mapData; }
     public DailyReward CoinReward { get => coinReward; set => coinReward = value; }
     public DailyReward BuckReward { get => buckReward; set => buckReward = value; }
+    public bool IsGetSpecialDeal;
 
     protected override void Awake()
     {
@@ -90,6 +91,14 @@ public class SaveLoadData : Singleton<SaveLoadData>
         {
             CoinReward = LoadDailyRewardCoinData();
         }
+        if (!ES3.KeyExists(Constants.DATA_DAILYREWARDCOINDATA, "IsGetSpecialDeal"))
+        {
+            SaveGetSpecialDeal();
+        }
+        else
+        {
+            IsGetSpecialDeal = LoadGetSpecialDeal();
+        }
 
 
     }
@@ -140,6 +149,14 @@ public class SaveLoadData : Singleton<SaveLoadData>
     public DailyReward LoadDailyRewardCoinData()
     {
         return ES3.Load<DailyReward>(Constants.DATA_DAILYREWARDCOINDATA, Constants.DATA_DAILYREWARDDATA);
+    }
+     public void SaveGetSpecialDeal()
+    {
+        ES3.Save(Constants.DATA_DAILYREWARDBUCKDATA, IsGetSpecialDeal, "IsGetSpecialDeal");
+    }
+    public bool LoadGetSpecialDeal()
+    {
+        return ES3.Load<bool>(Constants.DATA_DAILYREWARDCOINDATA, "IsGetSpecialDeal");
     }
     private void OnApplicationQuit()
     {
@@ -209,7 +226,13 @@ public class PlayerData
             if(currentExp >= exp){
                 Level ++;
                 CurrentExp = 0;
-                Exp += 100;
+                Exp += Exp * 0.5f;
+                Hp += Hp / 100 * 15;
+                Hp = Mathf.Ceil(Hp);
+                RegenHp += 0.1f;
+                Speed += Speed / 100 * 10f;
+                Speed = Mathf.Ceil(Speed);
+                LevelManager.Ins.LevelUp(level);
             }
             NotifyObserversAddCurrency();
         }

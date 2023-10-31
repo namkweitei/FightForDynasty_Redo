@@ -21,6 +21,7 @@ public class UIPlayerInfor : UICanvas
         coinText.text = currentcoin.ToString();
         PlayerPanel.SetInfor(SaveLoadData.Ins.PlayerData.Hp, SaveLoadData.Ins.PlayerData.RegenHp, SaveLoadData.Ins.PlayerData.Speed, SaveLoadData.Ins.PlayerData.CurrentExp, SaveLoadData.Ins.PlayerData.Exp, SaveLoadData.Ins.PlayerData.Level);
         PlayerTv.Ins.ChangeEquip((int)SaveLoadData.Ins.PlayerData.EquiType);
+        PlayerTv.Ins.SetArmor(SaveLoadData.Ins.PlayerData.Level);
     }
 
     public void InforUp()

@@ -13,6 +13,8 @@ public class Constants
     public const string ANIM_ATTACKRUN = "attackrun";
     public const string ANIM_DEAD = "die";
     public const string ANIM_WALKFW = "walkfw";
+    public const string ANIM_ATTACKRANGER = "attackranger";
+    public const string ANIM_ATTACKMELEE = "attackmelee";
     public const string TAG_PLAYER = "Player";
     public const string TAG_ENEMY = "Enemy";
     public const string TAG_PLAYERZONE = "PlayerZone";

@@ -17,6 +17,9 @@ public class EquimentPanel : MonoBehaviour
                 if (SaveLoadData.Ins.PlayerData.EquimentDatas[i].equimentType == equimentDetails[j].EquimentType)
                 {
                     equimentDetails[j].OnInit(SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage, SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed);
+                    if(SaveLoadData.Ins.PlayerData.EquimentDatas[i].IsUnlock){
+                         equimentDetails[j].Unlock();
+                    }
                 }
                 if (equimentDetails[j].EquimentType == SaveLoadData.Ins.PlayerData.EquiType)
                 {

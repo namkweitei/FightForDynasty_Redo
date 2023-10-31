@@ -17,9 +17,9 @@ public enum TypeButton{
 public class UIShop : UICanvas
 {
     public ButtonClaim[] buttonClaims;
-    public Button RemoveAds;
     public DailyRewardDisplay DailyRewardBuckDisplay;
     public DailyRewardDisplay DailyRewardCoinDisplay;
+    public GameObject SpecialDealObject;
     private void Start() {
         foreach(ButtonClaim _button in buttonClaims){
             _button.Button.onClick.AddListener(() =>
@@ -27,7 +27,9 @@ public class UIShop : UICanvas
                 ProcessEventButton(_button.TypeButton, _button.TypeEventButton, _button.RewardValue, _button.PriceValue);
             });
         }
-
+        if(SaveLoadData.Ins.IsGetSpecialDeal){
+            SpecialDealObject.SetActive(false);
+        }
     }
     public void CloseButton()
     {
@@ -51,7 +53,15 @@ public class UIShop : UICanvas
             }
         }
     }
-
+    public void SpecialDeal(){
+        SaveLoadData.Ins.PlayerData.Coin += 10000;
+        for(int i = 0; i < SaveLoadData.Ins.PlayerData.EquimentDatas.Count; i++){
+                    if(SaveLoadData.Ins.PlayerData.EquimentDatas[i].equimentType == EquimentType.Spear){
+                        SaveLoadData.Ins.PlayerData.EquimentDatas[i].IsUnlock = true;
+                    }
+        }
+        SpecialDealObject.SetActive(false);
+    }
     private void PurchaseCoin(int buckPrice, int claimValue){
         if(SaveLoadData.Ins.PlayerData.Buck >= buckPrice)
         {

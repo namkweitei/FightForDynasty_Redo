@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d1b17b92dc620d949a315cd62e38790d
+guid: b73458f54a8677842ba9d4999f64bb4b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -15,7 +15,7 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
-    motionNodeName: 
+    motionNodeName: Flag:Group/Flag:DeformationSystem
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
@@ -31,7 +31,64 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: waving_flag
+      takeName: waving_flag
+      internalID: 541070114650946019
+      firstFrame: 955
+      lastFrame: 977
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Flag:Group
+        weight: 1
+      - path: Flag:Group/Flag:DeformationSystem
+        weight: 1
+      - path: Flag:Group/Flag:DeformationSystem/Flag:Root_M
+        weight: 1
+      - path: Flag:Group/Flag:DeformationSystem/Flag:Root_M/Flag:Flag1_M
+        weight: 1
+      - path: Flag:Group/Flag:DeformationSystem/Flag:Root_M/Flag:Flag1_M/Flag:Flag1Part1_M
+        weight: 1
+      - path: Flag:Group/Flag:DeformationSystem/Flag:Root_M/Flag:Flag1_M/Flag:Flag1Part1_M/Flag:Flag1Part2_M
+        weight: 1
+      - path: Flag:Group/Flag:DeformationSystem/Flag:Root_M/Flag:Flag1_M/Flag:Flag1Part1_M/Flag:Flag1Part2_M/Flag:Flag2_M
+        weight: 1
+      - path: Flag:Group/Flag:DeformationSystem/Flag:Root_M/Flag:Flag1_M/Flag:Flag1Part1_M/Flag:Flag1Part2_M/Flag:Flag2_M/Flag:Flag2Part1_M
+        weight: 1
+      - path: Flag:Group/Flag:DeformationSystem/Flag:Root_M/Flag:Flag1_M/Flag:Flag1Part1_M/Flag:Flag1Part2_M/Flag:Flag2_M/Flag:Flag2Part1_M/Flag:Flag2Part2_M
+        weight: 1
+      - path: Flag:Group/Flag:DeformationSystem/Flag:Root_M/Flag:Flag1_M/Flag:Flag1Part1_M/Flag:Flag1Part2_M/Flag:Flag2_M/Flag:Flag2Part1_M/Flag:Flag2Part2_M/Flag:Flag3_M
+        weight: 1
+      - path: Flag:Group/Flag:DeformationSystem/Flag:Root_M/Flag:stick1_M
+        weight: 1
+      - path: Flag:Group/Flag:DeformationSystem/Flag:Root_M/Flag:stick1_M/Flag:stick2_M
+        weight: 1
+      - path: Flag:weapon_giao_da_lv3
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 955
     isReadable: 0
   meshes:
     lODScreenPercentages: []

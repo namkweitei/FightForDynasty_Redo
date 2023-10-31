@@ -33,8 +33,10 @@ public class ArrowTower : Tower
         {
             foreach (var item in shootPoint)
             {
+                
                 Bullet bullet = SmartPool.Ins.Spawn<Bullet>(PoolType.Arrow, item.position, item.rotation);
                 bullet.OnInit(target, damage);
+                AudioManager.Ins.PlaySfx(Constants.SFX_SHOOT);
                 // bullet.targetObject = target;
                 // bullet.Damage = damage;
             }

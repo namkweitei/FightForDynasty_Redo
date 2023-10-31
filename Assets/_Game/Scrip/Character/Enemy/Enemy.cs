@@ -88,19 +88,21 @@ public class Enemy : Character
         dir.Normalize();
         Quaternion targetRotation = Quaternion.LookRotation(dir);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 50);
-        float timeAttack = anim.GetNextAnimatorStateInfo(2).length * 0.5f;
+        float timeAttack = anim.GetCurrentAnimatorStateInfo(2).length * 0.5f;
         Invoke(nameof(DealDmg), timeAttack);
+        agent.updateRotation = false;
         Invoke(nameof(ResetAttack), 1f);
     }
     protected void ResetAttack()
     {
         if (IsDead) return;
         ChangeAnim(Constants.ANIM_IDLE);
+        agent.updateRotation = true;
         isAttack = false;
     }
     protected virtual void DealDmg()
     {
-        Player.Ins.OnHit(0.5f);
+        Player.Ins.OnHit(damage);
 
     }
     //---------------------------Target---------------------------
@@ -154,7 +156,7 @@ public class Enemy : Character
     }
 
     //---------------------------StateMachine---------------------------
-    public void PatrolState(ref Action onEnter, ref Action onExecute, ref Action onExit)
+    public virtual void PatrolState(ref Action onEnter, ref Action onExecute, ref Action onExit)
     {
         onEnter = () =>
         {

@@ -3517,29 +3517,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
-  mapState: 0
   gate: {fileID: 2063738539447181759}
   plane: {fileID: 6529696821185064169}
   material: {fileID: 2100000, guid: 82302f3b6c2069b4c83bbd980ebbac42, type: 2}
   attackPoint: {fileID: 4929697964345300452}
   spawnPos: {fileID: 8847517849036554655}
   flag: {fileID: 6945405960500797531}
-  listEnemy:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  listEnemy: []
   waveData:
+    Id: 0
     firstWave:
     - enemyName: 12
       enemyCount: 12
@@ -3550,6 +3536,7 @@ MonoBehaviour:
     barrackWave:
     - {fileID: 5966559213974604701}
     - {fileID: 5185303244199674087}
+    secondWave: []
     endWave:
     - enemyName: 12
       enemyCount: 10
@@ -3602,7 +3589,6 @@ MonoBehaviour:
   - {fileID: 7920350771289873095}
   playerPoint: {fileID: 2340187450559187390}
   campPoint: {fileID: 4996322093537756148}
-  avoidance: {fileID: 0}
 --- !u!1 &6409588025796255530
 GameObject:
   m_ObjectHideFlags: 0
