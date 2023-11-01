@@ -22,6 +22,7 @@ public class UILose : UICanvas
     }
     public void NothankButton()
     {
+        SaveLoadData.Ins.SaveALL();
         SceneManager.LoadScene(0);
         UIManager.Ins.CloseUI<UIWinn>();
         GameManager.ChangeState(GameState.GamePlay);

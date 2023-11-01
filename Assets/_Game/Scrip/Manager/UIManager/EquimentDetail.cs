@@ -11,6 +11,8 @@ public class EquimentDetail : MonoBehaviour
     [SerializeField] TextMeshProUGUI indexText;
     [SerializeField] TextMeshProUGUI upIndexText;
     [SerializeField] Image lockEquiment;
+    [SerializeField] Button updateRewardButton;
+
 
     // Start is called before the first frame update
     public void OnInit(float damage, float fireRate)

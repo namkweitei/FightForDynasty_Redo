@@ -17,6 +17,7 @@ public class Enemy : Character
     protected Vector3 dir;
     [SerializeField] protected float attackRange;
     [SerializeField] protected float damage;
+    [SerializeField] Animator animAnimal;
 
 
     protected float radius;
@@ -66,7 +67,7 @@ public class Enemy : Character
             {
                 ChangeAnim(Constants.ANIM_IDLE);
                 target = transform;
-
+                agent.isStopped = true;
             }
             else
             {
@@ -145,6 +146,9 @@ public class Enemy : Character
         OnDeathAction?.Invoke(this);
         Stop();
         ChangeAnim(Constants.ANIM_DEAD);
+        if(animAnimal != null){
+            animAnimal.SetTrigger("dead");
+        }
         base.OnDead();
     }
 

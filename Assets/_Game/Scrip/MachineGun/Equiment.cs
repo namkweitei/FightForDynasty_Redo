@@ -12,4 +12,5 @@ public class Equiment
     public float range;
     public RuntimeAnimatorController anim;
     public float offset;
+    public int countUpdate;
 }

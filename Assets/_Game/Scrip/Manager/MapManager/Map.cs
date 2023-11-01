@@ -78,12 +78,12 @@ public class Map : MonoBehaviour
     public void MoveCampCharacter()
     {
         CampCharacter.Ins.cameraFollow.enabled = true;
-
         DOVirtual.DelayedCall(2.5f, () =>
         {
             OnEnableTween?.Kill();
             OnEnableTween = CampCharacter.Ins.transform.DOScale(0, 1).SetEase(CampCharacter.Ins.curveIn).OnComplete(() =>
             {
+                CampCharacter.Ins.ResetTower();
                 CampCharacter.Ins.transform.DOMove(campPoint.position, 3f).OnComplete(() =>
                 {
                     CampCharacter.Ins.transform.rotation = campPoint.rotation;

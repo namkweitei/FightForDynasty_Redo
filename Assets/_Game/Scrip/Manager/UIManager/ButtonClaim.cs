@@ -15,7 +15,9 @@ public class ButtonClaim: MonoBehaviour{
     [SerializeField] private TextMeshProUGUI priceValueText;
     private void Start() {
         rewardValueText.text = "+" + rewardValue.ToString();
-        priceValueText.text = priceValue.ToString() + ".000đ";
+        if(typeButton == TypeButton.Buck){
+            priceValueText.text = priceValue.ToString() + ".000đ";
+        }
     }
     public Button Button { get => button; set => button = value; }
     public TypeButton TypeButton { get => typeButton; set => typeButton = value; }

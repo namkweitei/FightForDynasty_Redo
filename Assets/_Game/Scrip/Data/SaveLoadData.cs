@@ -158,6 +158,14 @@ public class SaveLoadData : Singleton<SaveLoadData>
     {
         return ES3.Load<bool>(Constants.DATA_DAILYREWARDCOINDATA, "IsGetSpecialDeal");
     }
+    public void SaveALL(){
+        SaveCampCharacterInfor();
+        SaveMapData();
+        SavePlayerInfor();
+        SaveTowerData();
+        SaveDailyRewardBuckData();
+        SaveDailyRewardCoinData();
+    }
     private void OnApplicationQuit()
     {
         SaveCampCharacterInfor();

@@ -65,7 +65,6 @@ public class UIShop : UICanvas
     private void PurchaseCoin(int buckPrice, int claimValue){
         if(SaveLoadData.Ins.PlayerData.Buck >= buckPrice)
         {
-            Debug.Log("Purchase " + buckPrice + " buck and add " + claimValue + " coin to player");
             SaveLoadData.Ins.PlayerData.Buck -= buckPrice;
             AddCoin(claimValue);
         }

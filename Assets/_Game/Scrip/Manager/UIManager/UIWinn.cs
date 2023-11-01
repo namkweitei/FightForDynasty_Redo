@@ -38,7 +38,11 @@ public class UIWinn : UICanvas
     public void GetButton()
     {
         //Reward
+        MapManager.Ins.NextMap();
         AddCoin(getCoin);
+        UIManager.Ins.CloseUI<UIWinn>();
+        GameManager.ChangeState(GameState.GamePlay);
+        GameManager.Ins.currenGameState = GameState.GamePlay;
     }
     private void AddCoin(int value)
     {

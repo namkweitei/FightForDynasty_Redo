@@ -25,7 +25,10 @@ public class UpTowerSystem : MonoBehaviour
         if (Level > 0)
         {
             hasTower = true;
-            towerCurrent = Instantiate( towerPrefabs[Level], towerHolder.position, Quaternion.identity);
+             if(towerCurrent != null){
+                towerCurrent.gameObject.SetActive(false);
+            }
+            towerCurrent = Instantiate( towerPrefabs[Level - 1], towerHolder.position, Quaternion.identity);
             towerCurrent.transform.SetParent(towerHolder);
             towerCurrent.transform.localScale = new Vector3(0,0,0);
             towerCurrent.transform.DOScale(1, 1f);
@@ -47,6 +50,9 @@ public class UpTowerSystem : MonoBehaviour
         if (Level > 0)
         {
             hasTower = true;
+            if(towerCurrent != null){
+                towerCurrent.gameObject.SetActive(false);
+            }
             towerCurrent = Instantiate( towerPrefabs[Level - 1], towerHolder.position, Quaternion.identity);
             towerCurrent.transform.SetParent(towerHolder);
             towerCurrent.transform.localScale = new Vector3(0,0,0);
@@ -120,6 +126,9 @@ public class UpTowerSystem : MonoBehaviour
         if (Level < towerPrefabs.Count)
         {
             buildEffect.Play();
+            if(towerCurrent != null){
+                towerCurrent.gameObject.SetActive(false);
+            }
             towerCurrent = Instantiate( towerPrefabs[Level],towerHolder.position, Quaternion.identity);
             towerCurrent.transform.SetParent(towerHolder);
             towerCurrent.transform.localScale = new Vector3(0,0,0);
