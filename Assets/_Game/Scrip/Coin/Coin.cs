@@ -30,6 +30,7 @@ public class Coin : GameUnit
             }
         }
         transform.Rotate(rotaion);
+        
         if (collect == true)
         {
             timer -= Time.deltaTime;

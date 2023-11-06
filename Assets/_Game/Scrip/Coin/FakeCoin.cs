@@ -26,6 +26,7 @@ public class FakeCoin : GameUnit
         controlPoint = (s.position + e.transform.position) * 0.5f + Vector3.up * 2.5f;
         endPoint = e;
         t = 0f;
+        
     }
 
     void CurveCaculate()
