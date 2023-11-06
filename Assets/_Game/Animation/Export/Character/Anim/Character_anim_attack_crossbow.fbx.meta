@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 73d7ba7497bf6bc4e97d39725e63d804
 ModelImporter:
-  serializedVersion: 22200
+  serializedVersion: 21300
   internalIDToNameTable: []
   externalObjects: {}
   materials:
@@ -15,7 +15,7 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
-    motionNodeName: 
+    motionNodeName: Group/DeformationSystem
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
@@ -154,7 +154,6 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -182,7 +181,6 @@ ModelImporter:
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -461,13 +459,13 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: Character_model (1)(Clone)
+    - name: Character_model (2)(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Group
-      parentName: Character_model (1)(Clone)
+      parentName: Character_model (2)(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
@@ -503,7 +501,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Chest_M
       parentName: Spine1_M
-      position: {x: -0.11122586, y: -1.4455103e-15, z: 3.9858803e-17}
+      position: {x: -0.11122586, y: -1.4432899e-15, z: 3.9858803e-17}
       rotation: {x: 0, y: 0, z: -0.0004912268, w: 0.9999999}
       scale: {x: 1, y: 1, z: 1}
     - name: Scapula_R
@@ -518,7 +516,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Elbow_R
       parentName: Shoulder_R
-      position: {x: -0.26947245, y: -3.1086244e-16, z: -7.389644e-15}
+      position: {x: -0.26947245, y: -3.0198067e-16, z: -7.389644e-15}
       rotation: {x: 0, y: 0, z: -0.0008726645, w: 0.99999964}
       scale: {x: 1, y: 1, z: 1}
     - name: Wrist_R
@@ -553,7 +551,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: ThumbFinger2_R
       parentName: ThumbFinger1_R
-      position: {x: -0.037384678, y: 6.82121e-15, z: 1.4210854e-15}
+      position: {x: -0.037384678, y: 6.82121e-15, z: 1.1368684e-15}
       rotation: {x: 0, y: -0.00052281906, z: -0, w: 0.9999999}
       scale: {x: 1, y: 1, z: 1}
     - name: ThumbFinger3_R
@@ -568,7 +566,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Head_M
       parentName: Neck_M
-      position: {x: -0.026721474, y: -4.2632563e-16, z: 3.670767e-17}
+      position: {x: -0.026721474, y: -4.6185276e-16, z: 3.670767e-17}
       rotation: {x: 0, y: 0, z: 0.057108633, w: 0.99836797}
       scale: {x: 1, y: 1, z: 1}
     - name: HeadEnd_M
@@ -588,7 +586,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Elbow_L
       parentName: Shoulder_L
-      position: {x: 0.26947245, y: 4.352074e-16, z: -0.000000023558025}
+      position: {x: 0.26947245, y: 4.440892e-16, z: -0.000000023558025}
       rotation: {x: 0, y: 0, z: -0.0008726645, w: 0.99999964}
       scale: {x: 1, y: 1, z: 1}
     - name: Wrist_L
@@ -638,7 +636,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Knee_R
       parentName: Hip_R
-      position: {x: -0.3389822, y: -1.6764368e-16, z: -6.2041035e-13}
+      position: {x: -0.3389822, y: -1.6764368e-16, z: -6.203926e-13}
       rotation: {x: 0, y: 0, z: 0.038061537, w: 0.9992754}
       scale: {x: 1, y: 1, z: 1}
     - name: Ankle_R
@@ -663,17 +661,17 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Knee_L
       parentName: Hip_L
-      position: {x: 0.3389822, y: -2.8310687e-17, z: 6.2026827e-13}
+      position: {x: 0.3389822, y: -2.942091e-17, z: 6.2026827e-13}
       rotation: {x: 0, y: 0, z: 0.038061537, w: 0.9992754}
       scale: {x: 1, y: 1, z: 1}
     - name: Ankle_L
       parentName: Knee_L
-      position: {x: 0.32325476, y: 4.1300297e-15, z: 5.27578e-13}
+      position: {x: 0.32325476, y: 4.1433523e-15, z: 5.275424e-13}
       rotation: {x: -0.0036771481, y: -0.0073756455, z: -0.028257905, w: 0.99956673}
       scale: {x: 1, y: 1, z: 1}
     - name: Toes_L
       parentName: Ankle_L
-      position: {x: 0.046833456, y: -0.09408758, z: 1.5424093e-10}
+      position: {x: 0.046833456, y: -0.09408758, z: 1.5424094e-10}
       rotation: {x: 0.007035204, y: 0.005014045, z: -0.5803654, w: 0.81431043}
       scale: {x: 1, y: 1, z: 1}
     - name: ToesEnd_L
@@ -697,72 +695,107 @@ ModelImporter:
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: kiem_Character
-      parentName: Character_model (1)(Clone)
+      parentName: Character_model (2)(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: dai_dao
-      parentName: Character_model (1)(Clone)
+      parentName: Character_model (2)(Clone)
       position: {x: -0, y: -0.82803184, z: -2.7710115e-10}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: cung
-      parentName: Character_model (1)(Clone)
+      parentName: Character_model (2)(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: No
-      parentName: Character_model (1)(Clone)
+      parentName: Character_model (2)(Clone)
       position: {x: -0, y: 0.18103208, z: 0.046675988}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Arrow
-      parentName: Character_model (1)(Clone)
+      parentName: Character_model (2)(Clone)
       position: {x: 0.008431015, y: -0.23090553, z: 0.10315947}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Arrow1
-      parentName: Character_model (1)(Clone)
+      parentName: Character_model (2)(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: gang_tay_phai
-      parentName: Character_model (1)(Clone)
+      parentName: Character_model (2)(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: gang_tay_trai
-      parentName: Character_model (1)(Clone)
+      parentName: Character_model (2)(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: giay_trai
-      parentName: Character_model (1)(Clone)
+      parentName: Character_model (2)(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: giay_phai
-      parentName: Character_model (1)(Clone)
+      parentName: Character_model (2)(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: giap_vai_phai
-      parentName: Character_model (1)(Clone)
+      parentName: Character_model (2)(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: giap_vai_trai
-      parentName: Character_model (1)(Clone)
+      parentName: Character_model (2)(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mu_giap
-      parentName: Character_model (1)(Clone)
+      parentName: Character_model (2)(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: giap_than
-      parentName: Character_model (1)(Clone)
+      parentName: Character_model (2)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: giao
+      parentName: Character_model (2)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Roman
+      parentName: Character_model (2)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Yamato
+      parentName: Character_model (2)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mongolia
+      parentName: Character_model (2)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Egyptian
+      parentName: Character_model (2)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: set_babylon
+      parentName: Character_model (2)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: set_viking
+      parentName: Character_model (2)(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
@@ -778,13 +811,12 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: e8005ccd31326cd4290645d48d58cfc1, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 8311cd598efc6ab43a1ccfdc52e4c8af, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
   avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
