@@ -1,0 +1,191 @@
+fileFormatVersion: 2
+guid: eba2d8b2fb2b98847bc5506948c32989
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: Bow:Group/Bow:DeformationSystem
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Bow
+      takeName: Bow
+      internalID: -2642040093161494268
+      firstFrame: 0
+      lastFrame: 31
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bow:Bow2
+        weight: 1
+      - path: Bow:Group
+        weight: 1
+      - path: Bow:Group/Bow:DeformationSystem
+        weight: 1
+      - path: Bow:Group/Bow:DeformationSystem/Bow:Root_M
+        weight: 1
+      - path: Bow:Group/Bow:DeformationSystem/Bow:Root_M/Bow:daycung_M
+        weight: 1
+      - path: Bow:Group/Bow:DeformationSystem/Bow:Root_M/Bow:duoi_M
+        weight: 1
+      - path: Bow:Group/Bow:DeformationSystem/Bow:Root_M/Bow:tren_M
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: Bow_anim(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bow:Bow2
+      parentName: Bow_anim(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bow:Group
+      parentName: Bow_anim(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bow:DeformationSystem
+      parentName: Bow:Group
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.034371566, y: -0, z: -0.008795777, w: 0.9993704}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bow:Root_M
+      parentName: Bow:DeformationSystem
+      position: {x: -0.121472254, y: 0.7697491, z: 0.47468135}
+      rotation: {x: 0.3832779, y: -0.5937404, z: -0.38236538, w: 0.5952875}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: Bow:tren_M
+      parentName: Bow:Root_M
+      position: {x: -0.98732024, y: -3.5527135e-16, z: 0}
+      rotation: {x: -0.000000059604645, y: 0.000000059604645, z: -0.016085565, w: 0.99987066}
+      scale: {x: 1, y: 1.0000001, z: 1.0000002}
+    - name: Bow:daycung_M
+      parentName: Bow:Root_M
+      position: {x: -0.22819321, y: -0.4127271, z: -2.1316282e-16}
+      rotation: {x: -0.35921437, y: 0.60906905, z: 0.35921437, w: 0.609069}
+      scale: {x: 1.0000004, y: 1.0000001, z: 1.0000001}
+    - name: Bow:duoi_M
+      parentName: Bow:Root_M
+      position: {x: 0.525016, y: -0.8361575, z: -2.842171e-16}
+      rotation: {x: -0.35921437, y: 0.60906905, z: 0.35921437, w: 0.609069}
+      scale: {x: 1.0000004, y: 1.0000001, z: 1.0000001}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

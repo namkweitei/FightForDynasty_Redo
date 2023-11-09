@@ -17,11 +17,11 @@ public class UIGamePlay : UICanvas
     }
 
     [Button]
-    public void OpenWaveStage(int count, int curWave)
+    public void OpenWaveStage(int count, int curWave,int wave)
     {
         wavePanel.transform.DOScale(1, 0.5f).OnComplete(() =>
         {
-            wavePanel.Show();
+            SetTextWave(wave);
         });
         wavePanel.SetWaveStage(count);
         wavePanel.SetFill(curWave);
@@ -41,11 +41,14 @@ public class UIGamePlay : UICanvas
     {
         wavePanel.Fill(fil);
     }
-
-    
+     public void SetTextWave(int wave){
+        wavePanel.SetTextWave(wave);
+        wavePanel.Show();
+    }
     public void InforButton()
     {
         UIManager.Ins.OpenUI<UIPlayerInfor>();
+        UIManager.Ins.GetUI<UIPlayerInfor>().StartPobUp();
         if (GameManager.IsState(GameState.Playing))
         {
             GameManager.ChangeState(GameState.Pause);
@@ -53,7 +56,8 @@ public class UIGamePlay : UICanvas
     }
     public void SettingButton()
     {
-        UIManager.Ins.OpenUI<UISetting>();
+        UIManager.Ins.OpenUI<UIShop>();
+        UIManager.Ins.GetUI<UIShop>().StartPobUp();
         if (GameManager.IsState(GameState.Playing))
         {
             GameManager.ChangeState(GameState.Pause);
@@ -61,7 +65,9 @@ public class UIGamePlay : UICanvas
     }
     public void ShopButton()
     {
+        
         UIManager.Ins.OpenUI<UIShop>();
+        UIManager.Ins.GetUI<UIShop>().StartPobUp();
         if (GameManager.IsState(GameState.Playing))
         {
             GameManager.ChangeState(GameState.Pause);

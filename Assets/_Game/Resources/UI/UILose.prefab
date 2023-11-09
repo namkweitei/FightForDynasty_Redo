@@ -1213,6 +1213,8 @@ MonoBehaviour:
   IsDestroyOnClose: 0
   buttonRevice: {fileID: 4780163617276925955}
   buttonNoThank: {fileID: 6723114117447734326}
+  pobUp: {fileID: 1354271586562271466}
+  background: {fileID: 7889738308697572804}
 --- !u!1 &2693126356256494749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,7 +1271,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: e8005ccd31326cd4290645d48d58cfc1, type: 3}
   m_Controller: {fileID: 9100000, guid: a5eea31bccfc14743b906d936ba82e89, type: 2}
   m_CullingMode: 1
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -2081,7 +2083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.38039216}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -182,13 +182,15 @@ public class Map : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.IsState(GameState.Playing)) return;
+            
         stateMachine?.Execute();
     }
     // Open Map
     public virtual void OpenMap()
     {
 
-        UIManager.Ins.GetUI<UIGamePlay>().OpenWaveStage(waveData.barrackWave.Count + 1, SaveLoadData.Ins.MapData.Wave);
+        UIManager.Ins.GetUI<UIGamePlay>().OpenWaveStage(waveData.barrackWave.Count + 1, SaveLoadData.Ins.MapData.Wave,SaveLoadData.Ins.MapData.Wave + 1 );
         DirectionArrowControl.Ins.gameObject.SetActive(false);
         GameManager.ChangeState(GameState.Playing);
         GameManager.Ins.currenGameState = GameState.Playing;
@@ -275,6 +277,7 @@ public class Map : MonoBehaviour
         SaveLoadData.Ins.MapData.Level++;
         SaveLoadData.Ins.MapData.Wave = 0;
         UIManager.Ins.OpenUI<UIWinn>();
+        UIManager.Ins.GetUI<UIWinn>().StartPobUp();
         if (GameManager.IsState(GameState.Playing))
         {
             GameManager.ChangeState(GameState.Pause);
@@ -368,6 +371,7 @@ public class Map : MonoBehaviour
                     {
                         currentBarrack++;
                         SaveLoadData.Ins.MapData.Wave++;
+                        UIManager.Ins.GetUI<UIGamePlay>().SetTextWave(SaveLoadData.Ins.MapData.Wave + 1);
                         for (int i = 0; i < waveData.barrackWave[currentBarrack].enemyCates.Count; i++)
                         {
                             enemyCount += waveData.barrackWave[currentBarrack].enemyCates[i].enemyCount;

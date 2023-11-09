@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,10 +12,9 @@ public class UIPlayerInfor : UICanvas
     [SerializeField] private EquimentPanel equimentPanel;
     [SerializeField] private int currentcoin;
     [SerializeField] private TextMeshProUGUI coinText;
-    [SerializeField] PlayerTv playerTv;
-    private void Awake()
-    {
-    }
+    [SerializeField] Transform pobUp;
+    [SerializeField] Image background;
+
     void Start()
     {
         currentcoin = Random.Range(20, 30);
@@ -23,7 +23,14 @@ public class UIPlayerInfor : UICanvas
         PlayerTv.Ins.ChangeEquip((int)SaveLoadData.Ins.PlayerData.EquiType);
         PlayerTv.Ins.SetArmor(SaveLoadData.Ins.PlayerData.Level);
     }
+    public void StartPobUp()
+    {
+        Time.timeScale = 0;
+        background.DOFade(0.7f, 0.5f);
+        pobUp.localScale = Vector3.zero;
+        pobUp.DOScale(1, 0.5f).SetUpdate(true);
 
+    }
     public void InforUp()
     {
         if (SaveLoadData.Ins.PlayerData.Coin >= currentcoin)
@@ -42,11 +49,11 @@ public class UIPlayerInfor : UICanvas
     public void ChangeButton(int type)
     {
         Player.Ins.ChangeEquiment((EquimentType)type);
-        playerTv.ChangeEquip(type);
     }
     public void CloseButton()
     {
         UIManager.Ins.CloseUI<UIPlayerInfor>();
+Time.timeScale = 1;
         if (GameManager.IsState(GameState.Pause))
         {
             GameManager.ChangeState(GameState.Playing);

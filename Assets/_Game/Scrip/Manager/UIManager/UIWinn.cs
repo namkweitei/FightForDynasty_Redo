@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using DG.Tweening;
 public class UIWinn : UICanvas
 {
     [SerializeField] Button buttonReward;
@@ -12,6 +12,15 @@ public class UIWinn : UICanvas
     [SerializeField] int coinReward;
     [SerializeField] TextMeshProUGUI getCoinText;
     [SerializeField] int getCoin;
+        [SerializeField] Transform pobUp;
+    [SerializeField] Image background;
+    public void StartPobUp(){
+        Time.timeScale = 0;
+        background.DOFade(0.7f, 0.5f);
+        pobUp.localScale = Vector3.zero;
+        pobUp.DOScale(1, 0.5f).SetUpdate(true);
+
+    }
     private void Start()
     {
         coinReward = Random.Range(20, 30) * 10;
@@ -27,6 +36,7 @@ public class UIWinn : UICanvas
                 GetButton();
             });
     }
+    
     public void RewardButton()
     {
         MapManager.Ins.NextMap();
@@ -34,6 +44,7 @@ public class UIWinn : UICanvas
         UIManager.Ins.CloseUI<UIWinn>();
         GameManager.ChangeState(GameState.GamePlay);
         GameManager.Ins.currenGameState = GameState.GamePlay;
+        Time.timeScale = 1;
     }
     public void GetButton()
     {
@@ -43,6 +54,7 @@ public class UIWinn : UICanvas
         UIManager.Ins.CloseUI<UIWinn>();
         GameManager.ChangeState(GameState.GamePlay);
         GameManager.Ins.currenGameState = GameState.GamePlay;
+        Time.timeScale = 1;
     }
     private void AddCoin(int value)
     {

@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 2503712636552599460}
   m_Father: {fileID: 4628414197333374808}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 17.252, z: 0}
 --- !u!33 &1169178564660839584
 MeshFilter:
@@ -129,17 +129,8 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2502574427769824924}
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 6
   m_Height: 1
   m_Direction: 1
@@ -162,8 +153,8 @@ MonoBehaviour:
   rotation: {fileID: 4323342505245692362}
   bow: {fileID: 2503712636552599460}
   shootTimer: 1
-  shootSpeed: 0.5
-  damage: 10
+  shootSpeed: 1
+  damage: 3
   enemy: []
 --- !u!54 &3082887810819062465
 Rigidbody:
@@ -172,21 +163,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2502574427769824924}
-  serializedVersion: 4
+  serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
@@ -222,7 +202,7 @@ Transform:
   m_Children:
   - {fileID: 6112474660017786294}
   m_Father: {fileID: 4323342505245692362}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -22, y: 0, z: 0}
 --- !u!1 &2951466326911610779
 GameObject:
@@ -254,7 +234,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4628414197333374808}
-  m_RootOrder: -1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &7488321727821356222
 SpriteRenderer:
@@ -339,7 +319,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4628414197333374808}
-  m_RootOrder: -1
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9152296503772164456
 MeshFilter:
@@ -423,7 +403,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6112474660017786294}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -19, y: 0, z: 0}
 --- !u!33 &5027612038062336945
 MeshFilter:
@@ -483,18 +463,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6615237936502190769}
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7986764104267092677
 GameObject:
@@ -528,7 +500,7 @@ Transform:
   m_Children:
   - {fileID: 7996397502553058380}
   m_Father: {fileID: 2503712636552599460}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 22.252, y: 0, z: 0}
 --- !u!33 &3334299401046075912
 MeshFilter:

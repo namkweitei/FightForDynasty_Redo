@@ -80,7 +80,7 @@ public class UpTowerSystem : MonoBehaviour
     }
     private void Update()
     {
-        if (isActive)
+        if (isActive && !Player.Ins.GetMove())
         {
             LoadCircle();
         }

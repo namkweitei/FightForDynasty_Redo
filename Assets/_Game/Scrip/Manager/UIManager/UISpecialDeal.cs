@@ -6,6 +6,7 @@ public class UISpecialDeal : UICanvas
 {
     public void CloseButton()
     {
+        Time.timeScale = 1;
         UIManager.Ins.CloseUI<UISpecialDeal>();
     }
 }

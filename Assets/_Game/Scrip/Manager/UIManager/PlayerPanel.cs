@@ -23,7 +23,7 @@ public class PlayerPanel : MonoBehaviour, IObserver
     {
         hpText.text = hp.ToString();
         recoveryText.text = String.Format("{0:0.##}", recovery); ;
-        speedText.text = speed.ToString();
+        speedText.text = (speed * 0.02f).ToString();
         upHpText.text = "+ " + Mathf.Ceil(hp / 100 * 15).ToString();
         upRecoveryText.text = "+ 0.1";
         upSpeedText.text = "+ " + Mathf.Ceil(speed / 100 * 10).ToString();

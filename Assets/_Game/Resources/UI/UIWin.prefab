@@ -1453,7 +1453,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: e8005ccd31326cd4290645d48d58cfc1, type: 3}
   m_Controller: {fileID: 9100000, guid: 20478b18c101ac54a87d41e1bfc6cf0d, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -2181,7 +2181,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ca7580a631f6b9743873da31009ab471, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -2598,7 +2598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.45490196}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3022,6 +3022,8 @@ MonoBehaviour:
   coinReward: 250
   getCoinText: {fileID: 2324990123225743676}
   getCoin: 0
+  pobUp: {fileID: 3711365403985332095}
+  background: {fileID: 7746113518402560236}
 --- !u!1 &5060864468632906410
 GameObject:
   m_ObjectHideFlags: 0

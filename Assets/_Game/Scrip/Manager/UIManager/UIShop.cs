@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using Unity.XR.OpenVR;
 using UnityEngine;
 using UnityEngine.UI;
-
+using DG.Tweening;
+using JetBrains.Annotations;
 
 
 public enum TypeButton{
@@ -20,6 +21,8 @@ public class UIShop : UICanvas
     public DailyRewardDisplay DailyRewardBuckDisplay;
     public DailyRewardDisplay DailyRewardCoinDisplay;
     public GameObject SpecialDealObject;
+    public Image background;
+    public Transform pobUp;
     private void Start() {
         foreach(ButtonClaim _button in buttonClaims){
             _button.Button.onClick.AddListener(() =>
@@ -34,9 +37,15 @@ public class UIShop : UICanvas
     public void CloseButton()
     {
         UIManager.Ins.CloseUI<UIShop>();
+        Time.timeScale = 1;
         GameManager.ChangeState(GameManager.Ins.currenGameState);
     }
-
+    public void StartPobUp(){
+        Time.timeScale = 0;
+        background.DOFade(0.7f, 0.5f);
+        pobUp.transform.localScale = Vector3.zero;
+        pobUp.transform.DOScale(1, 0.5f).SetUpdate(true);
+    }
     private void ProcessEventButton(TypeButton typeButton, TypeEventButton typeEventButton, int value, int price){
         if(typeButton == TypeButton.Buck){
             if(typeEventButton == TypeEventButton.Reward){

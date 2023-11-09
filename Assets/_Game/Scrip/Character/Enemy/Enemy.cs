@@ -47,7 +47,7 @@ public class Enemy : Character
         {
             if (!GameManager.IsState(GameState.Playing))
             {
-                stateMachine.ChangeState(IdleState);
+                ChangeAnim(Constants.ANIM_IDLE);
                 return;
             }
             stateMachine?.Execute();
@@ -89,7 +89,7 @@ public class Enemy : Character
         dir.Normalize();
         Quaternion targetRotation = Quaternion.LookRotation(dir);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 50);
-        float timeAttack = anim.GetCurrentAnimatorStateInfo(2).length * 0.5f;
+        float timeAttack = anim.GetCurrentAnimatorStateInfo(1).length * 0.5f;
         Invoke(nameof(DealDmg), timeAttack);
         agent.updateRotation = false;
         Invoke(nameof(ResetAttack), 1f);
@@ -164,7 +164,7 @@ public class Enemy : Character
     {
         onEnter = () =>
         {
-            ChangeAnim(Constants.ANIM_WALKFW);
+            ChangeAnim(Constants.ANIM_RUNFW);
             Moving();
         };
 
@@ -186,12 +186,12 @@ public class Enemy : Character
                 }
                 else
                 {
-                    ChangeAnim(Constants.ANIM_WALKFW);
+                    ChangeAnim(Constants.ANIM_RUNFW);
                 }
             }
             else
             {
-                ChangeAnim(Constants.ANIM_WALKFW);
+                ChangeAnim(Constants.ANIM_RUNFW);
             }
         };
 
@@ -204,7 +204,7 @@ public class Enemy : Character
     {
         onEnter = () =>
         {
-            ChangeAnim(Constants.ANIM_WALKFW);
+            ChangeAnim(Constants.ANIM_RUNFW);
             Moving();
             isFollow = false;
         };
@@ -229,8 +229,7 @@ public class Enemy : Character
                 else
                 {
                     agent.isStopped = true;
-                    ChangeAnim(Constants.ANIM_WALKFW);
-                    //SetPlayer();
+                    ChangeAnim(Constants.ANIM_RUNFW);
                     dir = Player.Ins.transform.position - transform.position;
                     dir.y = 0f;
                     dir.Normalize();
@@ -242,6 +241,7 @@ public class Enemy : Character
             else
             {
                 Moving();
+                    
             }
         };
 

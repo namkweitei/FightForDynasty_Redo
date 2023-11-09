@@ -13,7 +13,7 @@ public class LoadAttackPoint : MonoBehaviour
 
     private void Update()
     {
-        if (isLoad)
+        if (isLoad && !Player.Ins.GetMove())
         {
             loadCircle.fillAmount += 1 / loadTime * Time.fixedDeltaTime * 2;
             if (loadCircle.fillAmount >= 1)
