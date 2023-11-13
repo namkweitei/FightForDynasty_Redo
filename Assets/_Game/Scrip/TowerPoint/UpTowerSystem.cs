@@ -17,6 +17,7 @@ public class UpTowerSystem : MonoBehaviour
     [SerializeField] private float timeSpawn;
     [SerializeField] private float targetTime;
     [SerializeField] private TowerPopUp towerPopUp;
+    [SerializeField] private int targetcoin = 50;
     public int Id { get => id; set => id = value; }
     private bool isActive;
     public void OnInit()
@@ -51,7 +52,7 @@ public class UpTowerSystem : MonoBehaviour
         {
             hasTower = true;
             if(towerCurrent != null){
-                towerCurrent.gameObject.SetActive(false);
+                Destroy(towerCurrent.gameObject);
             }
             towerCurrent = Instantiate( towerPrefabs[Level - 1], towerHolder.position, Quaternion.identity);
             towerCurrent.transform.SetParent(towerHolder);
@@ -72,6 +73,13 @@ public class UpTowerSystem : MonoBehaviour
         else
         {
             hasTower = false;
+            
+            if(towerCurrent != null)
+            {
+                Destroy(towerCurrent.gameObject);
+                circle.gameObject.SetActive(true);
+                currentCoin = targetcoin;
+            }
             uptower.OnInit(currentCoin);
             upgrateTower.SetActive(false);
             Level = 0;
@@ -127,7 +135,8 @@ public class UpTowerSystem : MonoBehaviour
         {
             buildEffect.Play();
             if(towerCurrent != null){
-                towerCurrent.gameObject.SetActive(false);
+                Destroy(towerCurrent.gameObject);
+
             }
             towerCurrent = Instantiate( towerPrefabs[Level],towerHolder.position, Quaternion.identity);
             towerCurrent.transform.SetParent(towerHolder);
