@@ -12,7 +12,7 @@ public class Lighting : GameUnit
     [SerializeField] private List<Character> enemyList;
     public int currentEnemyIndex;
     public int maxEnemyIndex;
-    public void OnInit(Character enemy, float damage)
+    public void OnInit(Character enemy, float damage, int enemyCount)
     {
         enemyList.Clear();
         trailRenderer.Clear();
@@ -20,6 +20,7 @@ public class Lighting : GameUnit
         this.damage = damage;
         currentEnemyIndex = 0;
         enemyList.Add(enemy);
+        maxEnemyIndex = enemyCount;
     }
     private void Update()
     {

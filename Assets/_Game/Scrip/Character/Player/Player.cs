@@ -60,12 +60,15 @@ public class Player : Character
     [SerializeField] private Character target;
     [SerializeField] private Animator bowAnimation;
     public List<GameObject> Armor { get => armor; set => armor = value; }
+    public bool IsMove { get => isMove; set => isMove = value; }
+
     private float horizontal;
     private float vertical;
     private Vector3 movement;
     private Vector3 direction;
     public bool isAttack;
     private float rangeAttack;
+    private bool isMove;
     private void Start()
     {
         ChangeEquiment(SaveLoadData.Ins.PlayerData.EquiType);
@@ -75,6 +78,7 @@ public class Player : Character
     }
     public override void OnInit()
     {
+        isMove = true;
         isAttack = false;
         maxHp = SaveLoadData.Ins.PlayerData.Hp;
         speed = SaveLoadData.Ins.PlayerData.Speed;
@@ -82,9 +86,15 @@ public class Player : Character
     }
     private void Update()
     {
-        if (IsDead) return;
-        horizontal = UltimateJoystick.GetHorizontalAxis("PlayerJoystick");
-        vertical = UltimateJoystick.GetVerticalAxis("PlayerJoystick");
+        if (IsDead ) return;
+        if(isMove){
+            horizontal = UltimateJoystick.GetHorizontalAxisRaw("PlayerJoystick");
+            vertical = UltimateJoystick.GetVerticalAxisRaw("PlayerJoystick");
+        }else{
+            horizontal = 0;
+            vertical = 0;
+        }
+
     }
 
     private void FixedUpdate()
@@ -97,27 +107,20 @@ public class Player : Character
         {
             if (Mathf.Abs(horizontal) < 0.01f & Mathf.Abs(vertical) < 0.01f)
             {
-                ChangeAnim(Constants.ANIM_IDLE);
-                //anim.Play("idle",0);
-                //anim.Play("idle",1);
-                
+                ChangeAnim(Constants.ANIM_IDLE);           
             }
             else
             {
                 ChangeAnim(Constants.ANIM_RUNFW);
-                //anim.Play("run", 0);
-                //anim.Play("run", 1);
             }
 
         }else{
             if (Mathf.Abs(horizontal) < 0.01f & Mathf.Abs(vertical) < 0.01f)
             {
-                //ChangeAnim(Constants.ANIM_IDLE);
                 anim.Play("idle",0);
             }
             else
             {
-                //ChangeAnim(Constants.ANIM_RUNFW);
                 anim.Play("run", 0);
             }
         }
@@ -126,9 +129,9 @@ public class Player : Character
 
     protected virtual void JoystickMovement()
     {
-        movement = new Vector3(-horizontal, 0f, -vertical);
-        movement.Normalize();
-        rb.velocity = movement * speed * Time.fixedDeltaTime;
+            movement = new Vector3(-horizontal, 0f, -vertical);
+            movement.Normalize();
+            rb.velocity = movement * speed * Time.fixedDeltaTime;
         
     }
 
@@ -196,20 +199,25 @@ public class Player : Character
             //     ChangeAnim(Constants.ANIM_ATTACKIDLE);
             // }
             this.target = target; 
+            Invoke(nameof(ResetAttack), 1f);
         }
     }
     public void ResetAttack()
     {
-        Debug.Log("Vao day");
+        Debug.Log("vao day2");
         isAttack = false;
-        if (GetMove())
-            {
-                ChangeAnim(Constants.ANIM_ATTACKRUN);
+        if (GetMove() )
+        {
+            if(!IsDead){
+
+            ChangeAnim(Constants.ANIM_RUNFW);
             }
-            else
-            {
-                ChangeAnim(Constants.ANIM_IDLE);
-            }
+        }
+        else
+        {
+            if(!IsDead){
+            ChangeAnim(Constants.ANIM_IDLE);}
+        }
         attackTimer = attackSpeed;
     }
     public void StartBow(){
@@ -237,6 +245,7 @@ public class Player : Character
 
             if (shootPoint != null)
             {
+                Debug.Log("vao day1");
                 bullet = SmartPool.Ins.Spawn<Bullet>(PoolType.Arrow, shootPoint.position, Quaternion.LookRotation(direction));
                 AudioManager.Ins.PlaySfx(Constants.SFX_SHOOT);
                 if (bullet != null)

@@ -29,9 +29,13 @@ public class Flag : MonoBehaviour
     {
         if (isActive)
         {
+            
             timeActive -= Time.deltaTime;
             if (timeActive <= 0)
             {
+                if(Player.Ins.IsMove){
+                    Player.Ins.IsMove = false;
+                }
                 ActivePlayerFlag();
             }
         }

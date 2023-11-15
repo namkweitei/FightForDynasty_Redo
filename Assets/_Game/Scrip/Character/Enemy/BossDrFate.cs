@@ -9,7 +9,7 @@ public class BossDrFate : Enemy
     protected override void DealDmg()
     {
         Lighting bullet = SmartPool.Ins.Spawn<Lighting>(PoolType.Lighting, shootPos.position, shootPos.rotation);
-        bullet.OnInit(Player.Ins, damage * 1.5f);
+        bullet.OnInit(Player.Ins, damage * 1.5f, 1);
     }
    
 }

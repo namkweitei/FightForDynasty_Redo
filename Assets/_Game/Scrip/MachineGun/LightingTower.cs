@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class LightingTower : Tower
 {
+    [SerializeField] int enemyCount;
     protected override void Start() => enemy.Clear();
     protected override void FixedUpdate()
     {
@@ -30,7 +31,7 @@ public class LightingTower : Tower
         if (this.shootTimer < 0)
         {
             Lighting bullet = SmartPool.Ins.Spawn<Lighting>(PoolType.Lighting, shootPoint[0].position, shootPoint[0].rotation);
-            bullet.OnInit(enemy, damage);
+            bullet.OnInit(enemy, damage, enemyCount);
             this.shootTimer = shootSpeed;
         }
     }

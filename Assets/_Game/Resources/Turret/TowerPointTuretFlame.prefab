@@ -166,8 +166,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uptower: {fileID: 1569955151195175893}
   upTowerSystem: {fileID: 6888941313001465572}
-  currentCoin: 50
-  targetCoin: 50
+  currentCoin: 80
+  coinLv3: 110
   timeSpawn: 0
   targetTime: 0
   coin: {fileID: 2136607151583701250}
@@ -14943,15 +14943,15 @@ MonoBehaviour:
   towerCurrent: {fileID: 0}
   towerHolder: {fileID: 6728892379332371857}
   buildEffect: {fileID: 4229984644562839443}
-  towerLevel: 0
   uptower: {fileID: 1569955151195175893}
   circle: {fileID: 678977916330007424}
   hasTower: 0
-  currentCoin: 50
+  currentCoin: 60
   upgrateTower: {fileID: 386600146382708078}
   timeSpawn: 0
   targetTime: 0.01
   towerPopUp: {fileID: 6786582488266586582}
+  targetcoin: 50
 --- !u!1 &7918106576925939562
 GameObject:
   m_ObjectHideFlags: 0

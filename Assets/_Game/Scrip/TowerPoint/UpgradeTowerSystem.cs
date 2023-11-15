@@ -8,12 +8,14 @@ public class UpgradeTowerSystem : MonoBehaviour
     [SerializeField] private UpdateTower uptower;
     [SerializeField] private UpTowerSystem upTowerSystem;
     [SerializeField] private int currentCoin;
-    [SerializeField] int targetCoin;
+    [SerializeField] int coinLv3;
     [SerializeField] private float timeSpawn;
     [SerializeField] private float targetTime;
     [SerializeField] private TextMeshPro coin;
     private bool isActive;
-
+    private void Start() {
+        coin.text = currentCoin.ToString();
+    }
     private void Update()
     {
         if (isActive && !Player.Ins.GetMove())
@@ -46,8 +48,7 @@ public class UpgradeTowerSystem : MonoBehaviour
 
                 upTowerSystem.SetTower();
                 uptower.LoadCircle.fillAmount = 0;
-                currentCoin = targetCoin + 20;
-                targetCoin += 20;
+                currentCoin = coinLv3;
                 coin.text = currentCoin.ToString();
                 if (!upTowerSystem.CheckTower())
                 {

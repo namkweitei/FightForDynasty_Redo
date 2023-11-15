@@ -51,7 +51,7 @@ public class BossAnubis : Enemy
                 break;
             case Skill.SpecialSkill:
                 Lighting bullet = SmartPool.Ins.Spawn<Lighting>(PoolType.Lighting, shootPos.position, shootPos.rotation);
-                bullet.OnInit(Player.Ins, damage * 1.5f);
+                bullet.OnInit(Player.Ins, damage * 1.5f, 1);
                 break;
             default:
                 break;

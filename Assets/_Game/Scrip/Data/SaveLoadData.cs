@@ -5,12 +5,12 @@ using UnityEngine;
 public interface IObserver
 {
     void OnNotifyAddCurrency();
-    
+
 }
 public class SaveLoadData : Singleton<SaveLoadData>
 {
     [Header("---------TowerData----------")]
-    public Dictionary<int, int> TowerData;
+    [SerializeField] private Dictionary<int, int> towerData;
     [Header("---------PlayerData---------")]
     [SerializeField] private PlayerData playerData;
     [Header("---------CampCharacterData--")]
@@ -23,8 +23,35 @@ public class SaveLoadData : Singleton<SaveLoadData>
     public PlayerData PlayerData { get => playerData; }
     public CampCharacterData CampCharacterData { get => campCharacterData; }
     public MapData MapData { get => mapData; }
-    public DailyReward CoinReward { get => coinReward; set => coinReward = value; }
-    public DailyReward BuckReward { get => buckReward; set => buckReward = value; }
+    public DailyReward CoinReward
+    {
+        get => coinReward;
+        set
+        {
+            coinReward = value;
+            SaveALL();
+        }
+    }
+    public DailyReward BuckReward
+    {
+        get => buckReward; set
+        {
+            buckReward = value;
+            SaveALL();
+        }
+    }
+    public Dictionary<int, int> TowerData
+    {
+        get => towerData;
+        set
+        {
+            towerData = value;
+            Debug.Log("....");
+            SaveALL();
+        }
+
+    }
+
     public bool IsGetSpecialDeal;
 
     protected override void Awake()
@@ -73,7 +100,7 @@ public class SaveLoadData : Singleton<SaveLoadData>
         }
         else
         {
-            TowerData = LoadTowerData();
+            towerData = LoadTowerData();
         }
         if (!ES3.KeyExists(Constants.DATA_DAILYREWARDBUCKDATA, Constants.DATA_CAMPCHARACTERDATA))
         {
@@ -81,7 +108,7 @@ public class SaveLoadData : Singleton<SaveLoadData>
         }
         else
         {
-            BuckReward = LoadDailyRewardBuckData();
+            buckReward = LoadDailyRewardBuckData();
         }
         if (!ES3.KeyExists(Constants.DATA_DAILYREWARDCOINDATA, Constants.DATA_CAMPCHARACTERDATA))
         {
@@ -89,7 +116,7 @@ public class SaveLoadData : Singleton<SaveLoadData>
         }
         else
         {
-            CoinReward = LoadDailyRewardCoinData();
+            coinReward = LoadDailyRewardCoinData();
         }
         if (!ES3.KeyExists(Constants.DATA_DAILYREWARDCOINDATA, "IsGetSpecialDeal"))
         {
@@ -128,7 +155,7 @@ public class SaveLoadData : Singleton<SaveLoadData>
     }
     public void SaveTowerData()
     {
-        ES3.Save(Constants.DATA_TOWERDATA, TowerData, Constants.DATA_TOWERDATA);
+        ES3.Save(Constants.DATA_TOWERDATA, towerData, Constants.DATA_TOWERDATA);
     }
     public Dictionary<int, int> LoadTowerData()
     {
@@ -136,7 +163,7 @@ public class SaveLoadData : Singleton<SaveLoadData>
     }
     public void SaveDailyRewardCoinData()
     {
-        ES3.Save(Constants.DATA_DAILYREWARDCOINDATA, CoinReward, Constants.DATA_DAILYREWARDDATA);
+        ES3.Save(Constants.DATA_DAILYREWARDCOINDATA, coinReward, Constants.DATA_DAILYREWARDDATA);
     }
     public DailyReward LoadDailyRewardBuckData()
     {
@@ -144,13 +171,13 @@ public class SaveLoadData : Singleton<SaveLoadData>
     }
     public void SaveDailyRewardBuckData()
     {
-        ES3.Save(Constants.DATA_DAILYREWARDBUCKDATA, BuckReward, Constants.DATA_DAILYREWARDDATA);
+        ES3.Save(Constants.DATA_DAILYREWARDBUCKDATA, buckReward, Constants.DATA_DAILYREWARDDATA);
     }
     public DailyReward LoadDailyRewardCoinData()
     {
         return ES3.Load<DailyReward>(Constants.DATA_DAILYREWARDCOINDATA, Constants.DATA_DAILYREWARDDATA);
     }
-     public void SaveGetSpecialDeal()
+    public void SaveGetSpecialDeal()
     {
         ES3.Save(Constants.DATA_DAILYREWARDBUCKDATA, IsGetSpecialDeal, "IsGetSpecialDeal");
     }
@@ -158,15 +185,7 @@ public class SaveLoadData : Singleton<SaveLoadData>
     {
         return ES3.Load<bool>(Constants.DATA_DAILYREWARDCOINDATA, "IsGetSpecialDeal");
     }
-    public void SaveALL(){
-        SaveCampCharacterInfor();
-        SaveMapData();
-        SavePlayerInfor();
-        SaveTowerData();
-        SaveDailyRewardBuckData();
-        SaveDailyRewardCoinData();
-    }
-    private void OnApplicationQuit()
+    public void SaveALL()
     {
         SaveCampCharacterInfor();
         SaveMapData();
@@ -175,9 +194,15 @@ public class SaveLoadData : Singleton<SaveLoadData>
         SaveDailyRewardBuckData();
         SaveDailyRewardCoinData();
     }
-
-
-
+    private void OnApplicationPause()
+    {
+        SaveCampCharacterInfor();
+        SaveMapData();
+        SavePlayerInfor();
+        SaveTowerData();
+        SaveDailyRewardBuckData();
+        SaveDailyRewardCoinData();
+    }
 }
 [Serializable]
 public class PlayerData
@@ -199,6 +224,7 @@ public class PlayerData
         set
         {
             hp = value;
+            SaveLoadData.Ins.SaveALL();
         }
     }
     public float Speed
@@ -207,6 +233,7 @@ public class PlayerData
         set
         {
             speed = value;
+            SaveLoadData.Ins.SaveALL();
         }
     }
     public float RegenHp
@@ -215,6 +242,7 @@ public class PlayerData
         set
         {
             regenHp = value;
+            SaveLoadData.Ins.SaveALL();
         }
     }
     public float Exp
@@ -223,6 +251,7 @@ public class PlayerData
         set
         {
             exp = value;
+            SaveLoadData.Ins.SaveALL();
         }
     }
     public float CurrentExp
@@ -231,8 +260,10 @@ public class PlayerData
         set
         {
             currentExp = value;
-            if(currentExp >= exp){
-                Level ++;
+            SaveLoadData.Ins.SaveALL();
+            if (currentExp >= exp)
+            {
+                Level++;
                 CurrentExp = 0;
                 Exp += Exp * 0.5f;
                 Hp += Hp / 100 * 15;
@@ -251,6 +282,7 @@ public class PlayerData
         set
         {
             level = value;
+            SaveLoadData.Ins.SaveALL();
             NotifyObserversAddCurrency();
         }
     }
@@ -263,6 +295,7 @@ public class PlayerData
         set
         {
             coin = value;
+            SaveLoadData.Ins.SaveALL();
             NotifyObserversAddCurrency();
         }
     }
@@ -275,6 +308,7 @@ public class PlayerData
         set
         {
             buck = value;
+            SaveLoadData.Ins.SaveALL();
             NotifyObserversAddCurrency();
         }
     }
@@ -284,6 +318,7 @@ public class PlayerData
         set
         {
             equiType = value;
+            SaveLoadData.Ins.SaveALL();
         }
     }
     public List<Equiment> EquimentDatas
@@ -292,6 +327,7 @@ public class PlayerData
         set
         {
             equimentDatas = value;
+            SaveLoadData.Ins.SaveALL();
         }
     }
     #endregion
@@ -329,6 +365,7 @@ public class CampCharacterData
         set
         {
             maxHp = value;
+            SaveLoadData.Ins.SaveALL();
         }
     }
     public float Hp
@@ -337,6 +374,7 @@ public class CampCharacterData
         set
         {
             hp = value;
+            SaveLoadData.Ins.SaveALL();
         }
     }
     public int Level
@@ -345,6 +383,7 @@ public class CampCharacterData
         set
         {
             level = value;
+            SaveLoadData.Ins.SaveALL();
         }
     }
     public int Coin
@@ -353,6 +392,7 @@ public class CampCharacterData
         set
         {
             coin = value;
+            SaveLoadData.Ins.SaveALL();
         }
     }
 }
@@ -368,6 +408,7 @@ public class MapData
         set
         {
             level = value;
+            SaveLoadData.Ins.SaveALL();
         }
     }
     public int Wave
@@ -376,6 +417,7 @@ public class MapData
         set
         {
             wave = value;
+            SaveLoadData.Ins.SaveALL();
         }
     }
 

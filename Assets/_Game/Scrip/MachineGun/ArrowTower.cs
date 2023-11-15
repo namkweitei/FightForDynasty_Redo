@@ -31,16 +31,25 @@ public class ArrowTower : Tower
         this.shootTimer -= Time.fixedDeltaTime;
         if (this.shootTimer < 0)
         {
-            foreach (var item in shootPoint)
+            if (shootPoint.Count > 1)
             {
-                
-                Bullet bullet = SmartPool.Ins.Spawn<Bullet>(PoolType.Arrow, item.position, item.rotation);
-                bullet.OnInit(target, damage);
-                AudioManager.Ins.PlaySfx(Constants.SFX_SHOOT);
-                // bullet.targetObject = target;
-                // bullet.Damage = damage;
+                foreach (var item in shootPoint)
+                {
+
+                    Bullet bullet = SmartPool.Ins.Spawn<Bullet>(PoolType.Arrow, item.position, item.rotation);
+                    bullet.OnInit(null, damage);
+                    AudioManager.Ins.PlaySfx(Constants.SFX_SHOOT);
+                    // bullet.targetObject = target;
+                    // bullet.Damage = damage;
+                }
+                this.shootTimer = shootSpeed;
+            }else{
+                 Bullet bullet = SmartPool.Ins.Spawn<Bullet>(PoolType.Arrow, shootPoint[0].position, shootPoint[0].rotation);
+                    bullet.OnInit(target, damage);
+                    AudioManager.Ins.PlaySfx(Constants.SFX_SHOOT);
+                    this.shootTimer = shootSpeed;
             }
-            this.shootTimer = shootSpeed;
+
         }
     }
 

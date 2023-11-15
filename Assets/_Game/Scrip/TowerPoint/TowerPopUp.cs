@@ -18,7 +18,7 @@ public class TowerPopUp : MonoBehaviour
     {
         currentDamage.text = damage.ToString();
         nextLevelDamage.text = Math.Round((double)damage * 0.3f, 1).ToString();
-        currentFireRate.text = (1 / fireRate).ToString();
+        currentFireRate.text = Math.Round((double)(1 / fireRate), 1).ToString();
         nextLevelFireRate.text = Math.Round((double)(1 / fireRate * 0.1f), 1).ToString();
         levelText.text = "Level " + lv.ToString();
     }

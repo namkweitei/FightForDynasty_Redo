@@ -20,6 +20,9 @@ public class UpTowerSystem : MonoBehaviour
     [SerializeField] private int targetcoin = 50;
     public int Id { get => id; set => id = value; }
     private bool isActive;
+    private void Start() {
+        uptower.SetCurrentCoin(currentCoin);
+    }
     public void OnInit()
     {
         Level = SaveLoadData.Ins.TowerData[Id];
@@ -145,7 +148,7 @@ public class UpTowerSystem : MonoBehaviour
             towerPopUp.OnInit(towerCurrent.Damage, towerCurrent.ShootSpeed, Level + 1 );
             SaveLoadData.Ins.TowerData[Id]++;
             Debug.Log(SaveLoadData.Ins.TowerData[Id]);
-            if (Level >= towerPrefabs.Count)
+            if (SaveLoadData.Ins.TowerData[Id] >= towerPrefabs.Count)
             {
                 upgrateTower.SetActive(false);
             }

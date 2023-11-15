@@ -43,7 +43,7 @@ public class Map : MonoBehaviour
     [SerializeField] private List<UpTowerSystem> towerSystems;
     [SerializeField] private Transform playerPoint;
     [SerializeField] private Transform campPoint;
-    int currentBarrack;
+    public int currentBarrack;
     int enemyCount;
     int enemyCountWave;
     int totalEnemy;
@@ -58,7 +58,6 @@ public class Map : MonoBehaviour
     private void Start()
     {
         if(attackPoint != null){
-
         attackPoint.Map = this;
         }
     }
@@ -92,7 +91,7 @@ public class Map : MonoBehaviour
                     DOVirtual.DelayedCall(2.5f, () =>
                     {
                         CampCharacter.Ins.cameraFollow.enabled = false;
-
+                        Player.Ins.IsMove = true;
                     });
                 });
             });
@@ -336,6 +335,7 @@ public class Map : MonoBehaviour
             // SaveLoadData.Ins.MapData.CurrentMap.id = id;
             SaveLoadData.Ins.MapData.Wave++;
             UIManager.Ins.GetUI<UIGamePlay>().SetFill(SaveLoadData.Ins.MapData.Wave);
+            UIManager.Ins.GetUI<UIGamePlay>().SetTextWave(SaveLoadData.Ins.MapData.Wave + 1);
             currentBarrack = 0;
         };
     }
@@ -371,13 +371,14 @@ public class Map : MonoBehaviour
                     {
                         currentBarrack++;
                         SaveLoadData.Ins.MapData.Wave++;
-                        UIManager.Ins.GetUI<UIGamePlay>().SetTextWave(SaveLoadData.Ins.MapData.Wave + 1);
+                       
                         for (int i = 0; i < waveData.barrackWave[currentBarrack].enemyCates.Count; i++)
                         {
                             enemyCount += waveData.barrackWave[currentBarrack].enemyCates[i].enemyCount;
                         }
                         enemyCountWave = enemyCount;
                     }
+                    UIManager.Ins.GetUI<UIGamePlay>().SetTextWave(SaveLoadData.Ins.MapData.Wave + 1);
                     timeNextWave = 2f;
                 }
             }

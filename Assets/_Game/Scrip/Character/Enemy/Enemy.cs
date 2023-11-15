@@ -32,6 +32,7 @@ public class Enemy : Character
     {
         agent.enabled = true;
         agent.speed = speed;
+        agent.updateRotation = true;
         ChangeAnim(Constants.ANIM_IDLE);
         float randomFloat = UnityEngine.Random.Range(0.2f, 0.6f);
         agent.radius = randomFloat;
@@ -144,7 +145,8 @@ public class Enemy : Character
     protected override void OnDead()
     {
         OnDeathAction?.Invoke(this);
-        Stop();
+        agent.isStopped = true;
+        agent.updateRotation = false;
         ChangeAnim(Constants.ANIM_DEAD);
         if(animAnimal != null){
             animAnimal.SetTrigger("dead");
@@ -165,6 +167,7 @@ public class Enemy : Character
         onEnter = () =>
         {
             ChangeAnim(Constants.ANIM_RUNFW);
+            agent.isStopped = false;
             Moving();
         };
 
@@ -255,7 +258,7 @@ public class Enemy : Character
         onEnter = () =>
         {
             ChangeAnim(Constants.ANIM_IDLE);
-            Stop();
+            agent.isStopped = true;
         };
 
         onExecute = () =>

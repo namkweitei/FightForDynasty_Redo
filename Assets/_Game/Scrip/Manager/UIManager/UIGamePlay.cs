@@ -56,8 +56,8 @@ public class UIGamePlay : UICanvas
     }
     public void SettingButton()
     {
-        UIManager.Ins.OpenUI<UIShop>();
-        UIManager.Ins.GetUI<UIShop>().StartPobUp();
+        UIManager.Ins.OpenUI<UISetting>();
+        UIManager.Ins.GetUI<UISetting>().StartPobUp();
         if (GameManager.IsState(GameState.Playing))
         {
             GameManager.ChangeState(GameState.Pause);
@@ -96,4 +96,5 @@ public class UIGamePlay : UICanvas
             Time.timeScale = 2;
         }
     }
+
 }

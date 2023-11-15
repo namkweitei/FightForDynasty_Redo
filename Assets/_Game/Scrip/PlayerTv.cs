@@ -12,6 +12,9 @@ public class PlayerTv : Singleton<PlayerTv>
     [SerializeField] private List<GameObject> armor;
     public List<GameObject> Armor{get => armor; set => armor = value;}
 
+private void Start() {
+    SetArmor(SaveLoadData.Ins.PlayerData.Level);
+}
     [Button]
     public void ChangeEquip(int count)
     {

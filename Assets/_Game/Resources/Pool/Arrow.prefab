@@ -43,21 +43,12 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242342432583445614}
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 0.02
-  m_Height: 0.8
+  m_Height: 0.31
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0.09}
+  m_Center: {x: 0, y: 0, z: 0.3}
 --- !u!114 &3751451961037437844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,6 +66,8 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: -1}
   targetObject: {fileID: 0}
   trailRenderer: {fileID: 279895130480630227}
+  isTargetEnemy: 0
+  indexPos: {x: 0, y: 0, z: 0}
 --- !u!1 &2292063732794278287
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +99,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731024529948837317}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &1879742888304116203
 MeshFilter:
@@ -191,11 +184,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 731024529948837317}
-  m_RootOrder: -1
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!96 &279895130480630227
 TrailRenderer:
-  serializedVersion: 3
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -236,7 +229,6 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Time: 0.2
-  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.0799427
@@ -291,21 +283,17 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 80
     numCapVertices: 81
     alignment: 0
     textureMode: 0
-    textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 1
-  m_ApplyActiveColorSpace: 0
 --- !u!95 &4506076163338604987
 Animator:
   serializedVersion: 5
