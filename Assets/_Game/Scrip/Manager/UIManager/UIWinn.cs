@@ -43,7 +43,14 @@ public class UIWinn : UICanvas
         UIManager.Ins.CloseUI<UIWinn>();
         GameManager.ChangeState(GameState.GamePlay);
         GameManager.Ins.currenGameState = GameState.GamePlay;
-        Time.timeScale = 1;
+        if (UIManager.Ins.GetUI<UIGamePlay>().isSpeedUp)
+        {
+            Time.timeScale = 2;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
     public void GetButton()
     {
@@ -53,7 +60,14 @@ public class UIWinn : UICanvas
         UIManager.Ins.CloseUI<UIWinn>();
         GameManager.ChangeState(GameState.GamePlay);
         GameManager.Ins.currenGameState = GameState.GamePlay;
-        Time.timeScale = 1;
+                if (UIManager.Ins.GetUI<UIGamePlay>().isSpeedUp)
+        {
+            Time.timeScale = 2;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
     private void AddCoin(int value)
     {

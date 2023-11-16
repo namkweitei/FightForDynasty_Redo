@@ -20,7 +20,14 @@ public class UISetting : UICanvas
     public void CloseButton()
     {
         UIManager.Ins.CloseUI<UISetting>();
-        Time.timeScale = 1;
+        if (UIManager.Ins.GetUI<UIGamePlay>().isSpeedUp)
+        {
+            Time.timeScale = 2;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
         if (GameManager.IsState(GameState.Pause))
         {
             GameManager.ChangeState(GameState.Playing);

@@ -82,6 +82,7 @@ public class Player : Character
         isAttack = false;
         maxHp = SaveLoadData.Ins.PlayerData.Hp;
         speed = SaveLoadData.Ins.PlayerData.Speed;
+        ChangeAnim(Constants.ANIM_IDLE);
         base.OnInit();
     }
     private void Update()
@@ -189,17 +190,8 @@ public class Player : Character
         {
             isAttack = true;
             ChangeAnim(Constants.ANIM_ATTACKIDLE);
-            //anim.Play("attack", 1);
-            // if (GetMove())
-            // {
-            //     ChangeAnim(Constants.ANIM_ATTACKRUN);
-            // }
-            // else
-            // {
-            //     ChangeAnim(Constants.ANIM_ATTACKIDLE);
-            // }
             this.target = target; 
-            Invoke(nameof(ResetAttack), 1f);
+            //Invoke(nameof(ResetAttack), 1f);
         }
     }
     public void ResetAttack()
@@ -209,14 +201,13 @@ public class Player : Character
         if (GetMove() )
         {
             if(!IsDead){
-
-            ChangeAnim(Constants.ANIM_RUNFW);
+                ChangeAnim(Constants.ANIM_RUNFW);
             }
         }
         else
         {
             if(!IsDead){
-            ChangeAnim(Constants.ANIM_IDLE);}
+                ChangeAnim(Constants.ANIM_IDLE);}
         }
         attackTimer = attackSpeed;
     }
@@ -324,8 +315,9 @@ public class Player : Character
             hp -= damage;
             characterHit.SetHp(hp);
             timeHealing = 1f;
-            if (IsDead)
+            if (hp <= 0)
             {
+                IsDead = true;
                 OnDead();
             }
         }

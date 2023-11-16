@@ -16,8 +16,14 @@ public class PlayerPanel : MonoBehaviour, IObserver
     [SerializeField] private TextMeshProUGUI upSpeedText;
     [SerializeField] private TextMeshProUGUI upRecoveryText;
     [SerializeField] private TextMeshProUGUI upHpText;
-    private void Start() {
+
+    [SerializeField] private GameObject coinUpgrade;
+    [SerializeField] private GameObject rewardImage;
+    private void Start()
+    {
         SaveLoadData.Ins.PlayerData.RegisterObserver(this);
+        //CheckUpgradeCount();
+
     }
     public void SetInfor(float hp, float recovery, float speed, float currentExp, float exp, int level)
     {
@@ -32,8 +38,22 @@ public class PlayerPanel : MonoBehaviour, IObserver
         levelText.text = level.ToString();
     }
 
+    public void CheckUpgradeCount()
+    {
+        if (SaveLoadData.Ins.PlayerData.CountUpgrade < 1)
+        {
+            coinUpgrade.SetActive(true);
+            rewardImage.SetActive(false);
+        }
+        else
+        {
+            coinUpgrade.SetActive(false);
+            rewardImage.SetActive(true);
+        }
+    }
     public void OnNotifyAddCurrency()
     {
+        CheckUpgradeCount();
         SetInfor(SaveLoadData.Ins.PlayerData.Hp, SaveLoadData.Ins.PlayerData.RegenHp, SaveLoadData.Ins.PlayerData.Speed, SaveLoadData.Ins.PlayerData.CurrentExp, SaveLoadData.Ins.PlayerData.Exp, SaveLoadData.Ins.PlayerData.Level);
     }
 }

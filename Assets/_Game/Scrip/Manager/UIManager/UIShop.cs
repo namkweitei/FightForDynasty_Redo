@@ -37,7 +37,14 @@ public class UIShop : UICanvas
     public void CloseButton()
     {
         UIManager.Ins.CloseUI<UIShop>();
-        Time.timeScale = 1;
+        if (UIManager.Ins.GetUI<UIGamePlay>().isSpeedUp)
+        {
+            Time.timeScale = 2;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
         GameManager.ChangeState(GameManager.Ins.currenGameState);
     }
     public void StartPobUp(){

@@ -36,7 +36,7 @@ public class Bullet : GameUnit
             }
         }else{
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
-            if (Vector3.Distance(transform.position, indexPos) > 5f)
+            if (Vector3.Distance(transform.position, indexPos) > 7f)
             {
                 SmartPool.Ins.Despawn(gameObject);
             }

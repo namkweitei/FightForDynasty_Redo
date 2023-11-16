@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using Sirenix;
-using System;
+
 
 public class Character : GameUnit
 {
@@ -15,12 +14,13 @@ public class Character : GameUnit
     [SerializeField] protected float maxHp;
     [SerializeField] protected float hp;
     protected string animName = "idle";
-    public bool IsDead => hp <= 0;
+    public bool IsDead;
 
 
     public virtual void OnInit()
     {
         characterHit.OnInit(maxHp);
+        IsDead = false;
         hp = maxHp;
     }
     protected void ChangeAnim(string animName)
@@ -39,9 +39,8 @@ public class Character : GameUnit
         {
             hp -= damage;
             characterHit.SetHp(hp);
-
-            if (IsDead)
-            {
+            if(hp <= 0){
+                IsDead = true;
                 OnDead();
             }
         }

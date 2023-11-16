@@ -217,6 +217,7 @@ public class PlayerData
     [SerializeField] private int buck;
     [SerializeField] private EquimentType equiType;
     [SerializeField] private List<Equiment> equimentDatas;
+    [SerializeField] private int countUpgrade;
     #region Get/Set Hell
     public float Hp
     {
@@ -282,6 +283,7 @@ public class PlayerData
         set
         {
             level = value;
+            countUpgrade = 0;
             SaveLoadData.Ins.SaveALL();
             NotifyObserversAddCurrency();
         }
@@ -327,6 +329,16 @@ public class PlayerData
         set
         {
             equimentDatas = value;
+            SaveLoadData.Ins.SaveALL();
+        }
+    }
+
+    public int CountUpgrade
+    {
+        get => countUpgrade;
+        set
+        {
+            countUpgrade = value;
             SaveLoadData.Ins.SaveALL();
         }
     }

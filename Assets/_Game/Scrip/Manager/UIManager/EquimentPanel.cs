@@ -17,7 +17,8 @@ public class EquimentPanel : MonoBehaviour
                 if (SaveLoadData.Ins.PlayerData.EquimentDatas[i].equimentType == equimentDetails[j].EquimentType)
                 {
                     equimentDetails[j].OnInit(SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage, SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed);
-                    if(SaveLoadData.Ins.PlayerData.EquimentDatas[i].IsUnlock){
+                    if (SaveLoadData.Ins.PlayerData.EquimentDatas[i].IsUnlock)
+                    {
                         equimentDetails[j].Unlock();
                         equimentDetails[j].SetTextCoin(equimentDetails[j].CoinUpdate);
                     }
@@ -49,17 +50,27 @@ public class EquimentPanel : MonoBehaviour
         {
             if (SaveLoadData.Ins.PlayerData.EquimentDatas[i].equimentType == equimentDetail.EquimentType)
             {
-                if(SaveLoadData.Ins.PlayerData.EquimentDatas[i].countUpdate < 1 && SaveLoadData.Ins.PlayerData.Coin >= equimentDetail.CoinUpdate ){
+                if (SaveLoadData.Ins.PlayerData.EquimentDatas[i].countUpdate < 1)
+                {
+                    if (SaveLoadData.Ins.PlayerData.Coin >= equimentDetail.CoinUpdate)
+                    {
+                        SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage += (float)Math.Round((double)SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage * UnityEngine.Random.Range(0.08f, 0.12f), 1);
+                        SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed += (float)Math.Round((double)SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed * UnityEngine.Random.Range(0.01f, 0.03f), 3);
+                        equimentDetail.OnInit(SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage, SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed);
+                        SaveLoadData.Ins.PlayerData.EquimentDatas[i].countUpdate++;
+                        equimentDetail.SetReward();
+                        SaveLoadData.Ins.PlayerData.Coin -= equimentDetail.CoinUpdate;
+                    }
+
+                }
+                else if (SaveLoadData.Ins.PlayerData.EquimentDatas[i].countUpdate < 30)
+                {
+                    //Reward
+
                     SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage += (float)Math.Round((double)SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage * UnityEngine.Random.Range(0.08f, 0.12f), 1);
                     SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed += (float)Math.Round((double)SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed * UnityEngine.Random.Range(0.01f, 0.03f), 3);
                     equimentDetail.OnInit(SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage, SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed);
-                    SaveLoadData.Ins.PlayerData.EquimentDatas[i].countUpdate ++;
-                    SaveLoadData.Ins.PlayerData.Coin -= equimentDetail.CoinUpdate;
-                    equimentDetail.CoinUpdate = UnityEngine.Random.Range(30, 50);
-                    equimentDetail.SetTextCoin(equimentDetail.CoinUpdate);
-
-                }else{
-                    
+                    SaveLoadData.Ins.PlayerData.EquimentDatas[i].countUpdate++;
                 }
             }
 

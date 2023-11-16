@@ -13,11 +13,10 @@ public class EquimentDetail : MonoBehaviour
     [SerializeField] Image lockEquiment;
     [SerializeField] TextMeshProUGUI textCoint;
     [SerializeField] int coinUpdate;
+    [SerializeField] GameObject coin;
+    [SerializeField] GameObject reward;
 
     public int CoinUpdate { get => coinUpdate; set => coinUpdate = value; }
-    private void Awake() {
-        coinUpdate = Random.Range(30, 50);
-    }
     // Start is called before the first frame update
     public void OnInit(float damage, float fireRate)
     {
@@ -37,5 +36,9 @@ public class EquimentDetail : MonoBehaviour
     }
     public void SetTextCoin(int coin){
         textCoint.text = coin.ToString();
+    }
+    public void SetReward(){
+        coin.SetActive(false);
+        reward.SetActive(true);
     }
 }

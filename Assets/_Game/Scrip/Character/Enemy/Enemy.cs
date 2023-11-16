@@ -38,6 +38,7 @@ public class Enemy : Character
         agent.radius = randomFloat;
         isAttack = false;
         isFollow = false;
+        IsDead = false;
         characterHit.OnInit(hp);
         base.OnInit();
     }
@@ -49,7 +50,10 @@ public class Enemy : Character
             if (!GameManager.IsState(GameState.Playing))
             {
                 ChangeAnim(Constants.ANIM_IDLE);
+                agent.isStopped = true;
                 return;
+            }else{
+                agent.isStopped = false;
             }
             stateMachine?.Execute();
         }
@@ -126,9 +130,9 @@ public class Enemy : Character
         {
             hp -= damage;
             characterHit.SetHp(hp);
-            if (IsDead)
+            if (hp <= 0)
             {
-
+                IsDead = true;
                 SaveLoadData.Ins.PlayerData.CurrentExp += Exp;
                 for (int i = 0; i < coinSpawn; i++)
                 {

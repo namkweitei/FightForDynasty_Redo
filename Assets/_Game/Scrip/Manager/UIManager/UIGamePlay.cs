@@ -10,7 +10,7 @@ public class UIGamePlay : UICanvas
     [SerializeField] private LevelUI levelUI;
     [SerializeField] private CoinPanel coinPanel;
     [SerializeField] private WavePanel wavePanel;
-    bool isSpeedUp;
+    public bool isSpeedUp;
     void Start()
     {
         AudioManager.Ins.PlayMusic(Constants.MUSIC_THEME);

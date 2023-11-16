@@ -31,6 +31,10 @@ public class UILose : UICanvas
     }
     public void NothankButton()
     {
+        if(SaveLoadData.Ins.CampCharacterData.Hp <= 0){
+            SaveLoadData.Ins.MapData.Wave = 0;
+            SaveLoadData.Ins.CampCharacterData.Hp = SaveLoadData.Ins.CampCharacterData.MaxHp;
+        }
         SaveLoadData.Ins.SaveALL();
         SceneManager.LoadScene(0);
         UIManager.Ins.CloseUI<UILose>();
@@ -38,16 +42,29 @@ public class UILose : UICanvas
         GameManager.Ins.currenGameState = GameState.GamePlay;
         MapManager.Ins.OnInit();
         Time.timeScale = 1;
+        
     }
     public void ReviceButton()
     {
         //Reward
         UIManager.Ins.CloseUI<UILose>();
-         if (GameManager.IsState(GameState.Pause))
+        if (GameManager.IsState(GameState.Pause))
         {
             GameManager.ChangeState(GameState.Playing);
         }
         Player.Ins.OnInit();
-        Time.timeScale = 1;
+        if(SaveLoadData.Ins.CampCharacterData.Hp <= 0){
+            SaveLoadData.Ins.CampCharacterData.Hp = SaveLoadData.Ins.CampCharacterData.MaxHp;
+        }
+        if (UIManager.Ins.GetUI<UIGamePlay>().isSpeedUp)
+        {
+            Time.timeScale = 2;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+
+
     }
 }
