@@ -21,7 +21,7 @@ public class Coin : GameUnit
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y <= 1f)
+        if (transform.position.y <= 1.3f)
         {
             if (!rb.isKinematic)
             {

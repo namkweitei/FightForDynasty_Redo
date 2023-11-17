@@ -1,12 +1,9 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using DG.Tweening;
 using Sirenix.OdinInspector;
-using Unity.VisualScripting;
 using UnityEngine;
-
 
 [Serializable]
 public enum EquimentType
@@ -43,7 +40,7 @@ public class Player : Character
     }
     protected virtual void SetUp()
     {
-
+        Vibration.Init();
     }
     [SerializeField] Transform shootPointCrossBow;
     [SerializeField] private Transform shootPointBow;
@@ -310,6 +307,10 @@ public class Player : Character
 
     public override void OnHit(float damage)
     {
+        if(GameManager.IsVibration){
+            Vibration.VibrateAndroid(200);
+            CameraShake.Ins.ShakeCamera();
+        }
         if (!IsDead && GameManager.IsState(GameState.Playing))
         {
             hp -= damage;

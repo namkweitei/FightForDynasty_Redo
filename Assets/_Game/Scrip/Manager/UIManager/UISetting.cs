@@ -8,7 +8,8 @@ public class UISetting : UICanvas
 {
     [SerializeField] Image soundClose;
     [SerializeField] Image musicClose;
-        [SerializeField] Transform pobUp;
+    [SerializeField] Image vibrationClose;
+    [SerializeField] Transform pobUp;
     [SerializeField] Image background;
     public void StartPobUp(){
         Time.timeScale = 0;
@@ -55,6 +56,17 @@ public class UISetting : UICanvas
         else
         {
             musicClose.gameObject.SetActive(false);
+        }
+    }
+    public void VibrationButton(){
+        GameManager.IsVibration = !GameManager.IsVibration;
+         if (!vibrationClose.gameObject.activeSelf)
+        {
+            vibrationClose.gameObject.SetActive(true);
+        }
+        else
+        {
+            vibrationClose.gameObject.SetActive(false);
         }
     }
 }

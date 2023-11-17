@@ -17,7 +17,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private Avoidance avoidance;
 
     public Avoidance Avoidance { get => avoidance; set => avoidance = value; }
-
+    public static bool IsVibration;
     protected override void Awake()
     {
         base.Awake();
@@ -38,6 +38,7 @@ public class GameManager : Singleton<GameManager>
         ChangeState(GameState.GamePlay);
         currenGameState = gameState;
         UIManager.Ins.OpenUI<UILoading>();
+        IsVibration = true;
 
     }
 

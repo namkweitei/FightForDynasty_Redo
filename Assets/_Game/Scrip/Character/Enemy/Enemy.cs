@@ -126,6 +126,7 @@ public class Enemy : Character
     //---------------------------Hit---------------------------
     public override void OnHit(float damage)
     {
+        
         if (!IsDead && GameManager.IsState(GameState.Playing))
         {
             hp -= damage;
