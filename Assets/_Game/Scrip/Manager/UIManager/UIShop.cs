@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using JetBrains.Annotations;
+using UnityEngine.Events;
 
 
 public enum TypeButton{
@@ -57,27 +58,54 @@ public class UIShop : UICanvas
     private void ProcessEventButton(TypeButton typeButton, TypeEventButton typeEventButton, int value, int price){
         if(typeButton == TypeButton.Buck){
             if(typeEventButton == TypeEventButton.Reward){
-                AddBuck(value);
+                UnityEvent e = new UnityEvent();
+                e.AddListener(() =>
+                {
+                    Debug.Log("reward loaded!");
+                    AddBuck(value);
+                });
+                SkygoBridge.instance.ShowRewarded(e,null);
             }else if(typeEventButton == TypeEventButton.Purchase){
                 PurchaseBuck(price, value);
             }
         }
         else if(typeButton == TypeButton.Coin){
             if(typeEventButton == TypeEventButton.Reward){
-                AddCoin(value);
+                UnityEvent e = new UnityEvent();
+                e.AddListener(() =>
+                {
+                    Debug.Log("reward loaded!");
+                    AddBuck(value);
+                });
+                SkygoBridge.instance.ShowRewarded(e,null);
             }else if(typeEventButton == TypeEventButton.Purchase){
                 PurchaseCoin(price, value);
             }
         }
     }
-    public void SpecialDeal(){
-        SaveLoadData.Ins.PlayerData.Coin += 10000;
-        for(int i = 0; i < SaveLoadData.Ins.PlayerData.EquimentDatas.Count; i++){
-                    if(SaveLoadData.Ins.PlayerData.EquimentDatas[i].equimentType == EquimentType.Spear){
-                        SaveLoadData.Ins.PlayerData.EquimentDatas[i].IsUnlock = true;
-                    }
-        }
-        SpecialDealObject.SetActive(false);
+    public void SpecialDeal(int price){
+        //Buy in game, price is money
+        string sku = "";
+
+        sku = "";
+        UnityEvent e = new UnityEvent();
+        e.AddListener(() =>
+        {
+            SkygoBridge.instance.CanShowAd = 0;
+
+            SaveLoadData.Ins.PlayerData.Coin += 10000;
+            for (int i = 0; i < SaveLoadData.Ins.PlayerData.EquimentDatas.Count; i++)
+            {
+                if (SaveLoadData.Ins.PlayerData.EquimentDatas[i].equimentType == EquimentType.Spear)
+                {
+                    SaveLoadData.Ins.PlayerData.EquimentDatas[i].IsUnlock = true;
+                }
+            }
+            SpecialDealObject.SetActive(false);
+            //noAdsBtn.SetActive(false);
+        });
+
+        SkygoBridge.instance.PurchaseIAP(sku, e);
     }
     private void PurchaseCoin(int buckPrice, int claimValue){
         if(SaveLoadData.Ins.PlayerData.Buck >= buckPrice)
@@ -93,7 +121,20 @@ public class UIShop : UICanvas
 
     private void PurchaseBuck(int price, int claimValue){
         //Buy in game, price is money
-        AddBuck(claimValue);
+        string sku = "";
+
+        sku = "";
+        UnityEvent e = new UnityEvent();
+        e.AddListener(() =>
+        {
+            SkygoBridge.instance.CanShowAd = 0;
+            AddBuck(claimValue);
+        
+            //noAdsBtn.SetActive(false);
+        });
+
+        SkygoBridge.instance.PurchaseIAP(sku, e);
+      
     }
 
     private void AddBuck(int value){

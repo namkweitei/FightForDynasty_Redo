@@ -34,15 +34,16 @@ public class UpgradeTowerSystem : MonoBehaviour
             {
                 if (SaveLoadData.Ins.PlayerData.Coin > 0)
                 {
-                    timeAudio -= Time.deltaTime;
-                    if (timeAudio <= 0)
-                    {
-                        AudioManager.Ins.PlaySfx(Constants.SFX_UPTRAP);
-                        timeAudio = timeSetAudio;
-                    }
+                    // timeAudio -= Time.deltaTime;
+                    // if (timeAudio <= 0)
+                    // {
+                    //     AudioManager.Ins.PlaySfx(Constants.SFX_UPTRAP);
+                    //     timeAudio = timeSetAudio;
+                    // }
                     timeSpawn -= Time.deltaTime;
                     if (timeSpawn <= 0)
                     {
+                        AudioManager.Ins.PlaySfx(Constants.SFX_UPTRAP);
                         SaveLoadData.Ins.PlayerData.Coin--;
                         currentCoin--;
                         coin.text = currentCoin.ToString();

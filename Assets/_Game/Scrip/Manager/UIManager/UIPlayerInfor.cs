@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class UIPlayerInfor : UICanvas
@@ -51,14 +52,20 @@ public class UIPlayerInfor : UICanvas
             }
         }else if(SaveLoadData.Ins.PlayerData.CountUpgrade < 2){
                 //Reward
-
-                SaveLoadData.Ins.PlayerData.Hp += SaveLoadData.Ins.PlayerData.Hp / 100 * 15;
-                SaveLoadData.Ins.PlayerData.Hp = Mathf.Ceil(SaveLoadData.Ins.PlayerData.Hp);
-                SaveLoadData.Ins.PlayerData.RegenHp += 0.1f;
-                SaveLoadData.Ins.PlayerData.Speed += SaveLoadData.Ins.PlayerData.Speed / 100 * 10f;
-                SaveLoadData.Ins.PlayerData.Speed = Mathf.Ceil(SaveLoadData.Ins.PlayerData.Speed);
-                SaveLoadData.Ins.PlayerData.CountUpgrade ++;
-                PlayerPanel.SetInfor(SaveLoadData.Ins.PlayerData.Hp, SaveLoadData.Ins.PlayerData.RegenHp, SaveLoadData.Ins.PlayerData.Speed, SaveLoadData.Ins.PlayerData.CurrentExp, SaveLoadData.Ins.PlayerData.Exp, SaveLoadData.Ins.PlayerData.Level);
+                UnityEvent e = new UnityEvent();
+                e.AddListener(() =>
+                {
+                    Debug.Log("reward loaded!");
+                    SaveLoadData.Ins.PlayerData.Hp += SaveLoadData.Ins.PlayerData.Hp / 100 * 15;
+                    SaveLoadData.Ins.PlayerData.Hp = Mathf.Ceil(SaveLoadData.Ins.PlayerData.Hp);
+                    SaveLoadData.Ins.PlayerData.RegenHp += 0.1f;
+                    SaveLoadData.Ins.PlayerData.Speed += SaveLoadData.Ins.PlayerData.Speed / 100 * 10f;
+                    SaveLoadData.Ins.PlayerData.Speed = Mathf.Ceil(SaveLoadData.Ins.PlayerData.Speed);
+                    SaveLoadData.Ins.PlayerData.CountUpgrade ++;
+                    PlayerPanel.SetInfor(SaveLoadData.Ins.PlayerData.Hp, SaveLoadData.Ins.PlayerData.RegenHp, SaveLoadData.Ins.PlayerData.Speed, SaveLoadData.Ins.PlayerData.CurrentExp, SaveLoadData.Ins.PlayerData.Exp, SaveLoadData.Ins.PlayerData.Level);
+                });
+                SkygoBridge.instance.ShowRewarded(e,null);
+                
         }
     }
 

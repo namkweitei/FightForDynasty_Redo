@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.Events;
 public class UIWinn : UICanvas
 {
     [SerializeField] Button buttonReward;
@@ -43,14 +44,21 @@ public class UIWinn : UICanvas
         UIManager.Ins.CloseUI<UIWinn>();
         GameManager.ChangeState(GameState.GamePlay);
         GameManager.Ins.currenGameState = GameState.GamePlay;
-        if (UIManager.Ins.GetUI<UIGamePlay>().isSpeedUp)
+        Time.timeScale = 0;
+        UnityEvent e = new UnityEvent();
+        e.AddListener(() =>
         {
-            Time.timeScale = 2;
-        }
-        else
-        {
-            Time.timeScale = 1;
-        }
+            Debug.Log("ads loaded!");
+            if (UIManager.Ins.GetUI<UIGamePlay>().isSpeedUp)
+            {
+                Time.timeScale = 2;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
+        });
+        bool showad = SkygoBridge.instance.ShowInterstitial(e);
     }
     public void GetButton()
     {

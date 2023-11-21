@@ -3,6 +3,7 @@ using UnityEngine;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using System;
+using UnityEngine.Events;
 
 [Serializable]
 public class WaveData
@@ -188,7 +189,14 @@ public class Map : MonoBehaviour
     // Open Map
     public virtual void OpenMap()
     {
-
+        Time.timeScale = 0;
+        UnityEvent e = new UnityEvent();
+        e.AddListener(() =>
+        {
+            Time.timeScale = 1;
+            Debug.Log("ads loaded!");
+        });
+        bool showad = SkygoBridge.instance.ShowInterstitial(e);
         UIManager.Ins.GetUI<UIGamePlay>().OpenWaveStage(waveData.barrackWave.Count + 1, SaveLoadData.Ins.MapData.Wave,SaveLoadData.Ins.MapData.Wave + 1 );
         DirectionArrowControl.Ins.gameObject.SetActive(false);
         GameManager.ChangeState(GameState.Playing);
@@ -377,6 +385,16 @@ public class Map : MonoBehaviour
                             enemyCount += waveData.barrackWave[currentBarrack].enemyCates[i].enemyCount;
                         }
                         enemyCountWave = enemyCount;
+                    }
+                    if(SaveLoadData.Ins.MapData.Wave == 3){
+                        Time.timeScale = 0;
+                        UnityEvent e = new UnityEvent();
+                        e.AddListener(() =>
+                        {
+                            Time.timeScale = 1;
+                            Debug.Log("ads loaded!");
+                        });
+                        bool showad = SkygoBridge.instance.ShowInterstitial(e);
                     }
                     UIManager.Ins.GetUI<UIGamePlay>().SetTextWave(SaveLoadData.Ins.MapData.Wave + 1);
                     timeNextWave = 2f;

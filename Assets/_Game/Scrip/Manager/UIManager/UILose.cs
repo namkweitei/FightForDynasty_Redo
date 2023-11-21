@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.Events;
 public class UILose : UICanvas
 {
     [SerializeField] Button buttonRevice;
@@ -41,8 +42,14 @@ public class UILose : UICanvas
         GameManager.ChangeState(GameState.GamePlay);
         GameManager.Ins.currenGameState = GameState.GamePlay;
         MapManager.Ins.OnInit();
-        Time.timeScale = 1;
-        
+        Time.timeScale = 0;
+        UnityEvent e = new UnityEvent();
+        e.AddListener(() =>
+        {
+            Debug.Log("ads loaded!");
+            Time.timeScale = 1;
+        });
+        bool showad = SkygoBridge.instance.ShowInterstitial(e);
     }
     public void ReviceButton()
     {

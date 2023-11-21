@@ -62,14 +62,15 @@ public class CampCharacter : Singleton<CampCharacter>
         if (IsDead) return;
         if (SaveLoadData.Ins.CampCharacterData.Hp < SaveLoadData.Ins.CampCharacterData.MaxHp)
         {
-            timeAudio -= Time.deltaTime;
-            if(timeAudio <= 0){
-                AudioManager.Ins.PlaySfx(Constants.SFX_FIXHOUSE);
-                timeAudio = timeSetAudio;
-            }
+            // timeAudio -= Time.deltaTime;
+            // if(timeAudio <= 0){
+                
+            //     timeAudio = timeSetAudio;
+            // }
             timeHealling -= Time.fixedDeltaTime;
             if (timeHealling < 0)
             {
+                AudioManager.Ins.PlaySfx(Constants.SFX_FIXHOUSE);
                 timeHealling = speedHealling;
                 SaveLoadData.Ins.CampCharacterData.Hp++;
                 SaveLoadData.Ins.PlayerData.Coin--;

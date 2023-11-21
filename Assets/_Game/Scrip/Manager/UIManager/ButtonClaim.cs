@@ -17,7 +17,9 @@ public class ButtonClaim: MonoBehaviour{
         if(typeEventButton == TypeEventButton.Purchase){
             rewardValueText.text = "+" + rewardValue.ToString();
             if(typeButton == TypeButton.Buck){
-                priceValueText.text = priceValue.ToString() + "$";
+                priceValueText.text = "$ " + priceValue.ToString() ;
+            }else{
+                priceValueText.text = priceValue.ToString();
             }
         }
         
