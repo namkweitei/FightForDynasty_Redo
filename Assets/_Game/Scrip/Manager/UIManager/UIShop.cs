@@ -36,6 +36,7 @@ public class UIShop : UICanvas
     }
     public void CloseButton()
     {
+        AudioManager.Ins.PlaySfx(Constants.SFX_CLOSEUI);
         UIManager.Ins.CloseUI<UIShop>();
         if (UIManager.Ins.GetUI<UIGamePlay>().isSpeedUp)
         {

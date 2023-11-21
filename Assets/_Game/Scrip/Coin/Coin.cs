@@ -27,6 +27,7 @@ public class Coin : GameUnit
             {
                 rb.velocity = Vector3.zero;
                 rb.isKinematic = true;
+                AudioManager.Ins.PlaySfx(Constants.SFX_COINDROP);
             }
         }
         transform.Rotate(rotaion);
@@ -40,6 +41,7 @@ public class Coin : GameUnit
                 if (Vector3.Distance(target.position, transform.position) <= 1f)
                 {
                     SmartPool.Ins.Despawn(gameObject);
+                    AudioManager.Ins.PlaySfx(Constants.SFX_COINFLYTOPLAYER);
                     SaveLoadData.Ins.PlayerData.Coin++;
                     target = null;
                     collect = false;

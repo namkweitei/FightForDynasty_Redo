@@ -32,7 +32,7 @@ public class TowerTuret : Tower
             {
                 Bullet bullet = SmartPool.Ins.Spawn<Bullet>(PoolType.Arrow, item.position, item.rotation);
                 bullet.OnInit(target, damage);
-                AudioManager.Ins.PlaySfx(Constants.SFX_SHOOT);
+                AudioManager.Ins.PlaySfx(Constants.SFX_ARROWTOWERATTACK);
             }
             this.shootTimer = shootSpeed;
 

@@ -16,10 +16,10 @@ public class CampCharacter : Singleton<CampCharacter>
     [SerializeField] public CinemachineVirtualCamera cameraFollow;
     [SerializeField] public AnimationCurve curveIn;
     [SerializeField] public AnimationCurve curveOut;
-
     public bool isUpdate;
-
     public bool IsDead => SaveLoadData.Ins.CampCharacterData.Hp <= 0;
+    float timeAudio = 0f;
+    float timeSetAudio = 2f;
     protected override void Awake()
     {
         base.Awake();
@@ -62,6 +62,11 @@ public class CampCharacter : Singleton<CampCharacter>
         if (IsDead) return;
         if (SaveLoadData.Ins.CampCharacterData.Hp < SaveLoadData.Ins.CampCharacterData.MaxHp)
         {
+            timeAudio -= Time.deltaTime;
+            if(timeAudio <= 0){
+                AudioManager.Ins.PlaySfx(Constants.SFX_FIXHOUSE);
+                timeAudio = timeSetAudio;
+            }
             timeHealling -= Time.fixedDeltaTime;
             if (timeHealling < 0)
             {

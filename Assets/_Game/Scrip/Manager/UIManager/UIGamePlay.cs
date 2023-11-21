@@ -47,6 +47,7 @@ public class UIGamePlay : UICanvas
     }
     public void InforButton()
     {
+        AudioManager.Ins.PlaySfx(Constants.SFX_OPENUI_1);
         UIManager.Ins.OpenUI<UIPlayerInfor>();
         UIManager.Ins.GetUI<UIPlayerInfor>().StartPobUp();
         if (GameManager.IsState(GameState.Playing))
@@ -56,6 +57,7 @@ public class UIGamePlay : UICanvas
     }
     public void SettingButton()
     {
+        AudioManager.Ins.PlaySfx(Constants.SFX_OPENUI_2);
         UIManager.Ins.OpenUI<UISetting>();
         UIManager.Ins.GetUI<UISetting>().StartPobUp();
         if (GameManager.IsState(GameState.Playing))
@@ -65,7 +67,7 @@ public class UIGamePlay : UICanvas
     }
     public void ShopButton()
     {
-        
+        AudioManager.Ins.PlaySfx(Constants.SFX_OPENUI_1);
         UIManager.Ins.OpenUI<UIShop>();
         UIManager.Ins.GetUI<UIShop>().StartPobUp();
         if (GameManager.IsState(GameState.Playing))

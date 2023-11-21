@@ -31,6 +31,7 @@ public class LightingTower : Tower
         if (this.shootTimer < 0)
         {
             Lighting bullet = SmartPool.Ins.Spawn<Lighting>(PoolType.Lighting, shootPoint[0].position, shootPoint[0].rotation);
+            AudioManager.Ins.PlaySfx(Constants.SFX_LIGHTINGTOWERATTACK);
             bullet.OnInit(enemy, damage, enemyCount);
             this.shootTimer = shootSpeed;
         }

@@ -17,7 +17,7 @@ public class Enemy : Character
     protected Vector3 dir;
     [SerializeField] protected float attackRange;
     [SerializeField] protected float damage;
-    [SerializeField] Animator animAnimal;
+    [SerializeField] protected Animator animAnimal;
 
 
     protected float radius;

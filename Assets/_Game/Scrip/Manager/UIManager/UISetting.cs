@@ -20,6 +20,7 @@ public class UISetting : UICanvas
     }
     public void CloseButton()
     {
+        AudioManager.Ins.PlaySfx(Constants.SFX_CLOSEUI);
         UIManager.Ins.CloseUI<UISetting>();
         if (UIManager.Ins.GetUI<UIGamePlay>().isSpeedUp)
         {

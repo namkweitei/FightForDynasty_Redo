@@ -17,4 +17,16 @@ public class BossThanhCatTuHan : Enemy
         agent.updateRotation = false;
         Invoke(nameof(ResetAttack), anim.GetCurrentAnimatorStateInfo(1).length);
     }
+    protected override void OnDead()
+    {
+        OnDeathAction?.Invoke(this);
+        agent.isStopped = true;
+        agent.updateRotation = false;
+        ChangeAnim(Constants.ANIM_DEAD);
+        AudioManager.Ins.PlaySfx(Constants.SFX_THANHCATTUHANDEAD);
+        if(animAnimal != null){
+            animAnimal.SetTrigger("dead");
+        }
+        base.OnDead();
+    }
 }

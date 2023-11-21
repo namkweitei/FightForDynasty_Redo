@@ -27,6 +27,7 @@ public class Lighting : GameUnit
         if (Vector3.Distance(transform.position, enemy.transform.position) < 0.1f)
         {
             enemy.OnHit(damage);
+            AudioManager.Ins.PlaySfx(Constants.SFX_LIGHTINGBULLET);
             if (currentEnemyIndex < maxEnemyIndex - 1)
             {
                 CheckNearEnemy();

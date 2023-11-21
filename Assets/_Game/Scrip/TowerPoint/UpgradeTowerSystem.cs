@@ -13,6 +13,8 @@ public class UpgradeTowerSystem : MonoBehaviour
     [SerializeField] private float targetTime;
     [SerializeField] private TextMeshPro coin;
     private bool isActive;
+    float timeAudio = 0f;
+    float timeSetAudio = 4f;
     private void Start() {
         coin.text = currentCoin.ToString();
     }
@@ -32,6 +34,12 @@ public class UpgradeTowerSystem : MonoBehaviour
             {
                 if (SaveLoadData.Ins.PlayerData.Coin > 0)
                 {
+                    timeAudio -= Time.deltaTime;
+                    if (timeAudio <= 0)
+                    {
+                        AudioManager.Ins.PlaySfx(Constants.SFX_UPTRAP);
+                        timeAudio = timeSetAudio;
+                    }
                     timeSpawn -= Time.deltaTime;
                     if (timeSpawn <= 0)
                     {

@@ -38,7 +38,7 @@ public class ArrowTower : Tower
 
                     Bullet bullet = SmartPool.Ins.Spawn<Bullet>(PoolType.Arrow, item.position, item.rotation);
                     bullet.OnInit(null, damage);
-                    AudioManager.Ins.PlaySfx(Constants.SFX_SHOOT);
+                    AudioManager.Ins.PlaySfx(Constants.SFX_ARROWTOWERATTACK);
                     // bullet.targetObject = target;
                     // bullet.Damage = damage;
                 }
@@ -46,7 +46,7 @@ public class ArrowTower : Tower
             }else{
                  Bullet bullet = SmartPool.Ins.Spawn<Bullet>(PoolType.Arrow, shootPoint[0].position, shootPoint[0].rotation);
                     bullet.OnInit(target, damage);
-                    AudioManager.Ins.PlaySfx(Constants.SFX_SHOOT);
+                    AudioManager.Ins.PlaySfx(Constants.SFX_ARROWTOWERATTACK);
                     this.shootTimer = shootSpeed;
             }
 

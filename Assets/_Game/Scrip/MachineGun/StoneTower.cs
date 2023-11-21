@@ -39,6 +39,7 @@ public class StoneTower : Tower
                 {
                     BulletStone bullet = SmartPool.Ins.Spawn<BulletStone>(PoolType.Stone, item.position, item.rotation);
                     Vector3 center = (item.position + target.transform.position) * 0.5f;
+                    AudioManager.Ins.PlaySfx(Constants.SFX_STONETOWERATTACK);
                     center.y += 3f;
                     bullet.OnInit(item, target, damage);
                 }

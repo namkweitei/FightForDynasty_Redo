@@ -5,6 +5,8 @@ using UnityEngine;
 public class FireTurret : Tower
 {
     [SerializeField] ParticleSystem particle;
+    float timeFire = 0f;
+    float timeDelay = 2f;
     protected override void Rotate()
     {
         if (enemy.Count > 0)
@@ -15,6 +17,11 @@ public class FireTurret : Tower
             }
             else
             {
+                timeFire -= Time.deltaTime;
+                if(timeFire <= 0){
+                    AudioManager.Ins.PlaySfx(Constants.SFX_FIRETOWERATTACK);
+                    timeFire = timeDelay;
+                }
                 Attack(enemy[0]);
                 direction = enemy[0].transform.position - transform.position;
                 direction.y = 0f;

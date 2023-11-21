@@ -66,6 +66,8 @@ public class Player : Character
     public bool isAttack;
     private float rangeAttack;
     private bool isMove;
+    float timetoc = 0f;
+    public float timeDelay = 0.3f; 
     private void Start()
     {
         ChangeEquiment(SaveLoadData.Ins.PlayerData.EquiType);
@@ -127,10 +129,17 @@ public class Player : Character
 
     protected virtual void JoystickMovement()
     {
-            movement = new Vector3(-horizontal, 0f, -vertical);
-            movement.Normalize();
-            rb.velocity = movement * speed * Time.fixedDeltaTime;
-        
+        movement = new Vector3(-horizontal, 0f, -vertical);
+        movement.Normalize();
+        rb.velocity = movement * speed * Time.fixedDeltaTime;
+        if(GetMove()){
+            timetoc -= Time.deltaTime;
+            if(timetoc <= 0){
+                AudioManager.Ins.PlayeStepSound();
+                timetoc = timeDelay;
+            }
+            
+        }
     }
 
     protected virtual void Rotate()
@@ -188,7 +197,17 @@ public class Player : Character
             isAttack = true;
             ChangeAnim(Constants.ANIM_ATTACKIDLE);
             this.target = target; 
-            //Invoke(nameof(ResetAttack), 1f);
+            if(SaveLoadData.Ins.PlayerData.EquiType == EquimentType.Sword){
+                AudioManager.Ins.PlaySfx(Constants.SFX_SWORDSLASH);
+            }else if(SaveLoadData.Ins.PlayerData.EquiType == EquimentType.Spear){
+                int i = UnityEngine.Random.Range(0, 2);
+                if(i == 0){
+                    AudioManager.Ins.PlaySfx(Constants.SFX_SCIMMERSLASH_1);
+                }else{
+                    AudioManager.Ins.PlaySfx(Constants.SFX_SCIMMERSLASH_2);
+                }
+                
+            }
         }
     }
     public void ResetAttack()
@@ -327,6 +346,7 @@ public class Player : Character
     protected override void OnDead()
     {
         ChangeAnim(Constants.ANIM_DEAD);
+        AudioManager.Ins.PlaySfx(Constants.SFX_PLAYERDEAD);
         GameManager.ChangeState(GameState.Pause);
         Invoke(nameof(OnDespawn), 5f);
     }

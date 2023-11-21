@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AudioManager : Singleton<AudioManager>
 {
-    public Sound[] musicSounds, sfxSounds;
+    public Sound[] musicSounds, sfxSounds ;
+    public AudioClip[] stepSounds;
     public AudioSource musicSource, sfxSource;
     private void Start()
     {
@@ -30,6 +31,16 @@ public class AudioManager : Singleton<AudioManager>
         }
         sfxSource.PlayOneShot(s.clip);
     }
+    public void StopSfx(string name)
+    {
+        Sound s = System.Array.Find(sfxSounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+        sfxSource.Stop();
+    }
     public void ToggleMusic()
     {
         musicSource.mute = !musicSource.mute;
@@ -37,5 +48,9 @@ public class AudioManager : Singleton<AudioManager>
     public void ToggleSfx()
     {
         sfxSource.mute = !sfxSource.mute;
+    }
+    public void PlayeStepSound(){
+        int i = Random.Range(0, 5);
+        sfxSource.PlayOneShot(stepSounds[i]);
     }
 }
