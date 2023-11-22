@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 public class EquimentPanel : MonoBehaviour
 {
     [SerializeField] List<EquimentDetail> equimentDetails;
@@ -67,10 +68,18 @@ public class EquimentPanel : MonoBehaviour
                 {
                     //Reward
 
-                    SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage += (float)Math.Round((double)SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage * UnityEngine.Random.Range(0.08f, 0.12f), 1);
-                    SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed += (float)Math.Round((double)SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed * UnityEngine.Random.Range(0.01f, 0.03f), 3);
-                    equimentDetail.OnInit(SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage, SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed);
-                    SaveLoadData.Ins.PlayerData.EquimentDatas[i].countUpdate++;
+                    Time.timeScale = 0;
+                    UnityEvent e = new UnityEvent();
+                    e.AddListener(() =>
+                    {
+                        Debug.Log("reward loaded!");
+                        SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage += (float)Math.Round((double)SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage * UnityEngine.Random.Range(0.08f, 0.12f), 1);
+                        SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed += (float)Math.Round((double)SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed * UnityEngine.Random.Range(0.01f, 0.03f), 3);
+                        equimentDetail.OnInit(SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage, SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed);
+                        SaveLoadData.Ins.PlayerData.EquimentDatas[i].countUpdate++;
+                        Time.timeScale = 1;
+                    });
+                    SkygoBridge.instance.ShowRewarded(e, null);
                 }
             }
 

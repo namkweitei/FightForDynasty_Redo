@@ -54,24 +54,31 @@ public class UILose : UICanvas
     public void ReviceButton()
     {
         //Reward
-        UIManager.Ins.CloseUI<UILose>();
-        if (GameManager.IsState(GameState.Pause))
+        Time.timeScale = 0;
+        UnityEvent e = new UnityEvent();
+        e.AddListener(() =>
         {
-            GameManager.ChangeState(GameState.Playing);
-        }
-        Player.Ins.OnInit();
-        if(SaveLoadData.Ins.CampCharacterData.Hp <= 0){
-            SaveLoadData.Ins.CampCharacterData.Hp = SaveLoadData.Ins.CampCharacterData.MaxHp;
-        }
-        if (UIManager.Ins.GetUI<UIGamePlay>().isSpeedUp)
-        {
-            Time.timeScale = 2;
-        }
-        else
-        {
-            Time.timeScale = 1;
-        }
-
+            Debug.Log("reward loaded!");
+            UIManager.Ins.CloseUI<UILose>();
+            if (GameManager.IsState(GameState.Pause))
+            {
+                GameManager.ChangeState(GameState.Playing);
+            }
+            Player.Ins.OnInit();
+            if (SaveLoadData.Ins.CampCharacterData.Hp <= 0)
+            {
+                SaveLoadData.Ins.CampCharacterData.Hp = SaveLoadData.Ins.CampCharacterData.MaxHp;
+            }
+            if (UIManager.Ins.GetUI<UIGamePlay>().isSpeedUp)
+            {
+                Time.timeScale = 2;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
+        });
+        SkygoBridge.instance.ShowRewarded(e, null);
 
     }
 }
