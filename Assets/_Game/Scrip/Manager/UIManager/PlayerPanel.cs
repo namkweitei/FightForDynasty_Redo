@@ -17,6 +17,7 @@ public class PlayerPanel : MonoBehaviour, IObserver
     [SerializeField] private TextMeshProUGUI upRecoveryText;
     [SerializeField] private TextMeshProUGUI upHpText;
 
+    [SerializeField] private GameObject upgradeButton;
     [SerializeField] private GameObject coinUpgrade;
     [SerializeField] private GameObject rewardImage;
     private void Start()
@@ -32,7 +33,7 @@ public class PlayerPanel : MonoBehaviour, IObserver
         speedText.text = (speed * 0.02f).ToString();
         upHpText.text = "+ " + Mathf.Ceil(hp / 100 * 15).ToString();
         upRecoveryText.text = "+ 0.1";
-        upSpeedText.text = "+ " + Mathf.Ceil(speed / 100 * 10).ToString();
+        upSpeedText.text = "+ " + Mathf.Ceil(speed / 100 * 10 * 0.02f).ToString();
         imageFill.fillAmount = currentExp / exp;
         expText.text = currentExp.ToString() + "/" + exp.ToString();
         levelText.text = level.ToString();
@@ -40,6 +41,13 @@ public class PlayerPanel : MonoBehaviour, IObserver
 
     public void CheckUpgradeCount()
     {
+        if(SaveLoadData.Ins.PlayerData.CountUpgrade == 2) {
+            upgradeButton.SetActive(false);
+        }
+        else
+        {
+            upgradeButton.SetActive(true);
+        }
         if (SaveLoadData.Ins.PlayerData.CountUpgrade < 1)
         {
             coinUpgrade.SetActive(true);

@@ -42,14 +42,17 @@ public class UILose : UICanvas
         GameManager.ChangeState(GameState.GamePlay);
         GameManager.Ins.currenGameState = GameState.GamePlay;
         MapManager.Ins.OnInit();
-        Time.timeScale = 0;
-        UnityEvent e = new UnityEvent();
-        e.AddListener(() =>
-        {
-            Debug.Log("ads loaded!");
-            Time.timeScale = 1;
-        });
-        bool showad = SkygoBridge.instance.ShowInterstitial(e);
+
+        //Time.timeScale = 0;
+        //UnityEvent e = new UnityEvent();
+        //e.AddListener(() =>
+        //{
+        //    Debug.Log("ads loaded!");
+        //    Time.timeScale = 1;
+        //});
+        //bool showad = SkygoBridge.instance.ShowInterstitial(e);
+        //inter
+        ApplovinBridge.instance.ShowInterAdsApplovin(null);
     }
     public void ReviceButton()
     {
@@ -77,8 +80,12 @@ public class UILose : UICanvas
             {
                 Time.timeScale = 1;
             }
+            //logevent
+            SkygoBridge.instance.LogEvent("reward_revice_btn");
         });
-        SkygoBridge.instance.ShowRewarded(e, null);
+        //SkygoBridge.instance.ShowRewarded(e, null);
+        //reward
+        ApplovinBridge.instance.ShowRewarAdsApplovin(e, null);
 
     }
 }

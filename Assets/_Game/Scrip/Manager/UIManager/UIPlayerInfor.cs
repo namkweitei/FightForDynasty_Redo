@@ -23,6 +23,7 @@ public class UIPlayerInfor : UICanvas
         PlayerPanel.SetInfor(SaveLoadData.Ins.PlayerData.Hp, SaveLoadData.Ins.PlayerData.RegenHp, SaveLoadData.Ins.PlayerData.Speed, SaveLoadData.Ins.PlayerData.CurrentExp, SaveLoadData.Ins.PlayerData.Exp, SaveLoadData.Ins.PlayerData.Level);
         PlayerTv.Ins.ChangeEquip((int)SaveLoadData.Ins.PlayerData.EquiType);
         PlayerTv.Ins.SetArmor(SaveLoadData.Ins.PlayerData.Level);
+        PlayerPanel.CheckUpgradeCount();
     }
     public void StartPobUp()
     {
@@ -63,8 +64,13 @@ public class UIPlayerInfor : UICanvas
                     SaveLoadData.Ins.PlayerData.Speed = Mathf.Ceil(SaveLoadData.Ins.PlayerData.Speed);
                     SaveLoadData.Ins.PlayerData.CountUpgrade ++;
                     PlayerPanel.SetInfor(SaveLoadData.Ins.PlayerData.Hp, SaveLoadData.Ins.PlayerData.RegenHp, SaveLoadData.Ins.PlayerData.Speed, SaveLoadData.Ins.PlayerData.CurrentExp, SaveLoadData.Ins.PlayerData.Exp, SaveLoadData.Ins.PlayerData.Level);
+                    PlayerPanel.CheckUpgradeCount();
+                    //logevent
+                    SkygoBridge.instance.LogEvent("reward_infor_up");
                 });
-                SkygoBridge.instance.ShowRewarded(e,null);
+                //SkygoBridge.instance.ShowRewarded(e,null);
+                //reward
+                ApplovinBridge.instance.ShowRewarAdsApplovin(e,null);
                 
         }
     }

@@ -102,7 +102,7 @@ public class SaveLoadData : Singleton<SaveLoadData>
         {
             towerData = LoadTowerData();
         }
-        if (!ES3.KeyExists(Constants.DATA_DAILYREWARDBUCKDATA, Constants.DATA_CAMPCHARACTERDATA))
+        if (!ES3.KeyExists(Constants.DATA_DAILYREWARDBUCKDATA, Constants.DATA_DAILYREWARDDATA))
         {
             SaveDailyRewardBuckData();
         }
@@ -110,7 +110,7 @@ public class SaveLoadData : Singleton<SaveLoadData>
         {
             buckReward = LoadDailyRewardBuckData();
         }
-        if (!ES3.KeyExists(Constants.DATA_DAILYREWARDCOINDATA, Constants.DATA_CAMPCHARACTERDATA))
+        if (!ES3.KeyExists(Constants.DATA_DAILYREWARDCOINDATA, Constants.DATA_DAILYREWARDDATA))
         {
             SaveDailyRewardCoinData();
         }

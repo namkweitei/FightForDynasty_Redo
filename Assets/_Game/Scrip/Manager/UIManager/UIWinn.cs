@@ -25,7 +25,7 @@ public class UIWinn : UICanvas
     {
         coinReward = Random.Range(20, 30) * SaveLoadData.Ins.PlayerData.Level;
         coinText.text = coinReward.ToString();
-        getCoin = Random.Range(30, 40) * SaveLoadData.Ins.PlayerData.Level;
+        getCoin = Random.Range(35, 45) * SaveLoadData.Ins.PlayerData.Level;
         getCoinText.text = getCoin.ToString();
         buttonReward.onClick.AddListener(() =>
             {
@@ -44,6 +44,7 @@ public class UIWinn : UICanvas
         UIManager.Ins.CloseUI<UIWinn>();
         GameManager.ChangeState(GameState.GamePlay);
         GameManager.Ins.currenGameState = GameState.GamePlay;
+
         Time.timeScale = 0;
         UnityEvent e = new UnityEvent();
         e.AddListener(() =>
@@ -58,24 +59,36 @@ public class UIWinn : UICanvas
                 Time.timeScale = 1;
             }
         });
-        bool showad = SkygoBridge.instance.ShowInterstitial(e);
+        //bool showad = SkygoBridge.instance.ShowInterstitial(e);
+        //inter
+        bool showad = ApplovinBridge.instance.ShowInterAdsApplovin(e);
+        //ApplovinBridge.instance.ShowInterAdsApplovin(null);
     }
     public void GetButton()
     {
         //Reward
-        MapManager.Ins.NextMap();
-        AddCoin(getCoin);
-        UIManager.Ins.CloseUI<UIWinn>();
-        GameManager.ChangeState(GameState.GamePlay);
-        GameManager.Ins.currenGameState = GameState.GamePlay;
-                if (UIManager.Ins.GetUI<UIGamePlay>().isSpeedUp)
+        Time.timeScale = 0;
+        UnityEvent e = new UnityEvent();
+        e.AddListener(() =>
         {
-            Time.timeScale = 2;
-        }
-        else
-        {
-            Time.timeScale = 1;
-        }
+            MapManager.Ins.NextMap();
+            AddCoin(getCoin);
+            UIManager.Ins.CloseUI<UIWinn>();
+            GameManager.ChangeState(GameState.GamePlay);
+            GameManager.Ins.currenGameState = GameState.GamePlay;
+            if (UIManager.Ins.GetUI<UIGamePlay>().isSpeedUp)
+            {
+                Time.timeScale = 2;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
+            //logevent
+            SkygoBridge.instance.LogEvent("reward_coin_endgame");
+        });
+        //reward
+        ApplovinBridge.instance.ShowRewarAdsApplovin(e, null);
     }
     private void AddCoin(int value)
     {

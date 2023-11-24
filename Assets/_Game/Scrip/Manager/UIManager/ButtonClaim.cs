@@ -14,14 +14,14 @@ public class ButtonClaim: MonoBehaviour{
     [SerializeField] private TextMeshProUGUI rewardValueText;
     [SerializeField] private TextMeshProUGUI priceValueText;
     private void Start() {
-        if(typeEventButton == TypeEventButton.Purchase){
+       
             rewardValueText.text = "+" + rewardValue.ToString();
             if(typeButton == TypeButton.Buck){
                 priceValueText.text = "$ " + priceValue.ToString() ;
             }else{
                 priceValueText.text = priceValue.ToString();
             }
-        }
+       
         
     }
     public Button Button { get => button; set => button = value; }

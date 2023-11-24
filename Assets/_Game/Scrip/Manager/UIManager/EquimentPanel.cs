@@ -15,6 +15,14 @@ public class EquimentPanel : MonoBehaviour
         {
             for (int j = 0; j < equimentDetails.Count; j++)
             {
+                if(SaveLoadData.Ins.PlayerData.EquimentDatas[i].countUpdate > 29)
+                {
+                    equimentDetails[j].OffUpButton(SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage, SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed);
+                }
+                if (SaveLoadData.Ins.PlayerData.EquimentDatas[i].countUpdate >= 1)
+                {
+                    equimentDetails[j].SetReward();
+                }
                 if (SaveLoadData.Ins.PlayerData.EquimentDatas[i].equimentType == equimentDetails[j].EquimentType)
                 {
                     equimentDetails[j].OnInit(SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage, SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed);
@@ -62,24 +70,42 @@ public class EquimentPanel : MonoBehaviour
                         equimentDetail.SetReward();
                         SaveLoadData.Ins.PlayerData.Coin -= equimentDetail.CoinUpdate;
                     }
-
+                    break;
                 }
                 else if (SaveLoadData.Ins.PlayerData.EquimentDatas[i].countUpdate < 30)
                 {
                     //Reward
+
+                    //SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage += (float)Math.Round((double)SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage * UnityEngine.Random.Range(0.08f, 0.12f), 1);
+                    //SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed += (float)Math.Round((double)SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed * UnityEngine.Random.Range(0.01f, 0.03f), 3);
+                    //equimentDetail.OnInit(SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage, SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed);
+                    //SaveLoadData.Ins.PlayerData.EquimentDatas[i].countUpdate++;
 
                     Time.timeScale = 0;
                     UnityEvent e = new UnityEvent();
                     e.AddListener(() =>
                     {
                         Debug.Log("reward loaded!");
+                        Debug.Log("j: " + i);
+                        Debug.Log("k: " + SaveLoadData.Ins.PlayerData.EquimentDatas.Count);
+                        Debug.Log("g : "+SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage);
                         SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage += (float)Math.Round((double)SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage * UnityEngine.Random.Range(0.08f, 0.12f), 1);
+                        Debug.Log("h: "+SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage);
                         SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed += (float)Math.Round((double)SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed * UnityEngine.Random.Range(0.01f, 0.03f), 3);
                         equimentDetail.OnInit(SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage, SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed);
                         SaveLoadData.Ins.PlayerData.EquimentDatas[i].countUpdate++;
+                        if (SaveLoadData.Ins.PlayerData.EquimentDatas[i].countUpdate > 29)
+                        {
+                            equimentDetail.OffUpButton(SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage, SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed);
+                        }
                         Time.timeScale = 1;
+                        //logevent
+                        SkygoBridge.instance.LogEvent("reward_upgrade_btn");
                     });
-                    SkygoBridge.instance.ShowRewarded(e, null);
+                    //SkygoBridge.instance.ShowRewarded(e, null);
+                    //reward
+                    ApplovinBridge.instance.ShowRewarAdsApplovin(e, null);
+                    break;
                 }
             }
 

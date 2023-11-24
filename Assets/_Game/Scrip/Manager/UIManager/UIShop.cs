@@ -63,8 +63,12 @@ public class UIShop : UICanvas
                 {
                     Debug.Log("reward loaded!");
                     AddBuck(value);
+                    //logevent
+                    SkygoBridge.instance.LogEvent("reward_"+value);
                 });
-                SkygoBridge.instance.ShowRewarded(e,null);
+                //SkygoBridge.instance.ShowRewarded(e,null);
+                //reward
+                ApplovinBridge.instance.ShowRewarAdsApplovin(e,null);
             }else if(typeEventButton == TypeEventButton.Purchase){
                 PurchaseBuck(price, value);
             }
@@ -75,19 +79,41 @@ public class UIShop : UICanvas
                 e.AddListener(() =>
                 {
                     Debug.Log("reward loaded!");
-                    AddBuck(value);
+                    AddCoin(value);
+                    //logevent
+                    SkygoBridge.instance.LogEvent("reward_"+value);
                 });
-                SkygoBridge.instance.ShowRewarded(e,null);
+                //SkygoBridge.instance.ShowRewarded(e,null);
+                //reward
+                ApplovinBridge.instance.ShowRewarAdsApplovin(e,null);
             }else if(typeEventButton == TypeEventButton.Purchase){
                 PurchaseCoin(price, value);
             }
         }
     }
+    public void RemoveAds(int price)
+    {
+        string sku = "";
+
+        sku = "fight_dynasty_noads_199";
+        UnityEvent e = new UnityEvent();
+        e.AddListener(() =>
+        {
+            SkygoBridge.instance.CanShowAd = 0;
+
+     
+            //noAdsBtn.SetActive(false);
+            //logevent
+            SkygoBridge.instance.LogEvent("purchase_no_Ads");
+        });
+        //purchase
+        SkygoBridge.instance.PurchaseIAP(sku, e);
+    }
     public void SpecialDeal(int price){
         //Buy in game, price is money
         string sku = "";
 
-        sku = "";
+        sku = "fight_dynasty_special_499";
         UnityEvent e = new UnityEvent();
         e.AddListener(() =>
         {
@@ -103,8 +129,10 @@ public class UIShop : UICanvas
             }
             SpecialDealObject.SetActive(false);
             //noAdsBtn.SetActive(false);
+            //logevent
+            SkygoBridge.instance.LogEvent("purchase_specialdeal");
         });
-
+        //purchase
         SkygoBridge.instance.PurchaseIAP(sku, e);
     }
     private void PurchaseCoin(int buckPrice, int claimValue){
@@ -122,12 +150,12 @@ public class UIShop : UICanvas
     private void PurchaseBuck(int price, int claimValue){
         //Buy in game, price is money
         string sku = "";
-
-        sku = "";
+        Debug.Log(price + " : " + claimValue);
+        sku = "fight_dynasty_cash_" + price.ToString();
+        Debug.Log(sku);
         UnityEvent e = new UnityEvent();
         e.AddListener(() =>
         {
-            SkygoBridge.instance.CanShowAd = 0;
             AddBuck(claimValue);
         
             //noAdsBtn.SetActive(false);
@@ -137,7 +165,7 @@ public class UIShop : UICanvas
       
     }
 
-    private void AddBuck(int value){
+    public void AddBuck(int value){
         SaveLoadData.Ins.PlayerData.Buck += value;
     }
 

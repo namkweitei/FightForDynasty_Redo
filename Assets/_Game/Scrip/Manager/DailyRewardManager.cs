@@ -124,12 +124,21 @@ public class DailyRewardManager : Singleton<DailyRewardManager>
     {
         if (SaveLoadData.Ins.CoinReward.RewardID == ID)
         {
+            AddCoin(SaveLoadData.Ins.CoinReward.RewardValue);
             SaveLoadData.Ins.CoinReward.ClaimReward();
         }
         else if (SaveLoadData.Ins.BuckReward.RewardID == ID)
         {
+            AddBuck(SaveLoadData.Ins.BuckReward.RewardValue);
             SaveLoadData.Ins.BuckReward.ClaimReward();
         }
     }
-
+    private void AddCoin(int value)
+    {
+        SaveLoadData.Ins.PlayerData.Coin += value;
+    }
+    private void AddBuck(int value)
+    {
+        SaveLoadData.Ins.PlayerData.Buck += value;
+    }
 }

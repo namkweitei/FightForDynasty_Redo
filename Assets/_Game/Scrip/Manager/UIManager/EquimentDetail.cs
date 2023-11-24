@@ -15,6 +15,7 @@ public class EquimentDetail : MonoBehaviour
     [SerializeField] int coinUpdate;
     [SerializeField] GameObject coin;
     [SerializeField] GameObject reward;
+    [SerializeField] GameObject upgradeButton;
 
     public int CoinUpdate { get => coinUpdate; set => coinUpdate = value; }
     // Start is called before the first frame update
@@ -40,5 +41,11 @@ public class EquimentDetail : MonoBehaviour
     public void SetReward(){
         coin.SetActive(false);
         reward.SetActive(true);
+    }
+    public void OffUpButton(float damage, float fireRate)
+    {
+        indexText.text = damage.ToString() + "\n" + fireRate.ToString();
+        upIndexText.gameObject.SetActive(false);
+        upgradeButton.SetActive(false);
     }
 }

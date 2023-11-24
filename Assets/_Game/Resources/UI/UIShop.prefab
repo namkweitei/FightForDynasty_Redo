@@ -4612,7 +4612,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3353632082472173007}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 234294505033241183}
+        m_TargetAssemblyTypeName: UIShop, Assembly-CSharp
+        m_MethodName: RemoveAds
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 199
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3784296238207300132
 GameObject:
   m_ObjectHideFlags: 0
@@ -5533,7 +5545,7 @@ MonoBehaviour:
   typeButton: 0
   typeEventButton: 1
   rewardValue: 300
-  priceValue: 1299
+  priceValue: 999
   rewardValueText: {fileID: 1770425404680893209}
   priceValueText: {fileID: 2100024962765198362}
 --- !u!1 &4312885474331952351
@@ -6544,7 +6556,7 @@ MonoBehaviour:
   typeButton: 0
   typeEventButton: 1
   rewardValue: 150
-  priceValue: 249
+  priceValue: 299
   rewardValueText: {fileID: 4704650649304366519}
   priceValueText: {fileID: 1950369321366964911}
 --- !u!1 &4578884010422904753
@@ -7471,7 +7483,7 @@ MonoBehaviour:
   typeButton: 0
   typeEventButton: 1
   rewardValue: 500
-  priceValue: 2499
+  priceValue: 1499
   rewardValueText: {fileID: 5491590540719597049}
   priceValueText: {fileID: 4260405526790942683}
 --- !u!1 &5379672386538056699
@@ -8570,7 +8582,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 129
+          m_IntArgument: 499
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -8930,7 +8942,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Life Time
 
-    $ 129'
+    $4.99'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 43885cdb2b2775b469667f0cb86acc92, type: 2}
   m_sharedMaterial: {fileID: -6749693859980078731, guid: 43885cdb2b2775b469667f0cb86acc92, type: 2}
@@ -9951,7 +9963,7 @@ MonoBehaviour:
   typeButton: 0
   typeEventButton: 1
   rewardValue: 80
-  priceValue: 129
+  priceValue: 99
   rewardValueText: {fileID: 2471363016865694233}
   priceValueText: {fileID: 6039435026456618168}
 --- !u!1 &7581561777889149891
@@ -10942,7 +10954,7 @@ MonoBehaviour:
   typeButton: 0
   typeEventButton: 1
   rewardValue: 200
-  priceValue: 499
+  priceValue: 599
   rewardValueText: {fileID: 1695233620830602269}
   priceValueText: {fileID: 765013837884260968}
 --- !u!1 &8114808822955496106
