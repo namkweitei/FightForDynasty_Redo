@@ -111,7 +111,20 @@ public class UIGamePlay : UICanvas, IObserver
         }
         else
         {
-            unlockIcon.SetActive(false);
+            for (int i = 0; i < SaveLoadData.Ins.PlayerData.EquimentDatas.Count; i++)
+            {
+                if (SaveLoadData.Ins.PlayerData.EquimentDatas[i].countUpdate < 1 && SaveLoadData.Ins.PlayerData.EquimentDatas[i].IsUnlock)
+                {
+                    unlockIcon.SetActive(true);
+                    break;
+                }
+                else
+                {
+                    unlockIcon.SetActive(false);
+                }
+
+            }
+
         }
     }
 }
