@@ -4,15 +4,18 @@ using UnityEngine;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 
-public class UIGamePlay : UICanvas
+public class UIGamePlay : UICanvas, IObserver
 {
 
     [SerializeField] private LevelUI levelUI;
     [SerializeField] private CoinPanel coinPanel;
     [SerializeField] private WavePanel wavePanel;
+    [SerializeField] private GameObject unlockIcon;
     public bool isSpeedUp;
     void Start()
     {
+        SaveLoadData.Ins.PlayerData.RegisterObserver(this);
+        OnNotifyAddCurrency();
         AudioManager.Ins.PlayMusic(Constants.MUSIC_THEME);
     }
 
@@ -99,4 +102,16 @@ public class UIGamePlay : UICanvas
         }
     }
 
+    public void OnNotifyAddCurrency()
+    {
+        float currentcoin = 100 * SaveLoadData.Ins.PlayerData.Level;
+        if (SaveLoadData.Ins.PlayerData.Coin >= currentcoin)
+        {
+            unlockIcon.SetActive(true);
+        }
+        else
+        {
+            unlockIcon.SetActive(false);
+        }
+    }
 }

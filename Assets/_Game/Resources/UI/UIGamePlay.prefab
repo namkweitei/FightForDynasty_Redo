@@ -103,7 +103,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 284952957816739090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112,8 +112,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -46.4, y: 19.1781}
-  m_SizeDelta: {x: 90, y: 90}
+  m_AnchoredPosition: {x: -78, y: 56}
+  m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4725533891876112387
 CanvasRenderer:
@@ -1877,6 +1877,7 @@ MonoBehaviour:
   levelUI: {fileID: 7811435110654489715}
   coinPanel: {fileID: 8921367669599833377}
   wavePanel: {fileID: 2206103447114730436}
+  unlockIcon: {fileID: 284952957816739090}
   isSpeedUp: 0
 --- !u!1 &2228601574853639763
 GameObject:

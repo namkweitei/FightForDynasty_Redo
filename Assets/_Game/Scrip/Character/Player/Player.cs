@@ -88,8 +88,8 @@ public class Player : Character
     {
         if (IsDead ) return;
         if(isMove){
-            horizontal = UltimateJoystick.GetHorizontalAxisRaw("PlayerJoystick");
-            vertical = UltimateJoystick.GetVerticalAxisRaw("PlayerJoystick");
+            horizontal = UltimateJoystick.GetHorizontalAxis("PlayerJoystick");
+            vertical = UltimateJoystick.GetVerticalAxis("PlayerJoystick");
         }else{
             horizontal = 0;
             vertical = 0;
@@ -129,16 +129,24 @@ public class Player : Character
 
     protected virtual void JoystickMovement()
     {
-        movement = new Vector3(-horizontal, 0f, -vertical);
-        movement.Normalize();
-        rb.velocity = movement * speed * Time.fixedDeltaTime;
-        if(GetMove()){
-            timetoc -= Time.deltaTime;
-            if(timetoc <= 0){
-                AudioManager.Ins.PlayeStepSound();
-                timetoc = timeDelay;
-            }
+        if(Mathf.Abs(horizontal) < 0.01f & Mathf.Abs(vertical) < 0.01f)
+        {
+            rb.velocity = Vector3.zero;
+        }
+        else
+        {
+            movement = new Vector3(-horizontal, 0f, -vertical);
+            movement.Normalize();
+            rb.velocity = movement * speed * Time.fixedDeltaTime;
+            if(GetMove()){
+                timetoc -= Time.deltaTime;
+                if(timetoc <= 0){
+                    AudioManager.Ins.PlayeStepSound();
+                    timetoc = timeDelay;
+                }
             
+            }
+
         }
     }
 
