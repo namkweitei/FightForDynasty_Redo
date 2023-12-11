@@ -47,7 +47,7 @@ public class GameLoader : MonoBehaviour
         //yield return new WaitForSeconds(3f);
         yield return StartCoroutine(LoadYourAsyncScene("GamePlay"));
         //showAOA
-        ApplovinBridge.instance.CheckOpenAds();
+        //ApplovinBridge.instance.CheckOpenAds();
     }
     public void MenuScene()
     {

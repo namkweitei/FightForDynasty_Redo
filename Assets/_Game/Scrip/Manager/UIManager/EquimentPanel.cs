@@ -81,10 +81,10 @@ public class EquimentPanel : MonoBehaviour
                     //equimentDetail.OnInit(SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage, SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed);
                     //SaveLoadData.Ins.PlayerData.EquimentDatas[i].countUpdate++;
 
-                    Time.timeScale = 0;
-                    UnityEvent e = new UnityEvent();
-                    e.AddListener(() =>
-                    {
+                    // Time.timeScale = 0;
+                    // UnityEvent e = new UnityEvent();
+                    // e.AddListener(() =>
+                    // {
                         Debug.Log("reward loaded!");
                         Debug.Log("j: " + i);
                         Debug.Log("k: " + SaveLoadData.Ins.PlayerData.EquimentDatas.Count);
@@ -98,13 +98,13 @@ public class EquimentPanel : MonoBehaviour
                         {
                             equimentDetail.OffUpButton(SaveLoadData.Ins.PlayerData.EquimentDatas[i].damage, SaveLoadData.Ins.PlayerData.EquimentDatas[i].attackSpeed);
                         }
-                        Time.timeScale = 1;
-                        //logevent
-                        SkygoBridge.instance.LogEvent("reward_upgrade_btn");
-                    });
+                    //     Time.timeScale = 1;
+                    //     //logevent
+                    //     SkygoBridge.instance.LogEvent("reward_upgrade_btn");
+                    // });
                     //SkygoBridge.instance.ShowRewarded(e, null);
                     //reward
-                    ApplovinBridge.instance.ShowRewarAdsApplovin(e, null);
+                    //ApplovinBridge.instance.ShowRewarAdsApplovin(e, null);
                     break;
                 }
             }

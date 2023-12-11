@@ -26,7 +26,7 @@ public class ArrowTower : Tower
         }
     }
 
-    protected override void Attack(Character target)
+    protected override void Attack(Enemy target)
     {
         this.shootTimer -= Time.fixedDeltaTime;
         if (this.shootTimer < 0)

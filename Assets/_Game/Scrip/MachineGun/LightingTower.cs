@@ -25,7 +25,7 @@ public class LightingTower : Tower
             }
         }
     }
-    protected override void Attack(Character enemy)
+    protected override void Attack(Enemy enemy)
     {
         this.shootTimer -= Time.fixedDeltaTime;
         if (this.shootTimer < 0)

@@ -1932,7 +1932,7 @@ GameObject:
   - component: {fileID: 6777440185659995764}
   - component: {fileID: 4194829983422047862}
   - component: {fileID: 1921880393300395662}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: BossThanhCatTuHan
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2033,6 +2033,7 @@ MonoBehaviour:
   speed: 1
   maxHp: 300
   hp: 0
+  IsDead: 0
   target: {fileID: 0}
   agent: {fileID: 4194829983422047862}
   coinSpawn: 25

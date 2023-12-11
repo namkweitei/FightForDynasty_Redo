@@ -11,7 +11,7 @@ public class Tower : MonoBehaviour
     [SerializeField] protected float shootTimer;
     [SerializeField] protected float shootSpeed;
     [SerializeField] protected float damage;
-    public List<Character> enemy;
+    public List<Enemy> enemy;
     protected Vector3 direction;
     protected Quaternion originalRotate_1;
     protected Quaternion originalRotate_2;
@@ -31,7 +31,7 @@ public class Tower : MonoBehaviour
     {
 
     }
-    protected virtual void Attack(Character target)
+    protected virtual void Attack(Enemy target)
     {
 
     }

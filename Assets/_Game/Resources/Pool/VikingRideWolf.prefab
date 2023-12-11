@@ -588,9 +588,9 @@ GameObject:
   - component: {fileID: 3793975085908043063}
   - component: {fileID: 2039501752358110795}
   - component: {fileID: 4297556417055029261}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: VikingRideWolf
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -689,6 +689,7 @@ MonoBehaviour:
   speed: 1.6
   maxHp: 25
   hp: 0
+  IsDead: 0
   target: {fileID: 0}
   agent: {fileID: 2039501752358110795}
   coinSpawn: 10

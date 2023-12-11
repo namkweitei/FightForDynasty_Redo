@@ -32,7 +32,7 @@ public class FireTurret : Tower
         }
     }
 
-    protected override void Attack(Character target)
+    protected override void Attack(Enemy target)
     {
         particle.Play();
         shootTimer -= Time.fixedDeltaTime;

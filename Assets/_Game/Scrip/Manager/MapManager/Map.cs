@@ -64,8 +64,8 @@ public class Map : MonoBehaviour
     }
     public void SetPosPlayer()
     {
-        Player.Ins.transform.position = playerPoint.position;
-        Player.Ins.transform.rotation = playerPoint.rotation;
+        Player.Ins.transform.position = flag.transform.position + Vector3.forward;
+        Player.Ins.transform.rotation = flag.transform.rotation;
         Player.Ins.OnInit();
     }
     public void SetPosCampCharacter()
@@ -145,7 +145,7 @@ public class Map : MonoBehaviour
                 {
                     waveData.barrackWave[i].gameObject.SetActive(false);
                 }
-                flag.gameObject.SetActive(false);
+                flag.SetPlayerFlag();
                 this.gate.gameObject.SetActive(false);
                 plane.materials = new Material[] { material, material };
                 if (attackPoint != null)
@@ -165,7 +165,7 @@ public class Map : MonoBehaviour
                 {
                     waveData.barrackWave[i].gameObject.SetActive(false);
                 }
-                flag.gameObject.SetActive(false);
+                flag.SetPlayerFlag();
                 this.gate.gameObject.SetActive(false);
                 plane.materials = new Material[] { material, material };
                 if (attackPoint != null)
@@ -199,8 +199,10 @@ public class Map : MonoBehaviour
         //bool showad = SkygoBridge.instance.ShowInterstitial(e);
 
         //inter
-        ApplovinBridge.instance.ShowInterAdsApplovin(null);
-
+        //ApplovinBridge.instance.ShowInterAdsApplovin(null);
+        AudioManager.Ins.ToggleMusic();
+        AudioManager.Ins.PlaySfx("StartWave");
+        Invoke(nameof(PlayThemeSound), 2.5f);
         UIManager.Ins.GetUI<UIGamePlay>().OpenWaveStage(waveData.barrackWave.Count + 1, SaveLoadData.Ins.MapData.Wave,SaveLoadData.Ins.MapData.Wave + 1 );
         DirectionArrowControl.Ins.gameObject.SetActive(false);
         GameManager.ChangeState(GameState.Playing);
@@ -212,6 +214,10 @@ public class Map : MonoBehaviour
             Invoke(nameof(ActiveFirstEnemy), 0.1f);
         });
 
+    }
+    public void PlayThemeSound(){
+        AudioManager.Ins.PlayMusic("AttackTheme");
+        AudioManager.Ins.ToggleMusic();
     }
     //--------------FIRST WAVE---------------
     public virtual void ActiveFirstEnemy()
@@ -228,12 +234,13 @@ public class Map : MonoBehaviour
         {
             for (int j = 0; j < waveData.firstWave[i].enemyCount; j++)
             {
-                if (j < firstEnemyPos.Count)
+                if (currentPos < firstEnemyPos.Count)
                 {
                     Enemy enemy = SpawnEnemy(waveData.firstWave[i].enemyName, firstEnemyPos[currentPos].position, firstEnemyPos[currentPos].rotation);
                     enemy.SetTarget(campPoint);
                     enemy.StateMachine.ChangeState(enemy.IdleState);
                     currentPos++;
+              
                 }
             }
         }
@@ -260,7 +267,7 @@ public class Map : MonoBehaviour
         {
             for (int j = 0; j < waveData.endWave[i].enemyCount; j++)
             {
-                if (j < endEnemyPos.Count)
+                if (currentPos < endEnemyPos.Count)
                 {
                     Enemy enemy = SpawnEnemy(waveData.endWave[i].enemyName, spawnPos.position, spawnPos.rotation);
                     enemy.SetTarget(endEnemyPos[currentPos]);
@@ -348,6 +355,9 @@ public class Map : MonoBehaviour
             SaveLoadData.Ins.MapData.Wave++;
             UIManager.Ins.GetUI<UIGamePlay>().SetFill(SaveLoadData.Ins.MapData.Wave);
             UIManager.Ins.GetUI<UIGamePlay>().SetTextWave(SaveLoadData.Ins.MapData.Wave + 1);
+            AudioManager.Ins.ToggleMusic();
+            AudioManager.Ins.PlaySfx("StartWave");
+            Invoke(nameof(PlayThemeSound), 2.5f);
             currentBarrack = 0;
         };
     }
@@ -390,7 +400,7 @@ public class Map : MonoBehaviour
                         }
                         enemyCountWave = enemyCount;
                     }
-                    if(SaveLoadData.Ins.MapData.Wave == 3){
+                    if(SaveLoadData.Ins.MapData.Wave == 2){
                         //Time.timeScale = 0;
                         //UnityEvent e = new UnityEvent();
                         //e.AddListener(() =>
@@ -401,10 +411,13 @@ public class Map : MonoBehaviour
                         //bool showad = SkygoBridge.instance.ShowInterstitial(e);
 
                         //inter
-                        ApplovinBridge.instance.ShowInterAdsApplovin(null);
+                        //ApplovinBridge.instance.ShowInterAdsApplovin(null);
                     }
-                    UIManager.Ins.GetUI<UIGamePlay>().SetTextWave(SaveLoadData.Ins.MapData.Wave + 1);
                     timeNextWave = 2f;
+                    AudioManager.Ins.ToggleMusic();
+                    AudioManager.Ins.PlaySfx("StartWave");
+                    Invoke(nameof(PlayThemeSound), 2.5f);
+                    UIManager.Ins.GetUI<UIGamePlay>().SetTextWave(SaveLoadData.Ins.MapData.Wave + 1);
                 }
             }
 
@@ -433,6 +446,7 @@ public class Map : MonoBehaviour
             {
                 Debug.Log("Win");
                 OpenFlag();
+                AudioManager.Ins.PlayMusic(Constants.MUSIC_THEME);
                 this.enabled = false;
             }
         };

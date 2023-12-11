@@ -45,10 +45,10 @@ public class UIWinn : UICanvas
         GameManager.ChangeState(GameState.GamePlay);
         GameManager.Ins.currenGameState = GameState.GamePlay;
 
-        Time.timeScale = 0;
-        UnityEvent e = new UnityEvent();
-        e.AddListener(() =>
-        {
+        // Time.timeScale = 0;
+        // UnityEvent e = new UnityEvent();
+        // e.AddListener(() =>
+        // {
             Debug.Log("ads loaded!");
             if (UIManager.Ins.GetUI<UIGamePlay>().isSpeedUp)
             {
@@ -58,19 +58,19 @@ public class UIWinn : UICanvas
             {
                 Time.timeScale = 1;
             }
-        });
-        //bool showad = SkygoBridge.instance.ShowInterstitial(e);
-        //inter
-        bool showad = ApplovinBridge.instance.ShowInterAdsApplovin(e);
+        // });
+        // //bool showad = SkygoBridge.instance.ShowInterstitial(e);
+        // //inter
+        // bool showad = ApplovinBridge.instance.ShowInterAdsApplovin(e);
         //ApplovinBridge.instance.ShowInterAdsApplovin(null);
     }
     public void GetButton()
     {
         //Reward
-        Time.timeScale = 0;
-        UnityEvent e = new UnityEvent();
-        e.AddListener(() =>
-        {
+        // Time.timeScale = 0;
+        // UnityEvent e = new UnityEvent();
+        // e.AddListener(() =>
+        // {
             MapManager.Ins.NextMap();
             AddCoin(getCoin);
             UIManager.Ins.CloseUI<UIWinn>();
@@ -85,10 +85,10 @@ public class UIWinn : UICanvas
                 Time.timeScale = 1;
             }
             //logevent
-            SkygoBridge.instance.LogEvent("reward_coin_endgame");
-        });
-        //reward
-        ApplovinBridge.instance.ShowRewarAdsApplovin(e, null);
+        //     SkygoBridge.instance.LogEvent("reward_coin_endgame");
+        // });
+        // //reward
+        // ApplovinBridge.instance.ShowRewarAdsApplovin(e, null);
     }
     private void AddCoin(int value)
     {

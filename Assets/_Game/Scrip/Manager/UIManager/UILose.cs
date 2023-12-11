@@ -37,7 +37,7 @@ public class UILose : UICanvas
             SaveLoadData.Ins.CampCharacterData.Hp = SaveLoadData.Ins.CampCharacterData.MaxHp;
         }
         SaveLoadData.Ins.SaveALL();
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("GamePlay");
         UIManager.Ins.CloseUI<UILose>();
         GameManager.ChangeState(GameState.GamePlay);
         GameManager.Ins.currenGameState = GameState.GamePlay;
@@ -52,15 +52,15 @@ public class UILose : UICanvas
         //});
         //bool showad = SkygoBridge.instance.ShowInterstitial(e);
         //inter
-        ApplovinBridge.instance.ShowInterAdsApplovin(null);
+        //ApplovinBridge.instance.ShowInterAdsApplovin(null);
     }
     public void ReviceButton()
     {
         //Reward
-        Time.timeScale = 0;
-        UnityEvent e = new UnityEvent();
-        e.AddListener(() =>
-        {
+        // Time.timeScale = 0;
+        // UnityEvent e = new UnityEvent();
+        // e.AddListener(() =>
+        // {
             Debug.Log("reward loaded!");
             UIManager.Ins.CloseUI<UILose>();
             if (GameManager.IsState(GameState.Pause))
@@ -81,11 +81,11 @@ public class UILose : UICanvas
                 Time.timeScale = 1;
             }
             //logevent
-            SkygoBridge.instance.LogEvent("reward_revice_btn");
-        });
-        //SkygoBridge.instance.ShowRewarded(e, null);
-        //reward
-        ApplovinBridge.instance.ShowRewarAdsApplovin(e, null);
+        //     SkygoBridge.instance.LogEvent("reward_revice_btn");
+        // });
+        // //SkygoBridge.instance.ShowRewarded(e, null);
+        // //reward
+        // ApplovinBridge.instance.ShowRewarAdsApplovin(e, null);
 
     }
 }

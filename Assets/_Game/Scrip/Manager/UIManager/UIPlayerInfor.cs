@@ -53,9 +53,9 @@ public class UIPlayerInfor : UICanvas
             }
         }else if(SaveLoadData.Ins.PlayerData.CountUpgrade < 2){
                 //Reward
-                UnityEvent e = new UnityEvent();
-                e.AddListener(() =>
-                {
+                // UnityEvent e = new UnityEvent();
+                // e.AddListener(() =>
+                // {
                     Debug.Log("reward loaded!");
                     SaveLoadData.Ins.PlayerData.Hp += SaveLoadData.Ins.PlayerData.Hp / 100 * 15;
                     SaveLoadData.Ins.PlayerData.Hp = Mathf.Ceil(SaveLoadData.Ins.PlayerData.Hp);
@@ -66,11 +66,11 @@ public class UIPlayerInfor : UICanvas
                     PlayerPanel.SetInfor(SaveLoadData.Ins.PlayerData.Hp, SaveLoadData.Ins.PlayerData.RegenHp, SaveLoadData.Ins.PlayerData.Speed, SaveLoadData.Ins.PlayerData.CurrentExp, SaveLoadData.Ins.PlayerData.Exp, SaveLoadData.Ins.PlayerData.Level);
                     PlayerPanel.CheckUpgradeCount();
                     //logevent
-                    SkygoBridge.instance.LogEvent("reward_infor_up");
-                });
-                //SkygoBridge.instance.ShowRewarded(e,null);
-                //reward
-                ApplovinBridge.instance.ShowRewarAdsApplovin(e,null);
+                //     SkygoBridge.instance.LogEvent("reward_infor_up");
+                // });
+                // //SkygoBridge.instance.ShowRewarded(e,null);
+                // //reward
+                // ApplovinBridge.instance.ShowRewarAdsApplovin(e,null);
                 
         }
     }

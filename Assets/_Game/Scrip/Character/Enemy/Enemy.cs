@@ -19,17 +19,17 @@ public class Enemy : Character
     [SerializeField] protected float damage;
     [SerializeField] protected Animator animAnimal;
 
-
     protected float radius;
     public Action<Enemy> OnDeathAction;
     public StateMachine StateMachine { get => stateMachine; set => stateMachine = value; }
-
+    protected string animNameAnimal = "idle";
     void Start()
     {
         Avoidance.AddAgent(agent);
     }
     public override void OnInit()
     {
+        animNameAnimal = "idle";
         agent.enabled = true;
         agent.speed = speed;
         agent.updateRotation = true;
@@ -49,11 +49,17 @@ public class Enemy : Character
         {
             if (!GameManager.IsState(GameState.Playing))
             {
+                
                 ChangeAnim(Constants.ANIM_IDLE);
                 agent.isStopped = true;
                 return;
             }else{
+               
                 agent.isStopped = false;
+            }
+            if (animAnimal != null)
+            {
+                ChangeAnimAnimal("play");
             }
             stateMachine?.Execute();
         }
@@ -302,6 +308,14 @@ public class Enemy : Character
     {
         anim.transform.position = Vector3.zero;
     }
-
+    protected void ChangeAnimAnimal(string animName)
+    {
+        if (this.animNameAnimal != animName)
+        {
+            animAnimal.ResetTrigger(this.animNameAnimal);
+            this.animNameAnimal = animName;
+            animAnimal.SetTrigger(this.animNameAnimal);
+        }
+    }
 
 }

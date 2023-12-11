@@ -24,10 +24,10 @@ public class Player : Character
         {
             instance = (Player)this;
         }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
+        //else if (instance != this)
+        //{
+        //    Destroy(gameObject);
+        //}
         if (needDontDestroy) DontDestroyOnLoad(gameObject);
         SetUp();
     }
@@ -264,6 +264,7 @@ public class Player : Character
     }
     public void ChangeEquiment(EquimentType equimentType)
     {
+        ResetAttack();
         for (int i = 0; i < SaveLoadData.Ins.PlayerData.EquimentDatas.Count; i++)
         {
             if (SaveLoadData.Ins.PlayerData.EquimentDatas[i].equimentType == equimentType)
@@ -380,20 +381,13 @@ public class Player : Character
     }
     public void SetArmor(int lv)
     {
-        if (lv > 1)
-        {
-            armor[0].SetActive(true);
-        }
-        else if (lv > 4)
-        {
-            armor[0].SetActive(true);
-            armor[1].SetActive(true);
-        }
-        else if (lv > 9)
+        if (lv > 19)
         {
             armor[0].SetActive(true);
             armor[1].SetActive(true);
             armor[2].SetActive(true);
+            armor[3].SetActive(true);
+            armor[4].SetActive(true);
         }
         else if (lv > 14)
         {
@@ -402,15 +396,21 @@ public class Player : Character
             armor[2].SetActive(true);
             armor[3].SetActive(true);
         }
-        else if (lv > 19)
+        else if (lv > 9)
         {
             armor[0].SetActive(true);
             armor[1].SetActive(true);
             armor[2].SetActive(true);
-            armor[3].SetActive(true);
-            armor[4].SetActive(true);
         }
-
+        else if (lv > 4)
+        {
+            armor[0].SetActive(true);
+            armor[1].SetActive(true);
+        }
+        else if (lv > 1)
+        {
+            armor[0].SetActive(true);
+        }
     }
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;

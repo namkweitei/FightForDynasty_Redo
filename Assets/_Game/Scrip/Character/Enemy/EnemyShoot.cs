@@ -14,4 +14,9 @@ public class EnemyShoot : Enemy
         // bullet.targetObject = player.GetComponent<Character>();
         // bullet.Damage = damage;
     }
+
+    public override void OnHit(float damage)
+    {
+        base.OnHit(damage);
+    }
 }

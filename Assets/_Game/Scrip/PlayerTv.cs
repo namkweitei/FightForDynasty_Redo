@@ -30,30 +30,36 @@ private void Start() {
     }
     public void SetArmor(int lv)
     {
-        if(lv > 1){
-            armor[0].SetActive(true);
-        }else if(lv > 4){
-            armor[0].SetActive(true);
-            armor[1].SetActive(true);
-        }
-        else if(lv > 9){
-            armor[0].SetActive(true);
-            armor[1].SetActive(true);
-            armor[2].SetActive(true);
-        }
-        else if(lv > 14){
-            armor[0].SetActive(true);
-            armor[1].SetActive(true);
-            armor[2].SetActive(true);
-            armor[3].SetActive(true);
-        }
-        else if(lv > 19){
+        if (lv > 19)
+        {
             armor[0].SetActive(true);
             armor[1].SetActive(true);
             armor[2].SetActive(true);
             armor[3].SetActive(true);
             armor[4].SetActive(true);
         }
-        
+        else if (lv > 14)
+        {
+            armor[0].SetActive(true);
+            armor[1].SetActive(true);
+            armor[2].SetActive(true);
+            armor[3].SetActive(true);
+        }
+        else if (lv > 9)
+        {
+            armor[0].SetActive(true);
+            armor[1].SetActive(true);
+            armor[2].SetActive(true);
+        }
+        else if (lv > 4)
+        {
+            armor[0].SetActive(true);
+            armor[1].SetActive(true);
+        }
+        else if (lv > 1)
+        {
+            armor[0].SetActive(true);
+        }
+
     }
 }

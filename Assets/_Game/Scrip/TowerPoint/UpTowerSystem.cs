@@ -21,7 +21,7 @@ public class UpTowerSystem : MonoBehaviour
     public int Id { get => id; set => id = value; }
     private bool isActive;
     float timeAudio = 0f;
-    float timeSetAudio = 4f;
+    float timeSetAudio = 0.1f;
     private void Start() {
         uptower.SetCurrentCoin(currentCoin);
     }
@@ -109,16 +109,16 @@ public class UpTowerSystem : MonoBehaviour
                 {
                     if (SaveLoadData.Ins.PlayerData.Coin > 0)
                     {
-                        // timeAudio -= Time.deltaTime;
-                        // if (timeAudio <= 0)
-                        // {
-                            
-                        //     timeAudio = timeSetAudio;
-                        // }
+                        timeAudio -= Time.deltaTime;
+                        if (timeAudio <= 0)
+                        {
+                            AudioManager.Ins.PlaySfx(Constants.SFX_UPTRAP);
+                            timeAudio = timeSetAudio;
+                        }
                         timeSpawn -= Time.deltaTime;
                         if (timeSpawn < 0)
                         {
-                            AudioManager.Ins.PlaySfx(Constants.SFX_UPTRAP);
+                            
                             timeSpawn = targetTime;
                             SpawnCoin(Player.Ins.transform, transform);
                             currentCoin--;

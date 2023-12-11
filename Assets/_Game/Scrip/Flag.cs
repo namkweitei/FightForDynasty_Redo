@@ -66,6 +66,12 @@ public class Flag : MonoBehaviour
         }
 
     }
+    public void SetPlayerFlag()
+    {
+        playerFlag.position = topPoint.position;
+        playerFlag.gameObject.SetActive(true);
+        enemyFlag.gameObject.SetActive(false);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

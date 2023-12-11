@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class Lighting : GameUnit
+public class SkillLighting : GameUnit
 {
-    [SerializeField] private Enemy enemy;
+
+    [SerializeField] private Player enemy;
     [SerializeField] private float speed;
     [SerializeField] private float damage;
     [SerializeField] private TrailRenderer trailRenderer;
-    [SerializeField] private List<Enemy> enemyList;
+    [SerializeField] private List<Player> enemyList;
     public int currentEnemyIndex;
     public int maxEnemyIndex;
-    public void OnInit(Enemy enemy, float damage, int enemyCount)
+    public void OnInit(Player enemy, float damage, int enemyCount)
     {
         enemyList.Clear();
         trailRenderer.Clear();
@@ -54,10 +55,10 @@ public class Lighting : GameUnit
         Collider[] colliders = Physics.OverlapSphere(transform.position, 3f, 1 << 14);
         foreach (var item in colliders)
         {
-            if (!enemyList.Contains(item.GetComponent<Enemy>()))
+            if (!enemyList.Contains(item.GetComponent<Player>()))
             {
-                enemy = item.GetComponent<Enemy>();
-                enemyList.Add(item.GetComponent<Enemy>());
+                enemy = item.GetComponent<Player>();
+                enemyList.Add(item.GetComponent<Player>());
                 break;
             }
         }
@@ -70,3 +71,4 @@ public class Lighting : GameUnit
     }
 
 }
+
