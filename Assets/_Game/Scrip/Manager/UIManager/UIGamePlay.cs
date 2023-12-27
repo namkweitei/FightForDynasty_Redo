@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using TMPro;
+using static InfinityCode.UltimateEditorEnhancer.SceneTools.DropToFloor;
 
 public class UIGamePlay : UICanvas, IObserver
 {
@@ -11,14 +13,29 @@ public class UIGamePlay : UICanvas, IObserver
     [SerializeField] private CoinPanel coinPanel;
     [SerializeField] private WavePanel wavePanel;
     [SerializeField] private GameObject unlockIcon;
+    [SerializeField] private TextMeshProUGUI speedText;
+    [SerializeField] private GameObject panelSpeedup;
     public bool isSpeedUp;
+    public bool isSpeedX2;
+    public int countSpeed;
+    public float timeSpeed;
+
     void Start()
     {
         SaveLoadData.Ins.PlayerData.RegisterObserver(this);
         OnNotifyAddCurrency();
+        speedText.text = "100%";
         AudioManager.Ins.PlayMusic(Constants.MUSIC_THEME);
+        int countADS = PlayerPrefs.GetInt("countADS");
+        if(countADS >= 3)
+        {
+            isSpeedX2 = true;
+        }
     }
-
+    private void Update()
+    {
+        CheckTimeSpeed();
+    }
     [Button]
     public void OpenWaveStage(int count, int curWave,int wave)
     {
@@ -90,41 +107,93 @@ public class UIGamePlay : UICanvas, IObserver
     }
     public void TimeSkipButton()
     {
-        if (isSpeedUp)
+        if (countSpeed == 0)
+        {
+            timeSpeed = 180f;
+            isSpeedUp = true;
+            countSpeed++;
+            speedText.text = "125%";
+            Time.timeScale = 1.25f;
+        }
+        else if(countSpeed == 1)
+        {
+            countSpeed++;
+            speedText.text = "150%";
+            Time.timeScale = 1.5f;
+        }
+        else if(countSpeed == 2) 
+        {
+            if (isSpeedX2)
+            {
+                countSpeed++;
+                speedText.text = "200%";
+                Time.timeScale = 2f;
+            }
+            else
+            {
+                isSpeedUp = false;
+                countSpeed = 0;
+                speedText.text = "100%";
+                Time.timeScale = 1;
+            }
+            
+        }else if(countSpeed == 3)
         {
             isSpeedUp = false;
+            countSpeed = 0;
+            speedText.text = "100%";
             Time.timeScale = 1;
         }
-        else
+    }
+    public void CheckTimeSpeed()
+    {
+        if (isSpeedUp && !isSpeedX2)
         {
-            isSpeedUp = true;
-            Time.timeScale = 2;
+            timeSpeed -= Time.deltaTime;
+            if(timeSpeed < 0)
+            {
+                panelSpeedup.SetActive(true);
+                timeSpeed = 180;
+            }
+            
         }
     }
-
     public void OnNotifyAddCurrency()
     {
-        float currentcoin = 100 * SaveLoadData.Ins.PlayerData.Level;
-        if (SaveLoadData.Ins.PlayerData.Coin >= currentcoin)
+        if (CheckUpgradeInfor())
+        {
+            unlockIcon.SetActive(true);
+        }else if(CheckUpgradeEqui()) 
         {
             unlockIcon.SetActive(true);
         }
         else
         {
-            for (int i = 0; i < SaveLoadData.Ins.PlayerData.EquimentDatas.Count; i++)
-            {
-                if (SaveLoadData.Ins.PlayerData.EquimentDatas[i].countUpdate < 1 && SaveLoadData.Ins.PlayerData.EquimentDatas[i].IsUnlock)
-                {
-                    unlockIcon.SetActive(true);
-                    break;
-                }
-                else
-                {
-                    unlockIcon.SetActive(false);
-                }
-
-            }
-
+            unlockIcon.SetActive(false);
         }
+    }
+
+    public bool CheckUpgradeInfor()
+    {
+        float currentcoin = 100 * SaveLoadData.Ins.PlayerData.Level;
+        if (SaveLoadData.Ins.PlayerData.Coin >= currentcoin && SaveLoadData.Ins.PlayerData.CountUpgrade < 1)
+        {
+            return true;
+        }
+        return false;
+    }
+    public bool CheckUpgradeEqui()
+    {
+        for (int i = 0; i < SaveLoadData.Ins.PlayerData.EquimentDatas.Count; i++)
+        {
+            if (SaveLoadData.Ins.PlayerData.EquimentDatas[i].countUpdate < 1 && SaveLoadData.Ins.PlayerData.EquimentDatas[i].IsUnlock)
+            {
+                if(SaveLoadData.Ins.PlayerData.Coin > UIManager.Ins.GetUI<UIPlayerInfor>().EquimentPanel.EquimentDetails[i].CoinUpdate)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

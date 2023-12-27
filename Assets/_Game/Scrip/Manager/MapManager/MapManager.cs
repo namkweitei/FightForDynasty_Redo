@@ -1,7 +1,6 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
-using UnityEngine.AI;
 
 public class MapManager : Singleton<MapManager>
 {

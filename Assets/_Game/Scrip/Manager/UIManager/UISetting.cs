@@ -22,14 +22,20 @@ public class UISetting : UICanvas
     {
         AudioManager.Ins.PlaySfx(Constants.SFX_CLOSEUI);
         UIManager.Ins.CloseUI<UISetting>();
-        if (UIManager.Ins.GetUI<UIGamePlay>().isSpeedUp)
+
+        if (UIManager.Ins.GetUI<UIGamePlay>().countSpeed == 1)
         {
-            Time.timeScale = 2;
+            Time.timeScale = 1.25f;
         }
-        else
+        else if (UIManager.Ins.GetUI<UIGamePlay>().countSpeed == 2)
+        {
+            Time.timeScale = 1.5f;
+        }
+        else if (UIManager.Ins.GetUI<UIGamePlay>().countSpeed == 0)
         {
             Time.timeScale = 1;
         }
+
         if (GameManager.IsState(GameState.Pause))
         {
             GameManager.ChangeState(GameState.Playing);

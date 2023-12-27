@@ -16,6 +16,8 @@ public class UIPlayerInfor : UICanvas
     [SerializeField] Transform pobUp;
     [SerializeField] Image background;
 
+    public EquimentPanel EquimentPanel { get => equimentPanel; set => equimentPanel = value; }
+
     void Start()
     {
         currentcoin = 100 * SaveLoadData.Ins.PlayerData.Level;
@@ -83,11 +85,15 @@ public class UIPlayerInfor : UICanvas
     {
         AudioManager.Ins.PlaySfx(Constants.SFX_CLOSEUI);
         UIManager.Ins.CloseUI<UIPlayerInfor>();
-        if (UIManager.Ins.GetUI<UIGamePlay>().isSpeedUp)
+        if (UIManager.Ins.GetUI<UIGamePlay>().countSpeed == 1)
         {
-            Time.timeScale = 2;
+            Time.timeScale = 1.25f;
         }
-        else
+        else if (UIManager.Ins.GetUI<UIGamePlay>().countSpeed == 2)
+        {
+            Time.timeScale = 1.5f;
+        }
+        else if (UIManager.Ins.GetUI<UIGamePlay>().countSpeed == 0)
         {
             Time.timeScale = 1;
         }

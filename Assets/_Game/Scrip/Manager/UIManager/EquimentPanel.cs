@@ -9,6 +9,8 @@ public class EquimentPanel : MonoBehaviour
 {
     [SerializeField] List<EquimentDetail> equimentDetails;
 
+    public List<EquimentDetail> EquimentDetails { get => equimentDetails; set => equimentDetails = value; }
+
     void Start()
     {
         for (int i = 0; i < SaveLoadData.Ins.PlayerData.EquimentDatas.Count; i++)
